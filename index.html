@@ -765,6 +765,18 @@ function closeSearch(){
   // actual search filtering
   popupSearchInput.addEventListener('input', function(){
   const q = this.value.trim().toLowerCase();
+  const cards = document.querySelectorAll('#productGrid > *');
+
+  cards.forEach(card => {
+    const text = card.innerText.toLowerCase();
+    if (text.includes(q)) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+});
+  const q = this.value.trim().toLowerCase();
 
   const cards = document.querySelectorAll('#productGrid > *');
 
