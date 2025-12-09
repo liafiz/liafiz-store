@@ -565,7 +565,35 @@
       setTimeout(()=>btn.innerHTML = old, 700);
     });
   });
+// === SEARCH PRODUK ===
+const searchInput = document.getElementById('searchInput');
+const cards = document.querySelectorAll('.card');
 
+if (searchInput) {
+  searchInput.addEventListener('input', function () {
+    const keyword = this.value.toLowerCase();
+    cards.forEach(card => {
+      const title = card.querySelector('.title')?.innerText.toLowerCase() || '';
+      card.style.display = title.includes(keyword) ? 'block' : 'none';
+    });
+  });
+}
+
+// === FILTER SHOPEE / AMAZON ===
+function filterPlatform(type) {
+  document.querySelectorAll('.filter-btns button').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  event.target.classList.add('active');
+
+  cards.forEach(card => {
+    if (type === 'all') {
+      card.style.display = 'block';
+    } else {
+      card.style.display = card.dataset.platform === type ? 'block' : 'none';
+    }
+  });
+}
 </script>
 </body>
 </html>
