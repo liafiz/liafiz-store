@@ -332,6 +332,45 @@
   font-weight:700;
   cursor: pointer;
 }
+  .side-menu{
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 240px;
+  height: 100vh;
+  background: var(--card);
+  z-index: 1000;
+  padding: 16px;
+  transition: .3s;
+  box-shadow: 6px 0 20px rgba(0,0,0,.2);
+}
+
+.side-menu.active{
+  left: 0;
+}
+
+.menu-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.side-menu a{
+  display: block;
+  padding: 10px 0;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.menu-backdrop{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.4);
+  z-index: 999;
+  display: none;
+}
 </style>
 </head>
 <body>
@@ -339,6 +378,20 @@
 
   <!-- HEADER -->
   <header>
+    <div id="sideMenu" class="side-menu">
+  <div class="menu-header">
+    <strong>MENU</strong>
+    <button id="closeMenu">✕</button>
+  </div>
+
+  <a href="#home">Home</a>
+  <a href="#shopee">Shopee</a>
+  <a href="#amazon">Amazon</a>
+  <a href="#promo">Promo</a>
+  <a href="#wishlist">Wishlist</a>
+</div>
+
+<div id="menuBackdrop" class="menu-backdrop"></div>
     <div class="left">
       <button class="icon-btn" id="menuBtn" aria-label="menu">
         <!-- hamburger outline -->
@@ -865,7 +918,23 @@ popupSearchInput.addEventListener("input", function(){
     card.style.display = text.includes(q) ? "block" : "none";
   });
 });
+const menuBtn = document.getElementById('menuBtn');
+const sideMenu = document.getElementById('sideMenu');
+const closeMenu = document.getElementById('closeMenu');
+const menuBackdrop = document.getElementById('menuBackdrop');
 
+menuBtn.addEventListener('click', ()=>{
+  sideMenu.classList.add('active');
+  menuBackdrop.style.display = 'block';
+});
+
+closeMenu.addEventListener('click', closeSideMenu);
+menuBackdrop.addEventListener('click', closeSideMenu);
+
+function closeSideMenu(){
+  sideMenu.classList.remove('active');
+  menuBackdrop.style.display = 'none';
+}
 </script>
 
 </body>
