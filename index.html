@@ -332,7 +332,6 @@
 
   <!-- PRODUCT GRID -->
   <div class="tool-bar">
-  <input type="text" id="searchInput" placeholder="Cari produk..." />
   <div class="filter-btns">
     <button onclick="filterPlatform('all')" class="active">Semua</button>
     <button onclick="filterPlatform('shopee')">Shopee</button>
@@ -626,5 +625,12 @@ function filterPlatform(type) {
   });
 }
 </script>
+  <!-- SEARCH OVERLAY -->
+<div id="searchOverlay" class="search-overlay">
+  <div class="search-popup">
+    <input type="text" id="popupSearchInput" placeholder="Cari produk...">
+    <button onclick="closeSearch()">✕</button>
+  </div>
+</div>
 </body>
 </html>
