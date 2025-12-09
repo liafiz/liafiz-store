@@ -763,47 +763,21 @@ function closeSearch(){
   });
 
   // actual search filtering
-  popupSearchInput.addEventListener('input', function(){
+  // === FINAL SEARCH FILTER (AMAN & STABIL) ===
+popupSearchInput.addEventListener('input', function(){
   const q = this.value.trim().toLowerCase();
   const cards = document.querySelectorAll('#productGrid > *');
 
-  cards.forEach(card => {
-    const text = card.innerText.toLowerCase();
-    if (text.includes(q)) {
-      card.style.display = "block";
-    } else {
-      card.style.display = "none";
-    }
-  });
-});
-  const q = this.value.trim().toLowerCase();
-
-  const cards = document.querySelectorAll('#productGrid > *');
+  if (!q) {
+    cards.forEach(card => card.style.display = "block");
+    return;
+  }
 
   cards.forEach(card => {
     const text = card.innerText.toLowerCase();
-    if (text.includes(q)) {
-      card.style.display = "block";
-    } else {
-      card.style.display = "none";
-    }
+    card.style.display = text.includes(q) ? "block" : "none";
   });
 });
-    const q = this.value.trim().toLowerCase();
-    if (!q) {
-      cards.forEach(c => c.style.display = 'block');
-      return;
-    }
-    cards.forEach(card => {
-      const title = card.querySelector('.title')?.innerText?.toLowerCase() || '';
-      const cur = card.querySelector('.cur')?.innerText?.toLowerCase() || '';
-      // match title OR price OR badge text
-      const badge = card.querySelector('.badge')?.innerText?.toLowerCase() || '';
-      const platform = (card.dataset.platform || '').toLowerCase();
-      const matched = title.includes(q) || cur.includes(q) || badge.includes(q) || platform.includes(q);
-      card.style.display = matched ? 'block' : 'none';
-    });
-  });
 
   // optional: close search on ESC
   document.addEventListener('keydown', function(e){
