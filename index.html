@@ -669,5 +669,19 @@ function filterPlatform(type) {
     <button onclick="closeSearch()">✕</button>
   </div>
 </div>
+  <script>
+const searchBtn = document.getElementById("searchBtn");
+const searchOverlay = document.getElementById("searchOverlay");
+const popupSearchInput = document.getElementById("popupSearchInput");
+
+searchBtn.addEventListener("click", () => {
+  searchOverlay.style.display = "flex";
+  setTimeout(() => popupSearchInput.focus(), 100);
+});
+
+function closeSearch(){
+  searchOverlay.style.display = "none";
+}
+  </script>
 </body>
 </html>
