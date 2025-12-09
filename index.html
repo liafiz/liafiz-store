@@ -220,6 +220,37 @@
   @media(min-width:440px){
     body{ background:linear-gradient(180deg,#000,#070707) }
   }
+  /* === SEARCH & FILTER BAR === */
+.tool-bar {
+  display: flex;
+  gap: 10px;
+  padding: 12px;
+}
+
+.tool-bar input {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.15);
+  outline: none;
+  background: #0f0f0f;
+  color: #fff;
+}
+
+.filter-btns button {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: none;
+  background: #1a1a1a;
+  color: #aaa;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.filter-btns .active {
+  background: var(--brand);
+  color: #000;
+}
 </style>
 </head>
 <body>
