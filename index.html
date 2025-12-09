@@ -288,6 +288,50 @@
   padding: 10px 14px;
   cursor: pointer;
 }
+  /* Search popup */
+.search-overlay{
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.55);
+  z-index: 9999;
+}
+
+.search-popup{
+  background: #0c0c0c;
+  width: 92%;
+  max-width: 420px;
+  padding: 14px;
+  border-radius: 14px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+.search-popup input{
+  flex:1;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: #111;
+  color: #fff;
+  font-size: 15px;
+}
+
+.search-popup button{
+  background: var(--brand);
+  color: #000;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-weight:700;
+  cursor: pointer;
+}
 </style>
 </head>
 <body>
@@ -682,6 +726,72 @@ searchBtn.addEventListener("click", () => {
 function closeSearch(){
   searchOverlay.style.display = "none";
 }
+    // --- Search popup toggle & hookup ---
+(function(){
+  const searchBtn = document.getElementById("searchBtn");
+  const searchOverlay = document.getElementById("searchOverlay");
+  const popupSearchInput = document.getElementById("popupSearchInput");
+  const closeSearchBtn = document.getElementById("closeSearchBtn");
+  const cards = document.querySelectorAll('.card');
+
+  if (!searchBtn || !searchOverlay || !popupSearchInput || !closeSearchBtn) {
+    // one of elements not found — abort silently
+    return;
+  }
+
+  function openSearch(){
+    searchOverlay.style.display = "flex";
+    searchOverlay.setAttribute('aria-hidden','false');
+    setTimeout(()=> popupSearchInput.focus(), 120);
+    popupSearchInput.value = "";
+    // show all cards when opening
+    cards.forEach(c => c.style.display = 'block');
+  }
+
+  function closeSearch(){
+    searchOverlay.style.display = "none";
+    searchOverlay.setAttribute('aria-hidden','true');
+  }
+
+  // toggle from search icon
+  searchBtn.addEventListener('click', openSearch);
+  closeSearchBtn.addEventListener('click', closeSearch);
+
+  // close when click overlay outside popup
+  searchOverlay.addEventListener('click', function(e){
+    if (e.target === searchOverlay) closeSearch();
+  });
+
+  // actual search filtering
+  popupSearchInput.addEventListener('input', function(){
+    const q = this.value.trim().toLowerCase();
+    if (!q) {
+      cards.forEach(c => c.style.display = 'block');
+      return;
+    }
+    cards.forEach(card => {
+      const title = card.querySelector('.title')?.innerText?.toLowerCase() || '';
+      const cur = card.querySelector('.cur')?.innerText?.toLowerCase() || '';
+      // match title OR price OR badge text
+      const badge = card.querySelector('.badge')?.innerText?.toLowerCase() || '';
+      const platform = (card.dataset.platform || '').toLowerCase();
+      const matched = title.includes(q) || cur.includes(q) || badge.includes(q) || platform.includes(q);
+      card.style.display = matched ? 'block' : 'none';
+    });
+  });
+
+  // optional: close search on ESC
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') closeSearch();
+  });
+})();
   </script>
+  <!-- SEARCH OVERLAY -->
+<div id="searchOverlay" class="search-overlay" aria-hidden="true">
+  <div class="search-popup" role="dialog" aria-label="Search products">
+    <input type="text" id="popupSearchInput" placeholder="Cari produk..." autocomplete="off" />
+    <button id="closeSearchBtn" aria-label="Close search">✕</button>
+  </div>
+</div>
 </body>
 </html>
