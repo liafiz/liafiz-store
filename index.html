@@ -300,8 +300,16 @@
   </div>
 
   <!-- PRODUCT GRID -->
+  <div class="tool-bar">
+  <input type="text" id="searchInput" placeholder="Cari produk..." />
+  <div class="filter-btns">
+    <button onclick="filterPlatform('all')" class="active">Semua</button>
+    <button onclick="filterPlatform('shopee')">Shopee</button>
+    <button onclick="filterPlatform('amazon')">Amazon</button>
+  </div>
+  </div>
   <div class="grid" id="productGrid">
-    <a href="https://amzn.to/4oGj0BO" target="_blank" class="card">
+   <a href="https://amzn.to/..." target="_blank" class="card" data-platform="amazon">
   <div class="badge">AMAZON</div>
   <img src="https://m.media-amazon.com/images/I/81mzus4r+mS._AC_UL1500_.jpg" alt="SKDOIUL MEN SPORT RUNNING"/>
   <div class="meta">
@@ -315,7 +323,7 @@
   </div>
 </a>
 
-<a href="https://amzn.to/48PZUDM" target="_blank" class="card">
+<a href="https://amzn.to/..." target="_blank" class="card" data-platform="amazon">
   <div class="badge">AMAZON</div>
   <img src="https://m.media-amazon.com/images/I/71ojg+V0XrL._AC_UY900_.jpg" alt="ALLSWIFIT MEN'S SLIP ON"/>
   <div class="meta">
@@ -328,7 +336,7 @@
     <div class="rating">⭐ 4.5</div>
   </div>
 </a>
-    <a href="https://s.shopee.co.id/2B7hAVMJB3" target="_blank" class="card">
+    <a href="https://s.shopee.co.id/..." target="_blank" class="card" data-platform="shopee">
   <div class="badge">HOT</div>
   <img src="https://down-id.img.susercontent.com/file/sg-11134201-7rfhi-m9tm6vus2ht54e@resize_w900_nl.webp"/>
   <div class="meta">
@@ -343,7 +351,7 @@
   </div>
 </a>
 
-<a href="https://s.shopee.co.id/3Vd4lWKtoS" target="_blank" class="card">
+<a href="https://s.shopee.co.id/..." target="_blank" class="card" data-platform="shopee">
   <div class="badge">SALE</div>
   <img src="https://down-id.img.susercontent.com/file/id-11134207-7rbkd-m695e4p3vg0jd8.webp"/>
   <div class="meta">
@@ -358,7 +366,7 @@
   </div>
 </a>
 
-<a href="https://s.shopee.co.id/9pX8JEQ2WE" target="_blank" class="card">
+<a href="https://s.shopee.co.id/..." target="_blank" class="card" data-platform="shopee">
   <img src="https://down-id.img.susercontent.com/file/id-11134207-7r98y-luuf2lhlo0fb91.webp"/>
   <div class="meta">
     <div style="flex:1">
@@ -371,7 +379,7 @@
   </div>
 </a>
 
-<a href="https://s.shopee.co.id/4AslZLpsfw" target="_blank" class="card">
+<a href="https://s.shopee.co.id/..." target="_blank" class="card" data-platform="shopee">
   <div class="badge">SALE</div>
   <img src="https://down-id.img.susercontent.com/file/id-11134201-7rasd-m0u75149zrws39.webp"/>
   <div class="meta">
@@ -386,7 +394,7 @@
   </div>
 </a>
 
-<a href="https://s.shopee.co.id/6fa6Xzwc4S" target="_blank" class="card">
+<a href="https://s.shopee.co.id/..." target="_blank" class="card" data-platform="shopee">
   <div class="badge">ORI</div>
   <img src="https://down-id.img.susercontent.com/file/id-11134207-81ztq-mef335ordi4g83@resize_w900_nl.webp"/>
   <div class="meta">
@@ -401,7 +409,7 @@
   </div>
 </a>
 
-<a href="https://s.shopee.co.id/13CcGV8LI" target="_blank" class="card">
+<a href="https://s.shopee.co.id/..." target="_blank" class="card" data-platform="shopee">>
   <div class="badge">HOT</div>
   <img src="https://down-id.img.susercontent.com/file/id-11134207-81zte-mf4z51596tjda6.webp"/>
   <div class="meta">
@@ -416,7 +424,7 @@
   </div>
 </a>
 
-<a href="https://s.shopee.co.id/3fwUz8RD9R" target="_blank" class="card">
+<a href="https://s.shopee.co.id/..." target="_blank" class="card" data-platform="shopee">
   <div class="badge">SALE</div>
   <img src="https://down-id.img.susercontent.com/file/id-11134207-7rasd-m2rm0lz1rlc39e.webp"/>
   <div class="meta">
@@ -431,7 +439,7 @@
   </div>
 </a>
 
-<a href="https://s.shopee.co.id/2VkXbGkZso" target="_blank" class="card">
+<a href="https://s.shopee.co.id/..." target="_blank" class="card" data-platform="shopee">
   <div class="badge">SALE</div>
   <img src="https://down-id.img.susercontent.com/file/b767963be97814b6344ccaff8874446a.webp"/>
   <div class="meta">
@@ -446,7 +454,7 @@
   </div>
 </a>
 
-<a href="https://s.shopee.co.id/AA9yjgRBbu" target="_blank" class="card">
+<a href="https://s.shopee.co.id/..." target="_blank" class="card" data-platform="shopee">
   <div class="badge">STAR</div>
   <img src="https://down-id.img.susercontent.com/file/sg-11134201-7qvfn-lk9q67smtwvw7e.webp"/>
   <div class="meta">
@@ -461,7 +469,7 @@
   </div>
 </a>
 
-<a href="https://s.shopee.co.id/Lg320xCHD" target="_blank" class="card">
+<a href="https://s.shopee.co.id/..." target="_blank" class="card" data-platform="shopee">
   <img src="https://down-id.img.susercontent.com/file/id-11134207-7r98x-ltqdzvaoce8z33.webp"/>
   <div class="meta">
     <div style="flex:1">
