@@ -784,6 +784,36 @@ popupSearchInput.addEventListener('input', function(){
     if (e.key === 'Escape') closeSearch();
   });
 })();
+    // === CONNECT SEARCH ICON ===
+const searchBtn = document.getElementById("searchBtn");
+const searchOverlay = document.getElementById("searchOverlay");
+const popupSearchInput = document.getElementById("popupSearchInput");
+const closeSearchBtn = document.getElementById("closeSearchBtn");
+
+if (!searchBtn || !searchOverlay || !popupSearchInput || !closeSearchBtn) {
+  console.log("SEARCH ELEMENT NOT FOUND");
+} else {
+
+  function openSearch(){
+    searchOverlay.style.display = "flex";
+    searchOverlay.setAttribute("aria-hidden", "false");
+    setTimeout(() => popupSearchInput.focus(), 100);
+  }
+
+  function closeSearch(){
+    searchOverlay.style.display = "none";
+    searchOverlay.setAttribute("aria-hidden", "true");
+    popupSearchInput.value = "";
+    document.querySelectorAll('#productGrid > *')
+      .forEach(card => card.style.display = "block");
+  }
+
+  searchBtn.addEventListener("click", openSearch);
+  closeSearchBtn.addEventListener("click", closeSearch);
+  searchOverlay.addEventListener("click", (e)=>{
+    if (e.target === searchOverlay) closeSearch();
+  });
+}
   </script>
   <!-- SEARCH OVERLAY -->
 <div id="searchOverlay" class="search-overlay" aria-hidden="true">
@@ -792,5 +822,53 @@ popupSearchInput.addEventListener('input', function(){
     <button id="closeSearchBtn" aria-label="Close search">✕</button>
   </div>
 </div>
+  <!-- SEARCH SCRIPT -->
+<script>
+
+const searchBtn = document.getElementById("searchBtn");
+const searchOverlay = document.getElementById("searchOverlay");
+const popupSearchInput = document.getElementById("popupSearchInput");
+const closeSearchBtn = document.getElementById("closeSearchBtn");
+
+function openSearch(){
+  searchOverlay.style.display = "flex";
+  searchOverlay.setAttribute("aria-hidden", "false");
+  setTimeout(() => popupSearchInput.focus(), 100);
+}
+
+function closeSearch(){
+  searchOverlay.style.display = "none";
+  searchOverlay.setAttribute("aria-hidden", "true");
+  popupSearchInput.value = "";
+  document.querySelectorAll('#productGrid > *')
+    .forEach(card => card.style.display = "block");
+}
+
+searchBtn.addEventListener("click", openSearch);
+closeSearchBtn.addEventListener("click", closeSearch);
+
+searchOverlay.addEventListener("click", (e)=>{
+  if (e.target === searchOverlay) closeSearch();
+});
+
+popupSearchInput.addEventListener("input", function(){
+  const q = this.value.trim().toLowerCase();
+  const cards = document.querySelectorAll('#productGrid > *');
+
+  if (!q) {
+    cards.forEach(card => card.style.display = "block");
+    return;
+  }
+
+  cards.forEach(card => {
+    const text = card.innerText.toLowerCase();
+    card.style.display = text.includes(q) ? "block" : "none";
+  });
+});
+
+</script>
+
+</body>
+</html>
 </body>
 </html>
