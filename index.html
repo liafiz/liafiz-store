@@ -935,6 +935,14 @@ function closeSideMenu(){
   sideMenu.classList.remove('active');
   menuBackdrop.style.display = 'none';
 }
+  document.querySelectorAll('.wishlist-btn').forEach(btn=>{
+  btn.addEventListener('click', function(){
+    this.classList.toggle('active');
+    if(this.classList.contains('active')){
+      alert('Masuk Wishlist ❤️');
+    }
+  });
+});
 </script>
 
 </body>
