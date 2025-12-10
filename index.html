@@ -408,6 +408,13 @@
   opacity:0.55;      /* gelapkan halaman belakang */
   z-index:998;
 }
+  .menu-overlay{
+  display:none;
+}
+
+.menu-overlay.show{
+  display:block;
+}
 .menu-header{
   display: flex;
   justify-content: space-between;
@@ -1073,10 +1080,15 @@ const sideMenu = document.getElementById('sideMenu');
 const closeMenu = document.getElementById('closeMenu');
 const menuBackdrop = document.getElementById('menuBackdrop');
 
-menuBtn.addEventListener('click', ()=>{
-  sideMenu.classList.add('active');
-  menuBackdrop.style.display = 'block';
-});
+menuBtn.onclick = () => {
+  menu.classList.add('active');
+  overlay.classList.add('show');
+};
+
+overlay.onclick = () => {
+  menu.classList.remove('active');
+  overlay.classList.remove('show');
+};
 
 closeMenu.addEventListener('click', closeSideMenu);
 menuBackdrop.addEventListener('click', closeSideMenu);
