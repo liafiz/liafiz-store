@@ -1247,5 +1247,25 @@ slider.addEventListener('mousemove', (e) => {
   slider.scrollLeft = scrollLeft - walk;
 });
 </script>
+  <script>
+const adsTrack = document.getElementById("adsTrack");
+
+let scrollAmount = 0;
+setInterval(() => {
+  if (!adsTrack) return;
+  const maxScroll = adsTrack.scrollWidth - adsTrack.clientWidth;
+
+  scrollAmount += adsTrack.clientWidth * 0.9;
+
+  if (scrollAmount >= maxScroll) {
+    scrollAmount = 0;
+  }
+
+  adsTrack.scrollTo({
+    left: scrollAmount,
+    behavior: "smooth"
+  });
+}, 3000);
+  </script>
 </body>
 </html>
