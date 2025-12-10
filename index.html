@@ -235,6 +235,36 @@
   }
 
   /* Bottom nav */
+  .bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: #0f172a;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid #334155;
+  z-index: 99999;
+}
+
+.bottom-nav a {
+  flex: 1;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.bottom-nav a i {
+  font-size: 22px;
+  display: block;
+}
+
+.nav-home {
+  color: #38bdf8;
+}
   .bn{
     width:calc(100% - 24px);
     max-width:430px;
@@ -490,53 +520,7 @@ img{
   color:#FFC107;
   font-weight:600;
 }
-.bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 60px;
-  background: #0f172a;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  border-top: 1px solid #334155;
-  z-index: 99999;
-}
 
-.bottom-nav a {
-  flex: 1;
-  text-align: center;
-}
-
-.nav-home,
-.nav-love {
-  text-decoration: none;
-  font-size: 12px;
-  text-align: center;
-}
-
-.nav-home {
-  color: #38bdf8;
-}
-
-.nav-love {
-  color: #94a3b8;
-}
-
-.nav-home i,
-.nav-love i {
-  font-size: 22px;
-  display: block;
-}
-  .nav-cart {
-  color: #94a3b8;
-}
-
-.nav-cart i {
-  font-size: 22px;
-  display: block;
-}
 </style>
 </head>
 <body>
