@@ -193,10 +193,14 @@
 
   /* Bottom nav */
   .bottom-nav{
-    position:fixed;
-    left:0; right:0; bottom:12px;
-    display:flex; justify-content:center;
-    pointer-events:none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 0 -6px 20px rgba(0,0,0,.08);
   }
   .bn{
     width:calc(100% - 24px);
@@ -244,19 +248,21 @@
   color: #fff;
 }
 
-.filter-btns button {
-  padding: 8px 12px;
-  border-radius: 10px;
-  border: none;
-  background: #1a1a1a;
-  color: #aaa;
-  cursor: pointer;
-  font-size: 13px;
+.filter-btns button{
+  background: #fff;
+  border: 1px solid var(--brand-soft);
+  color: var(--brand);
+  border-radius: 999px;
+  padding: 6px 14px;
+  margin: 4px;
+  font-weight: 600;
+  transition: .25s;
 }
 
-.filter-btns .active {
+.filter-btns button.active{
   background: var(--brand);
-  color: #000;
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(255,111,145,.35);
 }
   .search-overlay{
   position: fixed;
