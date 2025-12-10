@@ -40,6 +40,27 @@ data.forEach(item => {
 
   wishlistGrid.appendChild(card);
 });
+  document.querySelectorAll('.wish-btn').forEach(btn => {
+  btn.addEventListener('click', function(e){
+    e.preventDefault();
+
+    const card = this.closest('.card');
+
+    const data = {
+      title: card.querySelector('.title').innerText,
+      price: card.querySelector('.cur').innerText,
+      img: card.querySelector('img').src,
+      link: card.href,
+      platform: card.dataset.platform || "Shop"
+    };
+
+    let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+    wishlist.push(data);
+
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+    alert("Masuk wishlist ❤️");
+  });
+});
 </script>
 
 </body>
