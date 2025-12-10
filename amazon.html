@@ -74,22 +74,42 @@
   </div>
 
   <div class="list">
-    <b>Contoh kode aktif:</b><br>
-    01 - Headphone Bluetooth<br>
-    02 - Smart Watch<br>
-    03 - Blender Portable<br>
-  </div>
+  <b>Kode Produk Aktif:</b><br>
+  01 - Produk Amazon #1<br>
+  02 - Produk Amazon #2<br>
+  03 - Produk Amazon #3<br>
+  04 - Produk Amazon #4<br>
+  05 - Produk Amazon #5<br>
+  06 - Produk Amazon #6<br>
+</div>
 
 </div>
 
 <script>
   const storeId = "liafiz0e-20";
 
-  const produk = {
-    "01": "B09ABCDEF1",
-    "02": "B08XYZ1234",
-    "03": "B0ABCDE999"
-  };
+const produk = {
+  "01": "B0D1BVHC52",
+  "02": "B0DYJKCVLL",
+  "03": "B0D83ZT6YT",
+  "04": "B08Q9SCLXM",
+  "05": "BODQCV6RCC",
+  "06": "B08GWYCGHV"
+};
+
+function cariProduk() {
+  const kode = document.getElementById("kodeProduk").value.trim();
+
+  if (!produk[kode]) {
+    alert("Kode produk tidak ditemukan! Pastikan sesuai dengan yang ada di video.");
+    return;
+  }
+
+  const asin = produk[kode];
+  const link = `https://www.amazon.com/dp/${asin}?tag=${storeId}`;
+
+  window.location.href = link;
+}
 
   function cariProduk() {
     const kode = document.getElementById("kodeProduk").value.trim();
