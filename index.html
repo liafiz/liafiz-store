@@ -6,16 +6,21 @@
 <title>LIAFIZ — Mobile Store (Prototype)</title>
 <style>
   :root{
-  --bg: #FFF5F8;          /* pink soft background */
-  --card-bg: #FFFFFF;    /* putih bersih */
-  --brand: #FF6F91;      /* pink coral */
-  --brand-soft: #FFD6E0; /* pink pastel */
-  --text: #333333;
-  --muted: #8A8A8A;
-  --success: #4CAF50;
-  --shadow: 0 10px 25px rgba(0,0,0,.08);
-}
-    
+  --bg: #fff7f9;
+  --card-bg: #ffffff;
+  --text: #2b2b2b;
+  --muted: #888;
+  --brand: #ff6fa5;    /* pink brand */
+  --brand-soft: #ffd9e6;
+  --success: #28c76f;
+  --warning: #ff9f43;
+  }
+    .title{
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #333;
+    }
 
   /* Reset */
   *{box-sizing:border-box}
@@ -157,29 +162,41 @@
     padding:0 12px 80px 12px;
   }
   .card{
-    background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
-    border-radius:12px;
-    padding:10px;
-    position:relative;
-    overflow:hidden;
-  }
-  .card img{ width:100%; height:160px; object-fit:cover; border-radius:8px; display:block; }
-  .badge{
-    position:absolute; left:12px; top:12px;
-    background:var(--accent);
-    color:#fff;
-    padding:6px 8px;
-    border-radius:999px;
-    font-size:12px;
-    font-weight:700;
-  }
+  background: var(--card-bg);
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.04);
+  overflow: hidden;
+  transition: .25s ease;
+}
+
+.card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(0,0,0,.08);
+}
+
+.card img{
+  border-radius: 14px;
+}
   .card .meta{ margin-top:8px; display:flex; justify-content:space-between; align-items:center; gap:8px; }
   .title{ font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:0.6px; }
   .price{
-    text-align:left;
-  }
-  .price .cur{ font-size:14px; font-weight:700; display:block; color:var(--text); }
-  .price .old{ font-size:11px; color:var(--muted); text-decoration:line-through; margin-top:2px; }
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.price .cur{
+  color: var(--brand);
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.price .old{
+  color: #aaa;
+  font-size: 12px;
+  text-decoration: line-through;
+}
 
   .rating{ display:flex; gap:4px; align-items:center; font-size:12px; color:var(--muted); }
 
@@ -401,15 +418,7 @@
   transform: translateY(-6px) scale(1.02);
 }
 
-.badge{
-  background: linear-gradient(135deg,#FF6F91,#FF9671);
-  color:#fff;
-  font-size:11px;
-  padding:4px 10px;
-  border-radius:999px;
-  font-weight:600;
-  box-shadow: 0 4px 10px rgba(255,111,145,.4);
-}
+
 
 .btn,.cta{
   background:var(--brand);
@@ -437,11 +446,33 @@ img{
 
 .price .old{
   color: var(--muted);
-  text-decoration: line-through;
+  text-decorat.badge{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: linear-gradient(135deg, #ff6fa5, #ff9fc2);
+  color: #fff;
+  padding: 4px 10px;
+  font-size: 11px;
+  border-radius: 999px;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(255,111,165,.4);
+  }ion: line-through;
   font-size:12px;
   margin-left:4px;
 }
-
+.badge{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: linear-gradient(135deg, #ff6fa5, #ff9fc2);
+  color: #fff;
+  padding: 4px 10px;
+  font-size: 11px;
+  border-radius: 999px;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(255,111,165,.4);
+}
 .rating{
   font-size:12px;
   color:#FFC107;
