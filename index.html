@@ -235,16 +235,6 @@
   }
 
   /* Bottom nav */
-  .bottom-nav{
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #fff;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  box-shadow: 0 -6px 20px rgba(0,0,0,.08);
-  }
   .bn{
     width:calc(100% - 24px);
     max-width:430px;
@@ -500,20 +490,6 @@ img{
   color:#FFC107;
   font-weight:600;
 }
-  .bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 60px;
-  background: #0f172a;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  border-top: 1px solid #334155;
-  z-index: 9999;
-}
-
 .bottom-nav {
   position: fixed;
   bottom: 0;
@@ -1139,14 +1115,19 @@ shareBtn.addEventListener("click", function(){
     alert("Browser tidak mendukung share otomatis 😅\nSalin link manual aja ya!");
   }
 });
-</script>
+  <!-- BOTTOM NAV BAR FINAL -->
 <div class="bottom-nav">
   <a href="index.html" class="nav-home active">
     <i class="fas fa-home"></i>
     <span>Home</span>
   </a>
+
+  <a href="favorite.html" class="nav-love">
+    <i class="fas fa-heart"></i>
+    <span>Love</span>
+  </a>
 </div>
+
 </body>
 </html>
-</body>
-</html>
+</script>
