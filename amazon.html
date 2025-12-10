@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Liafiz Amazon Picks</title>
+  <title>Liafiz Amazon Search</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
@@ -21,38 +21,90 @@
     .container {
       padding: 16px;
     }
-    .card {
+    .search-box {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .search-box input {
+      flex: 1;
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      font-size: 16px;
+      outline: none;
+    }
+    .search-box button {
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: none;
+      background: #22c55e;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .info {
+      font-size: 13px;
+      color: #cbd5f5;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .list {
       background: #020617;
       border-radius: 12px;
       padding: 12px;
-      margin-bottom: 12px;
-    }
-    .card a {
-      color: #38bdf8;
-      text-decoration: none;
-      font-weight: bold;
+      font-size: 13px;
+      line-height: 1.6;
     }
   </style>
 </head>
 <body>
 
-<header>🔥 Liafiz Amazon Picks</header>
+<header>🔎 Cari Produk Amazon - Liafiz</header>
 
 <div class="container">
 
-  <div class="card">
-    <a href="#" target="_blank">Produk Amazon 1</a>
+  <div class="search-box">
+    <input type="text" id="kodeProduk" placeholder="Masukkan kode produk (contoh: 03)">
+    <button onclick="cariProduk()">Cari</button>
   </div>
 
-  <div class="card">
-    <a href="#" target="_blank">Produk Amazon 2</a>
+  <div class="info">
+    Masukkan kode yang disebutkan di video TikTok kamu
   </div>
 
-  <div class="card">
-    <a href="#" target="_blank">Produk Amazon 3</a>
+  <div class="list">
+    <b>Contoh kode aktif:</b><br>
+    01 - Headphone Bluetooth<br>
+    02 - Smart Watch<br>
+    03 - Blender Portable<br>
   </div>
 
 </div>
+
+<script>
+  const storeId = "liafiz0e-20";
+
+  const produk = {
+    "01": "B09ABCDEF1",
+    "02": "B08XYZ1234",
+    "03": "B0ABCDE999"
+  };
+
+  function cariProduk() {
+    const kode = document.getElementById("kodeProduk").value.trim();
+
+    if (!produk[kode]) {
+      alert("Kode produk tidak ditemukan!");
+      return;
+    }
+
+    const asin = produk[kode];
+    const link = `https://www.amazon.com/dp/${asin}?tag=${storeId}`;
+
+    window.location.href = link;
+  }
+</script>
 
 </body>
 </html>
