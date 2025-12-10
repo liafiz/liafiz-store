@@ -1,1126 +1,338 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-<title>LIAFIZ — Mobile Store (Prototype)</title>
+<meta charset="UTF-8">
+<title>LIAFIZ Store</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
-  :root{
-  --bg: #fff7f9;
-  --card-bg: #ffffff;
-  --text: #2b2b2b;
-  --muted: #888;
-  --brand: #ff6fa5;    /* pink brand */
-  --brand-soft: #ffd9e6;
-  --success: #28c76f;
-  --warning: #ff9f43;
-  }
-    .title{
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.4;
-  color: #333;
-    }
+:root{
+  --brand:#ff6fa5;
+  --bg:#fff;
+  --text:#222;
+  --muted:#888;
+}
 
-  /* Reset */
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0;
-    font-family:var(--font-sans);
-    background:var(--bg);
-    color:var(--text);
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    padding-bottom:84px; /* space for bottom nav */
-  }
+*{box-sizing:border-box;margin:0;padding:0;font-family:Poppins,system-ui}
 
-  /* Container */
-  .app{
-    max-width:430px; /* typical mobile width cap */
-    margin:0 auto;
-  }
-  header{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:14px 16px;
-  gap:8px;
-  background:#ffffff;
-  box-shadow:0 4px 16px rgba(0,0,0,.08);
-  border-bottom-left-radius:20px;
-  border-bottom-right-radius:20px;
+body{
+  background:#f6f6f6;
+  color:var(--text);
+}
+
+.app{max-width:430px;margin:auto;padding-bottom:90px}
+
+/* HEADER */
+header{
   position:sticky;
   top:0;
-  z-index:999;
-  }
-  .left, .right {display:flex; align-items:center; gap:10px;}
-  .logo{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  font-weight:700;
-  letter-spacing:0.5px;
-  color:var(--brand);
-  font-size:18px;
-  }
-  .logo .dot{ color:var(--brand); font-weight:900; }
-
-  /* Icon button */
-  .icon-btn{
-    width:40px;height:40px;border-radius:10px;
-    display:grid;place-items:center;
-    background:rgba(255,255,255,0.02);
-    border:1px solid rgba(255,255,255,0.03);
-  }
-
-  /* Banner promo */
-  .banner{
-    margin:12px 16px;
-    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    border-radius:14px;
-    padding:14px;
-    display:flex;
-    gap:12px;
-    align-items:center;
-    overflow:hidden;
-  }
-  .banner-left{
-    flex:1;
-  }
-  .banner h3{margin:0;font-size:18px;color:var(--text)}
-  .banner p{margin:6px 0 0;color:var(--muted);font-size:13px}
-  .cta{
-    margin-top:10px;
-    display:inline-block;
-    background:var(--brand);
-    color:#000;
-    padding:8px 14px;
-    border-radius:999px;
-    font-weight:700;
-    font-size:13px;
-  }
-  .banner-right img{ width:92px; height:92px; object-fit:cover; border-radius:8px; }
-
-  /* Platform switch */
-  .platforms{
-    display:flex;
-    gap:8px;
-    padding:12px 16px 0 16px;
-  }
-  .platform{
-    flex:1;
-    text-align:center;
-    padding:8px 10px;
-    border-radius:999px;
-    font-weight:600;
-    background:rgba(255,255,255,0.02);
-    color:var(--muted);
-    border:1px solid rgba(255,255,255,0.02);
-  }
-  .platform.active{
-    background:var(--text);
-    color:var(--bg);
-  }
-
-  /* Category row */
-  .categories{
-    display:flex;
-    gap:8px;
-    overflow-x:auto;
-    padding:12px 16px;
-    -webkit-overflow-scrolling:touch;
-  }
-  .cat{
-    flex:0 0 auto;
-    display:flex;
-    gap:8px;
-    align-items:center;
-    background:rgba(255,255,255,0.02);
-    padding:8px 12px;
-    border-radius:999px;
-    font-size:13px;
-    color:var(--muted);
-  }
-  .cat.active{ background:var(--brand); color:#000; font-weight:700; }
-
-  /* Section header */
-  .section{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:8px 16px;
-    margin-top:8px;
-  }
-  .section h4{ margin:0; font-size:16px; color:var(--text); }
-
-  /* Product grid */
-  .grid{
-  display:grid;
-  grid-template-columns:repeat(2, 1fr);
-  gap:14px;
-  }
-  .card:hover{
-  transform: translateY(-6px);
-  box-shadow: 0 16px 36px rgba(0,0,0,.08);
-  }
-  .card{
   background:#fff;
-  border-radius:18px;
-  overflow:hidden;
-  box-shadow:0 8px 20px rgba(0,0,0,.06);
   display:flex;
-  flex-direction:column;
-}
-
-.card img{
-  width:100%;
-  height:180px;
-  object-fit:cover;
-  background:#f2f2f2;
-  display:block;
-}
-
-.meta{
-  padding:10px;
-  display:flex;
-  flex-direction:column;
-  gap:6px;
-}
-
-.title{
-  font-size:13px;
-  font-weight:600;
-  line-height:1.3;
-  color:#333;
-  display:-webkit-box;
-  -webkit-line-clamp:2;
-  -webkit-box-orient:vertical;
-  overflow:hidden;
-}
-
-.price{
-  display:flex;
+  justify-content:space-between;
   align-items:center;
-  gap:8px;
-  flex-wrap:wrap;
+  padding:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,.1);
+  z-index:1000;
 }
 
-.cur{
+.icon-btn{
+  width:38px;
+  height:38px;
+  border-radius:10px;
+  border:1px solid #eee;
+  background:#fff;
+}
+
+.logo{
   font-weight:700;
   color:var(--brand);
-  font-size:14px;
 }
 
-.old{
-  font-size:11px;
-  color:#aaa !important;
-  text-decoration:line-through !important;
-}
-
-.rating{
-  font-size:12px;
-  color:#f5a623;
-}
-
-  .quick-add{
-    position:absolute;
-    right:10px; bottom:10px;
-    background:rgba(255,255,255,0.04);
-    padding:8px;border-radius:10px;
-    display:grid;place-items:center;
-  }
-
-  /* Bottom nav */
-  .bottom-nav{
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #fff;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  box-shadow: 0 -6px 20px rgba(0,0,0,.08);
-  }
-  .bn{
-    width:calc(100% - 24px);
-    max-width:430px;
-    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    border-radius:18px;
-    padding:10px 18px;
-    display:flex;
-    gap:18px;
-    justify-content:space-between;
-    align-items:center;
-    pointer-events:auto;
-    border:1px solid rgba(255,255,255,0.03);
-  }
-  .bn .nav-item{ display:flex; flex-direction:column; align-items:center; gap:4px; color:var(--muted); font-size:11px; }
-  .bn .nav-item.active{ color:var(--text); }
-
-  /* Tiny helpers */
-  .small{ font-size:12px; color:var(--muted); }
-  .pill{ padding:6px 8px; border-radius:999px; background:rgba(255,255,255,0.02); font-size:12px }
-  .hide-mobile{ display:none; }
-
-  /* Scrollbar cosmetic */
-  .categories::-webkit-scrollbar{ height:8px }
-  .categories::-webkit-scrollbar-thumb{ background:rgba(255,255,255,0.04); border-radius:999px }
-
-  /* Responsive tweaks */
-  @media(min-width:440px){
-    body{ background:linear-gradient(180deg,#000,#070707) }
-  }
-  /* === SEARCH & FILTER BAR === */
-.tool-bar {
-  display: flex;
-  gap: 10px;
-  padding: 12px;
-}
-
-.tool-bar input {
-  flex: 1;
-  padding: 10px 12px;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.15);
-  outline: none;
-  background: #0f0f0f;
-  color: #fff;
-}
-
-.filter-btns button{
-  background: #fff;
-  border: 1px solid var(--brand-soft);
-  color: var(--brand);
-  border-radius: 999px;
-  padding: 6px 14px;
-  margin: 4px;
-  font-weight: 600;
-  transition: .25s;
-}
-
-.filter-btns button.active{
-  background: var(--brand);
-  color: #fff;
-  box-shadow: 0 6px 16px rgba(255,111,145,.35);
-}
-  .search-overlay{
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.6);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-
-.search-popup{
-  background: #111;
-  width: 90%;
-  max-width: 340px;
-  padding: 20px;
-  border-radius: 16px;
-  display: flex;
-  gap: 10px;
-}
-
-.search-popup input{
-  flex: 1;
-  padding: 12px;
-  border-radius: 12px;
-  border: none;
-  outline: none;
-  background: #222;
-  color: white;
-}
-
-.search-popup button{
-  background: #f5c542;
-  border: none;
-  border-radius: 10px;
-  padding: 10px 14px;
-  cursor: pointer;
-}
-  /* Search popup */
-.search-overlay{
-  position: fixed;
-  inset: 0;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0,0,0,0.55);
-  z-index: 9999;
-}
-
-.search-popup{
-  background: #0c0c0c;
-  width: 92%;
-  max-width: 420px;
-  padding: 14px;
-  border-radius: 14px;
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
-  border: 1px solid rgba(255,255,255,0.03);
-}
-
-.search-popup input{
-  flex:1;
-  padding: 12px;
-  border-radius: 10px;
-  border: none;
-  outline: none;
-  background: #111;
-  color: #fff;
-  font-size: 15px;
-}
-
-.search-popup button{
-  background: var(--brand);
-  color: #000;
-  border: none;
-  padding: 10px 12px;
-  border-radius: 10px;
-  font-weight:700;
-  cursor: pointer;
-}
-  .side-menu{
-  position: fixed;
-  top: 0;
-  left: -260px;
-  width: 240px;
-  height: 100vh;
-  background: var(--card);
-  z-index: 1000;
-  padding: 16px;
-  transition: .3s;
-  box-shadow: 6px 0 20px rgba(0,0,0,.2);
-}
-
-.side-menu.active{
-  left: 0;
-}
-.menu-overlay{
-  position:fixed;
-  inset:0;
-  background:#000;   /* solid hitam */
-  opacity:0.55;      /* gelapkan halaman belakang */
-  z-index:998;
-}
-  .menu-overlay{
-  display:none;
-}
-
-.menu-overlay.show{
-  display:block;
-}
-.menu-header{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 16px;
-}
-
+/* SIDE MENU */
 .side-menu{
   position:fixed;
   top:0;
   left:0;
-  width:80%;
-  max-width:320px;
+  width:260px;
   height:100vh;
-
-  background:#fff;  /* ⬅️ INI PENTING: SOLID PUTIH */
-  z-index:999;
-  box-shadow:4px 0 20px rgba(0,0,0,.25);
-
+  background:#fff;
   transform:translateX(-100%);
-  transition:.3s ease;
+  transition:.3s;
+  z-index:2000;
+  padding:16px;
 }
 
-.side-menu.active{
-  transform:translateX(0);
-}
+.side-menu.active{transform:translateX(0)}
 
-.menu-backdrop{
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.4);
-  z-index: 999;
-  display: none;
-}
-  body{
-  background: var(--bg);
-  color: var(--text);
-  font-family: "Poppins", system-ui, sans-serif;
-}
-
-.card{
-  background: var(--card-bg);
-  border-radius: 18px;
-  box-shadow: var(--shadow);
-  transition: .25s ease;
-}
-
-.card:hover{
-  transform: translateY(-6px) scale(1.02);
-}
-
-
-
-.btn,.cta{
-  background:var(--brand);
-  color:#fff;
-  border-radius:999px;
+.side-menu a{
+  display:block;
+  margin:14px 0;
+  color:#333;
+  text-decoration:none;
   font-weight:600;
 }
 
+.menu-backdrop{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.5);
+  display:none;
+  z-index:1999;
+}
+
+/* SEARCH OVERLAY */
+.search-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:3000;
+}
+
+.search-popup{
+  background:#fff;
+  padding:16px;
+  border-radius:14px;
+  width:90%;
+  display:flex;
+  gap:10px;
+}
+
+.search-popup input{
+  flex:1;
+  padding:10px;
+  border-radius:10px;
+  border:1px solid #ddd;
+}
+
+/* PLATFORM */
+.platforms{
+  display:flex;
+  gap:8px;
+  padding:12px;
+}
+.platform{
+  flex:1;
+  border-radius:999px;
+  border:1px solid #ddd;
+  padding:8px;
+  font-weight:600;
+  background:#fff;
+}
 .platform.active{
   background:var(--brand);
   color:#fff;
 }
 
-header{
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+  padding:12px;
+}
+
+.card{
   background:#fff;
+  border-radius:16px;
+  overflow:hidden;
+  text-decoration:none;
+  color:#222;
+  box-shadow:0 6px 14px rgba(0,0,0,.1);
+  position:relative;
 }
 
-img{
-  border-radius:14px;
-}
-  .price{
-  font-weight:700;
-  color: var(--brand);
+.card img{
+  width:100%;
+  height:160px;
+  object-fit:cover;
 }
 
-.price .old{
-  color: var(--muted);
-  text-decorat.badge{
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: linear-gradient(135deg, #ff6fa5, #ff9fc2);
-  color: #fff;
-  padding: 4px 10px;
-  font-size: 11px;
-  border-radius: 999px;
-  font-weight: 600;
-  box-shadow: 0 4px 10px rgba(255,111,165,.4);
-  }ion: line-through;
-  font-size:12px;
-  margin-left:4px;
+.meta{padding:10px}
+
+.title{font-size:13px;font-weight:600}
+
+.price{
+  margin-top:4px;
+  display:flex;
+  gap:6px;
+  align-items:center;
 }
+
+.cur{color:var(--brand);font-weight:700}
+
+.old{
+  font-size:11px;
+  color:#999;
+  text-decoration:line-through;
+}
+
 .badge{
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: linear-gradient(135deg, #ff6fa5, #ff9fc2);
-  color: #fff;
-  padding: 4px 10px;
-  font-size: 11px;
-  border-radius: 999px;
-  font-weight: 600;
-  box-shadow: 0 4px 10px rgba(255,111,165,.4);
+  position:absolute;
+  top:8px;
+  left:8px;
+  background:var(--brand);
+  color:#fff;
+  font-size:11px;
+  padding:4px 8px;
+  border-radius:999px;
 }
-.rating{
+
+/* BOTTOM NAV */
+.bottom-nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background:#fff;
+  box-shadow:0 -6px 16px rgba(0,0,0,.1);
+}
+
+.bn{
+  max-width:430px;
+  margin:auto;
+  display:flex;
+  justify-content:space-around;
+  padding:10px 0;
+}
+
+.nav-item{
   font-size:12px;
-  color:#FFC107;
-  font-weight:600;
+  color:#777;
 }
+
+.nav-item.active{color:var(--brand)}
 </style>
 </head>
+
 <body>
-<div class="app">
 
-  <!-- HEADER -->
-  <header>
-    <div id="sideMenu" class="side-menu">
-  <div class="menu-header">
-    <strong>MENU</strong>
-    <button id="closeMenu">✕</button>
-  </div>
-
-  <a href="#home">Home</a>
-  <a href="#shopee">Shopee</a>
-  <a href="#amazon">Amazon</a>
-  <a href="#promo">Promo</a>
+<div class="side-menu" id="sideMenu">
+  <a href="#">Home</a>
+  <a href="#">Shopee</a>
+  <a href="#">Amazon</a>
   <a href="wishlist.html">Wishlist</a>
 </div>
+<div class="menu-backdrop" id="menuBackdrop"></div>
 
-<div id="menuBackdrop" class="menu-backdrop"></div>
-    <div class="left">
-      <button class="icon-btn" id="menuBtn" aria-label="menu">
-        <!-- hamburger outline -->
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--text)">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-      </button>
-
-      <div class="logo" aria-hidden="true">
-        <span style="font-size:14px;color:var(--muted)">AFFILIATE</span>
-        <div style="display:flex;flex-direction:column;line-height:1;">
-          <span style="font-size:18px">LIAFIZ <span class="dot">.</span></span>
-        </div>
-      </div>
-    </div>
-
-    <div class="right">
-      <button class="icon-btn" aria-label="share" id="shareBtn">
-  <!-- share outline -->
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="2">
-    <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
-    <polyline points="16 6 12 2 8 6"/>
-    <line x1="12" y1="2" x2="12" y2="15"/>
-  </svg>
-      </button>
-
-      <button class="icon-btn" aria-label="search" id="searchBtn">
-        <!-- search outline -->
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="2">
-          <circle cx="11" cy="11" r="6" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M21 21l-4.35-4.35" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-    </div>
-  </header>
-
-  <!-- BANNER -->
-  <div class="banner" role="banner">
-    <div class="banner-left">
-      <h3>Buy 1 Get 3</h3>
-      <p>Promo terbatas — berlaku untuk kategori Fashion</p>
-      <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
-        <span class="pill">🔥 Limited Stock</span>
-        <span id="countdown" class="small">Ends in 02:12:23</span>
-      </div>
-      <a href="#" class="cta" id="shopNow">SHOP NOW</a>
-    </div>
-    <div class="banner-right">
-      <!-- placeholder product image, ganti sesuai kebutuhan -->
-      <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=320&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="promo"/>
-    </div>
-  </div>
-
-  <!-- PLATFORM SWITCH -->
-  <div class="platforms" role="tablist" aria-label="Platform">
-    <button class="platform active" data-platform="shopee">Shopee</button>
-    <button class="platform" data-platform="amazon">Amazon</button>
-  </div>
-
-  <!-- CATEGORIES -->
-  <div class="categories" role="navigation" aria-label="Categories">
-    <div class="cat active"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18"/></svg> All</div>
-    <div class="cat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l4 7H8l4-7z"/><path d="M5 22h14"/></svg> Fashion</div>
-    <div class="cat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19 12c0 4.418-3.582 8-8 8"/></svg> Accessories</div>
-    <div class="cat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21v-2a4 4 0 014-4h10a4 4 0 014 4v2"/></svg> Shoes</div>
-    <div class="cat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6"/><path d="M6 10h12"/><path d="M4 14h16v6H4z"/></svg> Flash Sale</div>
-  </div>
-
-  <!-- SECTION -->
-  <div class="section">
-    <h4>New Arrival</h4>
-    <a href="#" class="small" style="color:var(--muted)">See all</a>
-  </div>
-
-  <!-- PRODUCT GRID -->
-  <div class="tool-bar">
-  <div class="filter-btns">
-    <button onclick="filterPlatform('all')" class="active">Semua</button>
-    <button onclick="filterPlatform('shopee')">Shopee</button>
-    <button onclick="filterPlatform('amazon')">Amazon</button>
-  </div>
-  </div>
-  <div class="grid" id="productGrid">
-   <a href="https://amzn.to/..." target="_blank" class="card" data-platform="amazon">
-  <div class="badge">AMAZON</div>
-  <img src="https://m.media-amazon.com/images/I/81mzus4r+mS._AC_UL1500_.jpg" alt="SKDOIUL MEN SPORT RUNNING"/>
-  <div class="meta">
-    <div style="flex:1">
-      <div class="title">SKDOIUL MEN SPORT RUNNING</div>
-      <div class="price">
-        <span class="cur">$39.99</span>
-      </div>
-    </div>
-    <div class="rating">⭐ 4.1</div>
-  </div>
-</a>
-
-<a href="https://amzn.to/..." target="_blank" class="card" data-platform="amazon">
-  <div class="badge">AMAZON</div>
-  <img src="https://m.media-amazon.com/images/I/71ojg+V0XrL._AC_UY900_.jpg" alt="ALLSWIFIT MEN'S SLIP ON"/>
-  <div class="meta">
-    <div style="flex:1">
-      <div class="title">ALLSWIFIT MEN'S SLIP ON</div>
-      <div class="price">
-        <span class="cur">$49.55</span>
-      </div>
-    </div>
-    <div class="rating">⭐ 4.5</div>
-  </div>
-</a>
-    <a href="https://s.shopee.co.id/..." target="_blank" class="card" data-platform="shopee">
-  <div class="badge">HOT</div>
-  <img src="https://down-id.img.susercontent.com/file/sg-11134201-7rfhi-m9tm6vus2ht54e@resize_w900_nl.webp"/>
-  <div class="meta">
-    <div style="flex:1">
-      <div class="title">B519 VEST JEANS</div>
-      <div class="price">
-        <span class="cur">Rp168.000</span>
-        <span class="old">Rp399.000</span>
-      </div>
-    </div>
-    <div class="rating">⭐ 4.9</div>
-  </div>
-</a>
-
-<a href="https://s.shopee.co.id/..." target="_blank" class="card" data-platform="shopee">
-  <div class="badge">SALE</div>
-  <img src="https://down-id.img.susercontent.com/file/id-11134207-7rbkd-m695e4p3vg0jd8.webp"/>
-  <div class="meta">
-    <div style="flex:1">
-      <div class="title">CELANA PENDEK DENIM</div>
-      <div class="price">
-        <span class="cur">Rp87.000</span>
-        <span class="old">Rp147.000</span>
-      </div>
-    </div>
-    <div class="rating">⭐ 4.8</div>
-  </div>
-</a>
-
-<a href="https://s.shopee.co.id/..." target="_blank" class="card" data-platform="shopee">
-  <img src="https://down-id.img.susercontent.com/file/id-11134207-7r98y-luuf2lhlo0fb91.webp"/>
-  <div class="meta">
-    <div style="flex:1">
-      <div class="title">MAVE KNIT SWEATER TOP</div>
-      <div class="price">
-        <span class="cur">Rp172.000</span>
-      </div>
-    </div>
-    <div class="rating">⭐ 4.9</div>
-  </div>
-</a>
-
-<a href="https://s.shopee.co.id/..." target="_blank" class="card" data-platform="shopee">
-  <div class="badge">SALE</div>
-  <img src="https://down-id.img.susercontent.com/file/id-11134201-7rasd-m0u75149zrws39.webp"/>
-  <div class="meta">
-    <div style="flex:1">
-      <div class="title">ANTA G21 3 SEPATU LARI PRIA</div>
-      <div class="price">
-        <span class="cur">Rp1.562.390</span>
-        <span class="old">Rp1.599.000</span>
-      </div>
-    </div>
-    <div class="rating">⭐ 4.9</div>
-  </div>
-</a>
-
-<a href="https://s.shopee.co.id/..." target="_blank" class="card" data-platform="shopee">
-  <div class="badge">ORI</div>
-  <img src="https://down-id.img.susercontent.com/file/id-11134207-81ztq-mef335ordi4g83@resize_w900_nl.webp"/>
-  <div class="meta">
-    <div style="flex:1">
-      <div class="title">SAMO ONDOH POCKET MUG BAG</div>
-      <div class="price">
-        <span class="cur">Rp1.950.000</span>
-        <span class="old">Rp2.450.000</span>
-      </div>
-    </div>
-    <div class="rating">⭐ 4.9</div>
-  </div>
-</a>
-
-<a href="https://s.shopee.co.id/..." target="_blank" class="card" data-platform="shopee">>
-  <div class="badge">HOT</div>
-  <img src="https://down-id.img.susercontent.com/file/id-11134207-81zte-mf4z51596tjda6.webp"/>
-  <div class="meta">
-    <div style="flex:1">
-      <div class="title">INNER DRESS RAYON TWILL</div>
-      <div class="price">
-        <span class="cur">Rp58.984</span>
-        <span class="old">Rp99.000</span>
-      </div>
-    </div>
-    <div class="rating">⭐ 4.8</div>
-  </div>
-</a>
-
-<a href="https://s.shopee.co.id/..." target="_blank" class="card" data-platform="shopee">
-  <div class="badge">SALE</div>
-  <img src="https://down-id.img.susercontent.com/file/id-11134207-7rasd-m2rm0lz1rlc39e.webp"/>
-  <div class="meta">
-    <div style="flex:1">
-      <div class="title">HEFAND TAS RANSEL PRIA</div>
-      <div class="price">
-        <span class="cur">Rp191.000</span>
-        <span class="old">Rp600.000</span>
-      </div>
-    </div>
-    <div class="rating">⭐ 4.9</div>
-  </div>
-</a>
-
-<a href="https://s.shopee.co.id/..." target="_blank" class="card" data-platform="shopee">
-  <div class="badge">SALE</div>
-  <img src="https://down-id.img.susercontent.com/file/b767963be97814b6344ccaff8874446a.webp"/>
-  <div class="meta">
-    <div style="flex:1">
-      <div class="title">INNER SPAN BUSUI</div>
-      <div class="price">
-        <span class="cur">Rp31.414</span>
-        <span class="old">Rp40.000</span>
-      </div>
-    </div>
-    <div class="rating">⭐ 4.8</div>
-  </div>
-</a>
-
-<a href="https://s.shopee.co.id/..." target="_blank" class="card" data-platform="shopee">
-  <div class="badge">STAR</div>
-  <img src="https://down-id.img.susercontent.com/file/sg-11134201-7qvfn-lk9q67smtwvw7e.webp"/>
-  <div class="meta">
-    <div style="flex:1">
-      <div class="title">CELANA HIGH WAIST JEANS</div>
-      <div class="price">
-        <span class="cur">Rp47.901</span>
-        <span class="old">Rp95.000</span>
-      </div>
-    </div>
-    <div class="rating">⭐ 4.5</div>
-  </div>
-</a>
-
-<a href="https://s.shopee.co.id/..." target="_blank" class="card" data-platform="shopee">
-  <img src="https://down-id.img.susercontent.com/file/id-11134207-7r98x-ltqdzvaoce8z33.webp"/>
-  <div class="meta">
-    <div style="flex:1">
-      <div class="title">CELANA LURUS HIGHWAIST BARU</div>
-      <div class="price">
-        <span class="cur">Rp133.331</span>
-      </div>
-    </div>
-  </div>
-</a>
-    </div>
-
-  </div> <!-- grid -->
-
-</div> <!-- app -->
-
-<!-- BOTTOM NAV -->
-<div class="bottom-nav" role="navigation" aria-label="bottom">
-  <div class="bn" role="menubar">
-    <div class="nav-item active" data-nav="home">
-      <!-- home outline -->
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11.5L12 4l9 7.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1z"/></svg>
-      <span>Home</span>
-    </div>
-
-    <div class="nav-item" data-nav="wishlist">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8L12 21.2l8.8-8.8a5.5 5.5 0 000-7.8z"/></svg>
-      <span>Wishlist</span>
-    </div>
-
-    <div class="nav-item" data-nav="cart">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1" /><circle cx="19" cy="20" r="1" /></svg>
-      <span>Cart</span>
-    </div>
-
-    <div class="nav-item" data-nav="profile">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      <span>Profile</span>
-    </div>
-  </div>
-</div>
-
-<script>
-  // Simple platform toggle
-  document.querySelectorAll('.platform').forEach(btn=>{
-    btn.addEventListener('click', e=>{
-      document.querySelectorAll('.platform').forEach(b=>b.classList.remove('active'));
-      btn.classList.add('active');
-      // You can hook platform switching logic here (change affiliate links, prices etc.)
-    });
-  });
-
-  // Category toggle
-  document.querySelectorAll('.cat').forEach(c=>{
-    c.addEventListener('click', ()=> {
-      document.querySelectorAll('.cat').forEach(x=>x.classList.remove('active'));
-      c.classList.add('active');
-      // Hook filter logic here
-    });
-  });
-
-  // fake countdown (for demo)
-  function startCountdown(secs){
-    const el = document.getElementById('countdown');
-    let t = secs;
-    function fmt(n){ return n.toString().padStart(2,'0') }
-    const iv = setInterval(()=>{
-      if(t<=0){ el.textContent = "promo ended"; clearInterval(iv); return; }
-      const h = Math.floor(t/3600); const m = Math.floor((t%3600)/60); const s = t%60;
-      el.textContent = `Ends in ${fmt(h)}:${fmt(m)}:${fmt(s)}`;
-      t--;
-    },1000);
-  }
-  startCountdown(2*3600 + 12*60 + 23); // 2h12m23s demo
-
-  // bottom nav interactions
-  document.querySelectorAll('.bn .nav-item').forEach(n=>{
-    n.addEventListener('click', ()=>{
-      document.querySelectorAll('.bn .nav-item').forEach(x=>x.classList.remove('active'));
-      n.classList.add('active');
-      // handle routing
-    });
-  });
-
-  // quick-add demo (toast)
-  document.querySelectorAll('.quick-add').forEach(btn=>{
-    btn.addEventListener('click', (e)=>{
-      e.stopPropagation();
-      btn.animate([{ transform:'scale(1)'},{ transform:'scale(0.9)'},{ transform:'scale(1)'}], {duration:200});
-      // Here you add to cart & show mini feedback
-      const old = btn.innerHTML;
-      btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>';
-      setTimeout(()=>btn.innerHTML = old, 700);
-    });
-  });
-// === SEARCH PRODUK ===
-const searchInput = document.getElementById('searchInput');
-const cards = document.querySelectorAll('.card');
-
-if (searchInput) {
-  searchInput.addEventListener('input', function () {
-    const keyword = this.value.toLowerCase();
-    cards.forEach(card => {
-      const title = card.querySelector('.title')?.innerText.toLowerCase() || '';
-      card.style.display = title.includes(keyword) ? 'block' : 'none';
-    });
-  });
-}
-
-// === FILTER SHOPEE / AMAZON ===
-function filterPlatform(type) {
-  document.querySelectorAll('.filter-btns button').forEach(btn => {
-    btn.classList.remove('active');
-  });
-  event.target.classList.add('active');
-
-  cards.forEach(card => {
-    if (type === 'all') {
-      card.style.display = 'block';
-    } else {
-      card.style.display = card.dataset.platform === type ? 'block' : 'none';
-    }
-  });
-}
-</script>
-  <!-- SEARCH OVERLAY -->
-<div id="searchOverlay" class="search-overlay">
+<div class="search-overlay" id="searchOverlay">
   <div class="search-popup">
-    <input type="text" id="popupSearchInput" placeholder="Cari produk...">
+    <input type="text" id="searchInput" placeholder="Cari produk...">
     <button onclick="closeSearch()">✕</button>
   </div>
 </div>
-  <script>
-const searchBtn = document.getElementById("searchBtn");
-const searchOverlay = document.getElementById("searchOverlay");
-const popupSearchInput = document.getElementById("popupSearchInput");
 
-searchBtn.addEventListener("click", () => {
-  searchOverlay.style.display = "flex";
-  setTimeout(() => popupSearchInput.focus(), 100);
-});
+<div class="app">
 
-function closeSearch(){
-  searchOverlay.style.display = "none";
-}
-    // --- Search popup toggle & hookup ---
-(function(){
-  const searchBtn = document.getElementById("searchBtn");
-  const searchOverlay = document.getElementById("searchOverlay");
-  const popupSearchInput = document.getElementById("popupSearchInput");
-  const closeSearchBtn = document.getElementById("closeSearchBtn");
-  const cards = document.querySelectorAll('.card');
+<header>
+  <button class="icon-btn" id="menuBtn">☰</button>
+  <div class="logo">LIAFIZ</div>
+  <div>
+    <button class="icon-btn" id="shareBtn">⤴</button>
+    <button class="icon-btn" id="searchBtn">🔍</button>
+  </div>
+</header>
 
-  if (!searchBtn || !searchOverlay || !popupSearchInput || !closeSearchBtn) {
-    // one of elements not found — abort silently
-    return;
-  }
+<div class="platforms">
+  <button class="platform active" onclick="filterPlatform('all',this)">Semua</button>
+  <button class="platform" onclick="filterPlatform('shopee',this)">Shopee</button>
+  <button class="platform" onclick="filterPlatform('amazon',this)">Amazon</button>
+</div>
 
-  function openSearch(){
-    searchOverlay.style.display = "flex";
-    searchOverlay.setAttribute('aria-hidden','false');
-    setTimeout(()=> popupSearchInput.focus(), 120);
-    popupSearchInput.value = "";
-    // show all cards when opening
-    cards.forEach(c => c.style.display = 'block');
-  }
+<div class="grid" id="productGrid">
 
-  function closeSearch(){
-    searchOverlay.style.display = "none";
-    searchOverlay.setAttribute('aria-hidden','true');
-  }
+<a href="https://s.shopee.co.id/..." class="card" data-platform="shopee" target="_blank">
+  <div class="badge">SALE</div>
+  <img src="https://down-id.img.susercontent.com/file/id-11134207-7rbkd-m695e4p3vg0jd8.webp">
+  <div class="meta">
+    <div class="title">Celana Pendek Denim</div>
+    <div class="price">
+      <span class="cur">Rp87.000</span>
+      <span class="old">Rp147.000</span>
+    </div>
+  </div>
+</a>
 
-  // toggle from search icon
-  searchBtn.addEventListener('click', openSearch);
-  closeSearchBtn.addEventListener('click', closeSearch);
+<a href="https://amzn.to/..." class="card" data-platform="amazon" target="_blank">
+  <div class="badge">AMAZON</div>
+  <img src="https://m.media-amazon.com/images/I/81mzus4r+mS._AC_UL1500_.jpg">
+  <div class="meta">
+    <div class="title">Sport Running Shoes</div>
+    <div class="price">
+      <span class="cur">$39.99</span>
+    </div>
+  </div>
+</a>
 
-  // close when click overlay outside popup
-  searchOverlay.addEventListener('click', function(e){
-    if (e.target === searchOverlay) closeSearch();
-  });
+</div>
 
-  // actual search filtering
-  // === FINAL SEARCH FILTER (AMAN & STABIL) ===
-popupSearchInput.addEventListener('input', function(){
-  const q = this.value.trim().toLowerCase();
-  const cards = document.querySelectorAll('#productGrid > *');
+</div>
 
-  if (!q) {
-    cards.forEach(card => card.style.display = "block");
-    return;
-  }
-
-  cards.forEach(card => {
-    const text = card.innerText.toLowerCase();
-    card.style.display = text.includes(q) ? "block" : "none";
-  });
-});
-
-  // optional: close search on ESC
-  document.addEventListener('keydown', function(e){
-    if (e.key === 'Escape') closeSearch();
-  });
-})();
-    // === CONNECT SEARCH ICON ===
-const searchBtn = document.getElementById("searchBtn");
-const searchOverlay = document.getElementById("searchOverlay");
-const popupSearchInput = document.getElementById("popupSearchInput");
-const closeSearchBtn = document.getElementById("closeSearchBtn");
-
-if (!searchBtn || !searchOverlay || !popupSearchInput || !closeSearchBtn) {
-  console.log("SEARCH ELEMENT NOT FOUND");
-} else {
-
-  function openSearch(){
-    searchOverlay.style.display = "flex";
-    searchOverlay.setAttribute("aria-hidden", "false");
-    setTimeout(() => popupSearchInput.focus(), 100);
-  }
-
-  function closeSearch(){
-    searchOverlay.style.display = "none";
-    searchOverlay.setAttribute("aria-hidden", "true");
-    popupSearchInput.value = "";
-    document.querySelectorAll('#productGrid > *')
-      .forEach(card => card.style.display = "block");
-  }
-
-  searchBtn.addEventListener("click", openSearch);
-  closeSearchBtn.addEventListener("click", closeSearch);
-  searchOverlay.addEventListener("click", (e)=>{
-    if (e.target === searchOverlay) closeSearch();
-  });
-}
-  </script>
-  <!-- SEARCH OVERLAY -->
-<div id="searchOverlay" class="search-overlay" aria-hidden="true">
-  <div class="search-popup" role="dialog" aria-label="Search products">
-    <input type="text" id="popupSearchInput" placeholder="Cari produk..." autocomplete="off" />
-    <button id="closeSearchBtn" aria-label="Close search">✕</button>
+<div class="bottom-nav">
+  <div class="bn">
+    <div class="nav-item active">Home</div>
+    <div class="nav-item">Wishlist</div>
+    <div class="nav-item">Cart</div>
+    <div class="nav-item">Profile</div>
   </div>
 </div>
-  <!-- SEARCH SCRIPT -->
+
 <script>
+// MENU
+menuBtn.onclick = ()=>{
+  sideMenu.classList.add("active");
+  menuBackdrop.style.display="block";
+}
 
-const searchBtn = document.getElementById("searchBtn");
-const searchOverlay = document.getElementById("searchOverlay");
-const popupSearchInput = document.getElementById("popupSearchInput");
-const closeSearchBtn = document.getElementById("closeSearchBtn");
+menuBackdrop.onclick = ()=>{
+  sideMenu.classList.remove("active");
+  menuBackdrop.style.display="none";
+}
 
-function openSearch(){
-  searchOverlay.style.display = "flex";
-  searchOverlay.setAttribute("aria-hidden", "false");
-  setTimeout(() => popupSearchInput.focus(), 100);
+// SEARCH
+searchBtn.onclick = ()=>{
+  searchOverlay.style.display="flex";
+  searchInput.focus();
 }
 
 function closeSearch(){
-  searchOverlay.style.display = "none";
-  searchOverlay.setAttribute("aria-hidden", "true");
-  popupSearchInput.value = "";
-  document.querySelectorAll('#productGrid > *')
-    .forEach(card => card.style.display = "block");
+  searchOverlay.style.display="none";
+  searchInput.value="";
+  document.querySelectorAll(".card").forEach(c=>c.style.display="block");
 }
 
-searchBtn.addEventListener("click", openSearch);
-closeSearchBtn.addEventListener("click", closeSearch);
-
-searchOverlay.addEventListener("click", (e)=>{
-  if (e.target === searchOverlay) closeSearch();
-});
-
-popupSearchInput.addEventListener("input", function(){
-  const q = this.value.trim().toLowerCase();
-  const cards = document.querySelectorAll('#productGrid > *');
-
-  if (!q) {
-    cards.forEach(card => card.style.display = "block");
-    return;
-  }
-
-  cards.forEach(card => {
-    const text = card.innerText.toLowerCase();
-    card.style.display = text.includes(q) ? "block" : "none";
+searchInput.oninput = ()=>{
+  const q = searchInput.value.toLowerCase();
+  document.querySelectorAll(".card").forEach(card=>{
+    card.style.display = card.innerText.toLowerCase().includes(q) ? "block" : "none";
   });
-});
-const menuBtn = document.getElementById('menuBtn');
-const sideMenu = document.getElementById('sideMenu');
-const closeMenu = document.getElementById('closeMenu');
-const menuBackdrop = document.getElementById('menuBackdrop');
-
-menuBtn.onclick = () => {
-  menu.classList.add('active');
-  overlay.classList.add('show');
-};
-
-overlay.onclick = () => {
-  menu.classList.remove('active');
-  overlay.classList.remove('show');
-};
-
-closeMenu.addEventListener('click', closeSideMenu);
-menuBackdrop.addEventListener('click', closeSideMenu);
-
-function closeSideMenu(){
-  sideMenu.classList.remove('active');
-  menuBackdrop.style.display = 'none';
 }
-  document.querySelectorAll('.wishlist-btn').forEach(btn=>{
-  btn.addEventListener('click', function(){
-    this.classList.toggle('active');
-    if(this.classList.contains('active')){
-      alert('Masuk Wishlist ❤️');
-    }
-  });
-});
-  const shareBtn = document.getElementById("shareBtn");
 
-shareBtn.addEventListener("click", function(){
-  if (navigator.share) {
+// FILTER
+function filterPlatform(type,btn){
+  document.querySelectorAll(".platform").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");
+
+  document.querySelectorAll(".card").forEach(card=>{
+    card.style.display = (type==="all" || card.dataset.platform===type) ? "block" : "none";
+  });
+}
+
+// SHARE
+shareBtn.onclick = ()=>{
+  if(navigator.share){
     navigator.share({
-      title: "LIAFIZ Store",
-      text: "Cek produk keren & promo di LIAFIZ Store!",
-      url: window.location.href
+      title:"LIAFIZ Store",
+      text:"Cek produk keren di LIAFIZ!",
+      url:location.href
     });
-  } else {
-    alert("Browser tidak mendukung share otomatis 😅\nSalin link manual aja ya!");
+  }else{
+    alert("Browser tidak support share");
   }
-});
+}
 </script>
 
-</body>
-</html>
 </body>
 </html>
