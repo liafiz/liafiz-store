@@ -558,6 +558,36 @@ img{
   66%  { transform: translateX(-200%); }
   100% { transform: translateX(0); }
                  }
+  .ads-slider {
+  width: 100%;
+  overflow: hidden;
+  margin: 14px 0;
+  border-radius: 14px;
+}
+
+.ads-track {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.ads-track::-webkit-scrollbar {
+  display: none;
+}
+
+.ads-item {
+  min-width: 85%;
+  scroll-snap-align: start;
+}
+
+.ads-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  display: block;
+}
 </style>
 </head>
 <body>
