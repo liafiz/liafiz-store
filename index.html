@@ -945,6 +945,19 @@ function closeSideMenu(){
     }
   });
 });
+  const shareBtn = document.getElementById("shareBtn");
+
+shareBtn.addEventListener("click", function(){
+  if (navigator.share) {
+    navigator.share({
+      title: "LIAFIZ Store",
+      text: "Cek produk keren & promo di LIAFIZ Store!",
+      url: window.location.href
+    });
+  } else {
+    alert("Browser tidak mendukung share otomatis 😅\nSalin link manual aja ya!");
+  }
+});
 </script>
 
 </body>
