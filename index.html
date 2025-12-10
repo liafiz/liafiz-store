@@ -410,13 +410,32 @@
   align-items: center;
   margin-bottom: 16px;
 }
-
-.side-menu a{
-  display: block;
-  padding: 10px 0;
-  color: var(--text);
+/* ===== MENU SIDEBAR (FINAL) ===== */
+#sideMenu a {
+  display: inline-block;        /* biar lebar ngikut teks */
+  width: auto;                  /* tidak full panjang */
+  padding: 10px 14px;           /* ukuran pas */
+  margin: 6px 0;                /* jarak antar menu */
+  background: rgba(0, 0, 0, 0.78); /* tidak terlalu transparan */
+  color: #fff;
+  border-radius: 12px;
   text-decoration: none;
+  font-size: 14px;
   font-weight: 500;
+  backdrop-filter: blur(6px);
+  transition: 0.2s ease;
+  box-sizing: border-box;
+}
+
+/* Efek saat ditekan */
+#sideMenu a:active {
+  transform: scale(0.95);
+  opacity: 0.9;
+}
+
+/* Efek hover (desktop) */
+#sideMenu a:hover {
+  background: rgba(0, 0, 0, 0.9);
 }
 
 .menu-backdrop{
