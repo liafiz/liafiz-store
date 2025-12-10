@@ -101,46 +101,61 @@ Link langsung ke Amazon resmi & aman.
 </div>
 
 <script>
+  <script>
   const storeId = "liafiz0e-20";
 
   const produk = {
-    "01": "B0D1BVHC52",
-    "02": "B0DYJKCVLL",
-    "03": "B0D83ZT6YT",
-    "04": "B08Q9SCLXM",
-    "05": "BODQCV6RCC", // HURUF O (sesuai konfirmasi)
-    "06": "B08GWYCGHV"
+    "01": {
+      asin: "B0D1BVHC52",
+      nama: "NORTIV 8 Men's Walking Running",
+      img: "https://m.media-amazon.com/images/I/71qrBfQqxgL._AC_UL1500_.jpg"
+    },
+    "02": {
+      asin: "B0DYJKCVLL",
+      nama: "ALLSWIFIT Men's Slip On Stability Walking Running",
+      img: "https://m.media-amazon.com/images/I/71ojg%2BV0XrL._AC_UL1500_.jpg"
+    },
+    "03": {
+      asin: "B0D83ZT6YT",
+      nama: "Skechers Womens Contour Foam",
+      img: "https://m.media-amazon.com/images/I/71VxuB%2ByDlL._AC_UY900_.jpg"
+    },
+    "04": {
+      asin: "B08Q9SCLXM",
+      nama: "Nike Men's Dunk Low Retro Sneaker",
+      img: "https://m.media-amazon.com/images/I/61J6jXUA7YL._AC_UL1500_.jpg"
+    },
+    "05": {
+      asin: "BODQCV6RCC",
+      nama: "TOPDesign Puffer Tote Bag for Women",
+      img: "https://m.media-amazon.com/images/I/51-DMfNThTL._AC_UL1500_.jpg"
+    },
+    "06": {
+      asin: "B08GWYCGHV",
+      nama: "SKDOIUL Men Sport Running Shoes",
+      img: "https://m.media-amazon.com/images/I/81mzus4r%2BmS._AC_UL1500_.jpg"
+    }
   };
 
   function cariProduk() {
     let kode = document.getElementById("kodeProduk").value.trim();
-
-    // Normalisasi input (biar user masukin 1 tetap jadi 01)
-    if (kode.length === 1) {
-      kode = "0" + kode;
-    }
+    if (kode.length === 1) kode = "0" + kode;
 
     if (!produk[kode]) {
-      alert("❌ Kode produk tidak ditemukan! Pastikan sama seperti di video.");
+      alert("❌ Kode produk tidak ditemukan!");
       return;
     }
 
-    const asin = produk[kode];
-    const link = `https://www.amazon.com/dp/${asin}?tag=${storeId}`;
+    const data = produk[kode];
+    const link = `https://www.amazon.com/dp/${data.asin}?tag=${storeId}`;
 
-    // Redirect ke Amazon affiliate
-    window.location.href = link;
+    document.getElementById("previewImg").src = data.img;
+    document.getElementById("previewNama").innerText = data.nama;
+    document.getElementById("previewLink").href = link;
+
+    document.getElementById("previewProduk").style.display = "block";
   }
-
-  // Supaya tekan ENTER juga langsung cari
-  document.addEventListener("DOMContentLoaded", function () {
-    const input = document.getElementById("kodeProduk");
-    input.addEventListener("keypress", function (e) {
-      if (e.key === "Enter") {
-        cariProduk();
-      }
-    });
-  });
+</script>
 </script>
 
 </body>
