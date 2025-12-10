@@ -88,42 +88,44 @@
 <script>
   const storeId = "liafiz0e-20";
 
-const produk = {
-  "01": "B0D1BVHC52",
-  "02": "B0DYJKCVLL",
-  "03": "B0D83ZT6YT",
-  "04": "B08Q9SCLXM",
-  "05": "BODQCV6RCC",
-  "06": "B08GWYCGHV"
-};
-
-function cariProduk() {
-  const kode = document.getElementById("kodeProduk").value.trim();
-
-  if (!produk[kode]) {
-    alert("Kode produk tidak ditemukan! Pastikan sesuai dengan yang ada di video.");
-    return;
-  }
-
-  const asin = produk[kode];
-  const link = `https://www.amazon.com/dp/${asin}?tag=${storeId}`;
-
-  window.location.href = link;
-}
+  const produk = {
+    "01": "B0D1BVHC52",
+    "02": "B0DYJKCVLL",
+    "03": "B0D83ZT6YT",
+    "04": "B08Q9SCLXM",
+    "05": "BODQCV6RCC", // HURUF O (sesuai konfirmasi)
+    "06": "B08GWYCGHV"
+  };
 
   function cariProduk() {
-    const kode = document.getElementById("kodeProduk").value.trim();
+    let kode = document.getElementById("kodeProduk").value.trim();
+
+    // Normalisasi input (biar user masukin 1 tetap jadi 01)
+    if (kode.length === 1) {
+      kode = "0" + kode;
+    }
 
     if (!produk[kode]) {
-      alert("Kode produk tidak ditemukan!");
+      alert("❌ Kode produk tidak ditemukan! Pastikan sama seperti di video.");
       return;
     }
 
     const asin = produk[kode];
     const link = `https://www.amazon.com/dp/${asin}?tag=${storeId}`;
 
+    // Redirect ke Amazon affiliate
     window.location.href = link;
   }
+
+  // Supaya tekan ENTER juga langsung cari
+  document.addEventListener("DOMContentLoaded", function () {
+    const input = document.getElementById("kodeProduk");
+    input.addEventListener("keypress", function (e) {
+      if (e.key === "Enter") {
+        cariProduk();
+      }
+    });
+  });
 </script>
 
 </body>
