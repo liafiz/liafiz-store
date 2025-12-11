@@ -1,86 +1,88 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Liafiz Store — Shopee Link Converter</title>
+  <title>Convert Shopee Shortlink</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #fafafa;
-      margin: 0;
+      background: #f4f4f4;
       padding: 20px;
-      color: #222;
     }
-    .box {
-      max-width: 600px;
-      margin: 0 auto;
-      background: white;
+    .card {
+      max-width: 500px;
+      margin: auto;
+      background: #fff;
       padding: 20px;
-      border-radius: 14px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
-    h2 {
-      text-align: center;
-      margin-top: 0;
-    }
-    input, button, textarea {
+    input, button {
       width: 100%;
       padding: 12px;
-      border-radius: 10px;
+      margin-top: 10px;
+      border-radius: 8px;
       border: 1px solid #ccc;
-      font-size: 15px;
+      font-size: 16px;
     }
     button {
       background: #ff5722;
       color: white;
       border: none;
       cursor: pointer;
-      margin-top: 10px;
-      font-weight: bold;
     }
     button:hover {
-      background: #e64a19;
+      opacity: 0.9;
     }
-    textarea {
-      height: 120px;
+    #result {
       margin-top: 15px;
+      word-break: break-all;
+      background: #fafafa;
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      display: none;
     }
-    .footer {
-      text-align: center;
-      margin-top: 20px;
-      font-size: 13px;
-      color: #777;
+    iframe {
+      width: 0;
+      height: 0;
+      border: 0;
+      visibility: hidden;
     }
   </style>
 </head>
-<body><div class="box">
-  <h2>🔗 Liafiz Store — Shopee Link Converter</h2>
-  <p>Tempel link pendek Shopee kamu di bawah, nanti otomatis jadi link panjang (affiliate‑friendly).</p>  <input id="short" type="text" placeholder="Masukkan link pendek, contoh: https://s.shopee.co.id/xxxx" />
-  <button onclick="convertShopee()">Convert Sekarang</button>  <textarea id="result" placeholder="Link panjang muncul di sini..."></textarea></div><div class="footer">© 2025 Liafiz Store</div><script>
-async function convertShopee() {
-  const input = document.getElementById("short").value.trim();
-  const output = document.getElementById("result");
+<body>
+  <div class="card">
+    <h2>Convert Shopee Shortlink → Link Panjang</h2>
+    <input id="shortUrl" placeholder="Tempel link pendek Shopee (s.shopee.co.id)" />
+    <button onclick="convert()">Convert Sekarang</button><div id="result"></div>
+<iframe id="loader"></iframe>
 
-  if (!input) {
-    output.value = "Masukkan link pendek dulu bro 🙏";
-    return;
-  }
+  </div>  <script>
+    function convert() {
+      const shortUrl = document.getElementById("shortUrl").value.trim();
+      const resultBox = document.getElementById("result");
 
-  output.value = "Tunggu sebentar...";
+      if (!shortUrl.includes("s.shopee.co.id")) {
+        resultBox.style.display = "block";
+        resultBox.innerHTML = "❌ Link tidak valid";
+        return;
+      }
 
-  try {
-    const response = await fetch(input, { method: "GET", redirect: "follow" });
-    const finalURL = response.url;
+      const iframe = document.getElementById("loader");
+      resultBox.style.display = "block";
+      resultBox.innerHTML = "⏳ Sedang convert...";
 
-    if (!finalURL || finalURL === input) {
-      output.value = "Gagal convert. Pastikan link pendek Shopee benar ya bro.";
-      return;
+      iframe.onload = () => {
+        try {
+          const finalUrl = iframe.contentWindow.location.href;
+          resultBox.innerHTML = `<b>Link Panjang:</b><br>${finalUrl}`;
+        } catch (e) {
+          resultBox.innerHTML = "❌ Gagal mengambil link. Buka manual untuk melihat redirect.";
+        }
+      };
+
+      iframe.src = shortUrl;
     }
-
-    output.value = finalURL;
-  } catch (e) {
-    output.value = "Error saat convert. Coba ulang lagi.";
-  }
-}
-</script></body>
+  </script></body>
 </html>
