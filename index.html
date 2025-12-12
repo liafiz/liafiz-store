@@ -619,6 +619,38 @@ img{
   color: #444;
   box-shadow: 0 3px 8px rgba(0,0,0,0.05);
 }
+
+/* Category slider (Option B) */
+.category-slider{
+  display:flex;
+  gap:12px;
+  overflow-x:auto;
+  padding:10px 12px;
+  background: linear-gradient(90deg, rgba(255,240,245,0.7), rgba(255,245,250,0.7));
+  border-radius:14px;
+  margin:12px 12px 18px 12px;
+}
+.category-slider::-webkit-scrollbar{height:8px}
+.cat-item{
+  flex:0 0 auto;
+  width:78px;
+  text-align:center;
+}
+.cat-icon{
+  width:62px;
+  height:62px;
+  background:#fff;
+  border-radius:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 6px;
+  box-shadow:0 6px 14px rgba(255,105,150,0.12);
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.cat-label{font-size:13px;color:#333}
+.cat-item.active .cat-icon{transform:translateY(-4px);box-shadow:0 10px 20px rgba(255,105,150,0.18)}
+
 </style>
 </head>
 <body>
@@ -758,6 +790,38 @@ img{
     <option value="all">Semua Subkategori</option>
   </select>
 </div>
+
+<!-- CATEGORY SLIDER (style B) -->
+<div class="category-slider" aria-label="Category slider">
+  <div class="cat-item" data-cat="Fashion">
+    <div class="cat-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 3l-4 4-4-4" stroke="#ff6fa8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 13v6a1 1 0 001 1h14a1 1 0 001-1v-6" stroke="#ff6fa8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="cat-label">Fashion</div>
+  </div>
+  <div class="cat-item" data-cat="Shoes">
+    <div class="cat-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M3 12h18" stroke="#ff6fa8" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div class="cat-label">Shoes</div>
+  </div>
+  <div class="cat-item" data-cat="Accessories">
+    <div class="cat-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="#ff6fa8" stroke-width="1.5"/></svg></div>
+    <div class="cat-label">Accessories</div>
+  </div>
+  <div class="cat-item" data-cat="Bags">
+    <div class="cat-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M6 7h12l-1 12H7L6 7z" stroke="#ff6fa8" stroke-width="1.5"/></svg></div>
+    <div class="cat-label">Bags</div>
+  </div>
+  <div class="cat-item" data-cat="Gadget">
+    <div class="cat-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="6" y="3" width="12" height="18" rx="2" stroke="#ff6fa8" stroke-width="1.5"/></svg></div>
+    <div class="cat-label">Gadget</div>
+  </div>
+  <div class="cat-item" data-cat="Beauty">
+    <div class="cat-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2l2 7h-4l2-7z" stroke="#ff6fa8" stroke-width="1.5"/></svg></div>
+    <div class="cat-label">Beauty</div>
+  </div>
+  <div class="cat-item" data-cat="Flash Sale">
+    <div class="cat-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2v6" stroke="#ff6fa8" stroke-width="1.5"/><path d="M4 14h16v6H4z" stroke="#ff6fa8" stroke-width="1.5"/></svg></div>
+    <div class="cat-label">Flash Sale</div>
+  </div>
+</div>
     <div class="cat active"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18"/></svg> All</div>
     <div class="cat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l4 7H8l4-7z"/><path d="M5 22h14"/></svg> Fashion</div>
     <div class="cat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19 12c0 4.418-3.582 8-8 8"/></svg> Accessories</div>
@@ -780,7 +844,7 @@ img{
   </div>
   </div>
   <div class="grid" id="productGrid">
-   <a href="https://amzn.to/4oGj0BO" target="_blank" class="card" data-platform="amazon">
+   <a href="https://amzn.to/4oGj0BO" target="_blank" class="card" data-platform="amazon" data-category="Shoes" data-subcategory="Running">
   <div class="badge">AMAZON</div>
   <img src="https://m.media-amazon.com/images/I/81mzus4r+mS._AC_UL1500_.jpg" alt="SKDOIUL MEN SPORT RUNNING"/>
   <div class="meta">
@@ -794,7 +858,7 @@ img{
   </div>
 </a>
 
-<a href="https://amzn.to/48PZUDM" target="_blank" class="card" data-platform="amazon">
+<a href="https://amzn.to/48PZUDM" target="_blank" class="card" data-platform="amazon" data-category="Shoes" data-subcategory="Casual">
   <div class="badge">AMAZON</div>
   <img src="https://m.media-amazon.com/images/I/71ojg+V0XrL._AC_UY900_.jpg" alt="ALLSWIFIT MEN'S SLIP ON"/>
   <div class="meta">
@@ -807,7 +871,7 @@ img{
     <div class="rating">⭐ 4.5</div>
   </div>
 </a>
-    <a href="https://shopee.co.id/product/996958464/26136106539?exp_group=mvp&gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkWVp3RFo3Mkw5czd4Z0hzdEF1WVFibFBSSFFoT0tLQi9JN0JTdXB6Wmt0eDhidzc1M2FhK21Xcmp1M3lGRFZPVm81Q0JwNWhKNWN2OU1Jc1h1M09USXpsRDU1eWdZRmtHeXBXSlBYN3RHSnBGczM4OVpaSWZmcVNCRkhoREVXdUNRT1JRNzY1VFlZWnp6YzNsRjJ6SjhZPQ&mmp_pid=an_11322270305&uls_trackid=54dfad8c00b3&utm_campaign=id_kgRTp1Djbb&utm_content=----&utm_medium=affiliates&utm_source=an_11322270305&utm_term=e4adxshhgxgf" target="_blank" class="card" data-platform="shopee">
+    <a href="https://shopee.co.id/product/996958464/26136106539?exp_group=mvp&gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkWVp3RFo3Mkw5czd4Z0hzdEF1WVFibFBSSFFoT0tLQi9JN0JTdXB6Wmt0eDhidzc1M2FhK21Xcmp1M3lGRFZPVm81Q0JwNWhKNWN2OU1Jc1h1M09USXpsRDU1eWdZRmtHeXBXSlBYN3RHSnBGczM4OVpaSWZmcVNCRkhoREVXdUNRT1JRNzY1VFlZWnp6YzNsRjJ6SjhZPQ&mmp_pid=an_11322270305&uls_trackid=54dfad8c00b3&utm_campaign=id_kgRTp1Djbb&utm_content=----&utm_medium=affiliates&utm_source=an_11322270305&utm_term=e4adxshhgxgf" target="_blank" class="card" data-platform="shopee" data-category="Fashion" data-subcategory="Streetwear">
   <div class="badge">HOT</div>
   <img src="https://down-id.img.susercontent.com/file/sg-11134201-7rfhi-m9tm6vus2ht54e@resize_w900_nl.webp"/>
   <div class="meta">
@@ -822,7 +886,7 @@ img{
   </div>
 </a>
 
-<a href="https://shopee.co.id/product/972673667/27476234030?exp_group=mvp&gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkWVp3RFo3Mkw5czd4Z0hzdEF1WVFibkdVemhGUWRueS93U1d6V05hcWdPY1B3bFdZTkF2WmRaWmNnbkIwN1k3TUE3ekdkZndFd0ZvdG55b1hFWVc0QTBtb1pkSDhtb0NsYzlMYjNUOWVBNlA5MlFGWXM1K2pVZUQ0NUt5eHVjVkFxd2Iwczdjemo4aEtLUFJmOG1jWW5NPQ&mmp_pid=an_11322270305&uls_trackid=54dfnsq400eq&utm_campaign=id_FbZumPnhCx&utm_content=----&utm_medium=affiliates&utm_source=an_11322270305&utm_term=e4apbouu86fr" target="_blank" class="card" data-platform="shopee">
+<a href="https://shopee.co.id/product/972673667/27476234030?exp_group=mvp&gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkWVp3RFo3Mkw5czd4Z0hzdEF1WVFibkdVemhGUWRueS93U1d6V05hcWdPY1B3bFdZTkF2WmRaWmNnbkIwN1k3TUE3ekdkZndFd0ZvdG55b1hFWVc0QTBtb1pkSDhtb0NsYzlMYjNUOWVBNlA5MlFGWXM1K2pVZUQ0NUt5eHVjVkFxd2Iwczdjemo4aEtLUFJmOG1jWW5NPQ&mmp_pid=an_11322270305&uls_trackid=54dfnsq400eq&utm_campaign=id_FbZumPnhCx&utm_content=----&utm_medium=affiliates&utm_source=an_11322270305&utm_term=e4apbouu86fr" target="_blank" class="card" data-platform="shopee" data-category="Fashion" data-subcategory="Celana Pendek Denim">
   <div class="badge">SALE</div>
   <img src="https://down-id.img.susercontent.com/file/id-11134207-7rbkd-m695e4p3vg0jd8.webp"/>
   <div class="meta">
@@ -837,7 +901,7 @@ img{
   </div>
 </a>
 
-<a href="https://shopee.co.id/product/299656775/25728082348?exp_group=mvp&gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkWVp3RFo3Mkw5czd4Z0hzdEF1WVFibVdZYzJlVXh3c1NxaGNuR1I3Uk5NT1l5d2x5bXA0UnMrMzFqUlg5dnlCS1VkRWMwN0R5Rm1VRmJINGVjWEVwWFl6L1FrbmV4ek9Dei9FWjdxdnUrYVovSDhJeTZlcm44bllPT2ZaTFR4VXZBcVoxS29ZQk9mbEY2ZEdseEZ4MktZPQ&mmp_pid=an_11322270305&uls_trackid=54dfoevk01ac&utm_campaign=id_11vRmpZ0HkV&utm_content=----&utm_medium=affiliates&utm_source=an_11322270305&utm_term=e4aprj4genvs" target="_blank" class="card" data-platform="shopee">
+<a href="https://shopee.co.id/product/299656775/25728082348?exp_group=mvp&gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkWVp3RFo3Mkw5czd4Z0hzdEF1WVFibVdZYzJlVXh3c1NxaGNuR1I3Uk5NT1l5d2x5bXA0UnMrMzFqUlg5dnlCS1VkRWMwN0R5Rm1VRmJINGVjWEVwWFl6L1FrbmV4ek9Dei9FWjdxdnUrYVovSDhJeTZlcm44bllPT2ZaTFR4VXZBcVoxS29ZQk9mbEY2ZEdseEZ4MktZPQ&mmp_pid=an_11322270305&uls_trackid=54dfoevk01ac&utm_campaign=id_11vRmpZ0HkV&utm_content=----&utm_medium=affiliates&utm_source=an_11322270305&utm_term=e4aprj4genvs" target="_blank" class="card" data-platform="shopee" data-category="Fashion" data-subcategory="Sweater">
   <img src="https://down-id.img.susercontent.com/file/id-11134207-7r98y-luuf2lhlo0fb91.webp"/>
   <div class="meta">
     <div style="flex:1">
@@ -850,7 +914,7 @@ img{
   </div>
 </a>
 
-<a href="https://shopee.co.id/product/1370659890/28262908010?exp_group=mvp&gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkVHQ3ZkZSUTMrR3pBWmZZNzdrcnRBMDJBRDNiaUl3MlNMaW9CRzdkUWIxTkZuVWxZampvVEsrMHV1djNieVlUUFRtMkVGVDAwY3RwSWp6UkcwbUYzYTVkbmI5Q3l1QmJQQ21TTEViY1VxQ3k1MUR1YnRaczBLcnZMWDVyRzlsNjZnWS9JbTB1bkxVRnhyZlM5VWVkb0t3PQ&mmp_pid=an_11322270305&uls_trackid=54dfoo9502ed&utm_campaign=id_Yam9LykguF&utm_content=----&utm_medium=affiliates&utm_source=an_11322270305&utm_term=e4apz5kz962s" target="_blank" class="card" data-platform="shopee">
+<a href="https://shopee.co.id/product/1370659890/28262908010?exp_group=mvp&gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkVHQ3ZkZSUTMrR3pBWmZZNzdrcnRBMDJBRDNiaUl3MlNMaW9CRzdkUWIxTkZuVWxZampvVEsrMHV1djNieVlUUFRtMkVGVDAwY3RwSWp6UkcwbUYzYTVkbmI5Q3l1QmJQQ21TTEViY1VxQ3k1MUR1YnRaczBLcnZMWDVyRzlsNjZnWS9JbTB1bkxVRnhyZlM5VWVkb0t3PQ&mmp_pid=an_11322270305&uls_trackid=54dfoo9502ed&utm_campaign=id_Yam9LykguF&utm_content=----&utm_medium=affiliates&utm_source=an_11322270305&utm_term=e4apz5kz962s" target="_blank" class="card" data-platform="shopee" data-category="Shoes" data-subcategory="Running">
   <div class="badge">SALE</div>
   <img src="https://down-id.img.susercontent.com/file/id-11134201-7rasd-m0u75149zrws39.webp"/>
   <div class="meta">
@@ -865,7 +929,7 @@ img{
   </div>
 </a>
 
-<a href="https://shopee.co.id/product/1577487859/41608779927?exp_group=mvp&gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkVHQ3ZkZSUTMrR3pBWmZZNzdrcnRBMzcrUGpJa3pKb1lEeDNoUGRnNGNJd3RoYkNsVlYvK0VjU1VZNk5QSG4rZG9MVnI0UXVmNlFEdTcrZFRaZFFGM2FNNUpqWDkrNHBicTJQa2NjZ2Ird2tqRWc3d3RGd1Bwd1JhdEFqdVlIVVNweTBnKzFaeEttL0Z0NzE2MHMxcktVPQ&mmp_pid=an_11322270305&uls_trackid=54dfti7u00b8&utm_campaign=id_nsbHj6nP3n&utm_content=----&utm_medium=affiliates&utm_source=an_11322270305&utm_term=e4atp25wat9u" target="_blank" class="card" data-platform="shopee">
+<a href="https://shopee.co.id/product/1577487859/41608779927?exp_group=mvp&gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkVHQ3ZkZSUTMrR3pBWmZZNzdrcnRBMzcrUGpJa3pKb1lEeDNoUGRnNGNJd3RoYkNsVlYvK0VjU1VZNk5QSG4rZG9MVnI0UXVmNlFEdTcrZFRaZFFGM2FNNUpqWDkrNHBicTJQa2NjZ2Ird2tqRWc3d3RGd1Bwd1JhdEFqdVlIVVNweTBnKzFaeEttL0Z0NzE2MHMxcktVPQ&mmp_pid=an_11322270305&uls_trackid=54dfti7u00b8&utm_campaign=id_nsbHj6nP3n&utm_content=----&utm_medium=affiliates&utm_source=an_11322270305&utm_term=e4atp25wat9u" target="_blank" class="card" data-platform="shopee" data-category="Bags" data-subcategory="Bag">
   <div class="badge">ORI</div>
   <img src="https://down-id.img.susercontent.com/file/id-11134207-81ztq-mef335ordi4g83@resize_w900_nl.webp"/>
   <div class="meta">
@@ -880,7 +944,7 @@ img{
   </div>
 </a>
 
-<a href="https://shopee.co.id/product/121479431/28314904994?exp_group=mvp&gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkWVp3RFo3Mkw5czd4Z0hzdEF1WVFibUQ4YVVETnR2aTVkeDZETzhMS0pGREtsTnEya3djTHV5VUVaeHhmVFRVdXN6VXoyeExrU1Z6RTJidWJlc2ppd04vVTlaYmdZV2lPM3NiYlpDSGR2RFpQVGw0SDNUTGpLemhCMklQTUZyYnZMMWNhNmRtenhRKzFoZkc3QkNCbTA4PQ&mmp_pid=an_11322270305&uls_trackid=54dfu2iu02eq&utm_campaign=id_139bsuLp05v&utm_content=----&utm_medium=affiliates&utm_source=an_11322270305&utm_term=e4au3ejuxuuz" target="_blank" class="card" data-platform="shopee">>
+<a href="https://shopee.co.id/product/121479431/28314904994?exp_group=mvp&gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkWVp3RFo3Mkw5czd4Z0hzdEF1WVFibUQ4YVVETnR2aTVkeDZETzhMS0pGREtsTnEya3djTHV5VUVaeHhmVFRVdXN6VXoyeExrU1Z6RTJidWJlc2ppd04vVTlaYmdZV2lPM3NiYlpDSGR2RFpQVGw0SDNUTGpLemhCMklQTUZyYnZMMWNhNmRtenhRKzFoZkc3QkNCbTA4PQ&mmp_pid=an_11322270305&uls_trackid=54dfu2iu02eq&utm_campaign=id_139bsuLp05v&utm_content=----&utm_medium=affiliates&utm_source=an_11322270305&utm_term=e4au3ejuxuuz" target="_blank" class="card" data-platform="shopee" data-category="Fashion" data-subcategory="Dress">>
   <div class="badge">HOT</div>
   <img src="https://down-id.img.susercontent.com/file/id-11134207-81zte-mf4z51596tjda6.webp"/>
   <div class="meta">
@@ -895,7 +959,7 @@ img{
   </div>
 </a>
 
-<a href="https://shopee.co.id/product/141503234/8885468612?exp_group=mvp&gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkVzBLS2xuUGZzMlQ5NjlFWklmRkZjUURlRFh6Tk1HSFVtOHQvV09sTnRIZWVoeEx2MlM2RUVPRDJ0UkJXbXRUZ2hyeW16cXlVWHFWSjBhNG93SjNKbFRKMHd6a3psak9kSno2QzZzdlNPdCtlNHA2VURQRFJNRi92WTN6QWNmRFZCYU04S0ZNK3Q5WDF3dSsxTGl5OURVPQ&mmp_pid=an_11322270305&uls_trackid=54dfubgu00es&utm_campaign=id_13bczQRWw3L&utm_content=----&utm_medium=affiliates&utm_source=an_11322270305&utm_term=e4auaq1xefjd&is_from_login=true" target="_blank" class="card" data-platform="shopee">
+<a href="https://shopee.co.id/product/141503234/8885468612?exp_group=mvp&gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkVzBLS2xuUGZzMlQ5NjlFWklmRkZjUURlRFh6Tk1HSFVtOHQvV09sTnRIZWVoeEx2MlM2RUVPRDJ0UkJXbXRUZ2hyeW16cXlVWHFWSjBhNG93SjNKbFRKMHd6a3psak9kSno2QzZzdlNPdCtlNHA2VURQRFJNRi92WTN6QWNmRFZCYU04S0ZNK3Q5WDF3dSsxTGl5OURVPQ&mmp_pid=an_11322270305&uls_trackid=54dfubgu00es&utm_campaign=id_13bczQRWw3L&utm_content=----&utm_medium=affiliates&utm_source=an_11322270305&utm_term=e4auaq1xefjd&is_from_login=true" target="_blank" class="card" data-platform="shopee" data-category="Bags" data-subcategory="Bag">
   <div class="badge">SALE</div>
   <img src="https://down-id.img.susercontent.com/file/id-11134207-7rasd-m2rm0lz1rlc39e.webp"/>
   <div class="meta">
@@ -910,7 +974,7 @@ img{
   </div>
 </a>
 
-<a href="https://shopee.co.id/product/92251144/4069302763?exp_group=mvp&gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkVEg0SDd3VWo1MDQyT052d3EvY1B4Yks0aGhWNXl6TlhKT2JsaERlQkJBK21UZDJKRGNVb2sxNDVPenBzajZ4Yml3UUFDR1dXL1hlVzhUQzYyTEl3TlJkcldOajJhVEp5QWw1N3ZIOFJKeFpZSHhWY0NQYlJGS1ZHdXM0NTUxYkNnPT0&mmp_pid=an_11322270305&uls_trackid=54dja6dp00es&utm_campaign=id_YSfXzkAxm3&utm_content=----&utm_medium=affiliates&utm_source=an_11322270305&utm_term=e4daaman9tns" target="_blank" class="card" data-platform="shopee">
+<a href="https://shopee.co.id/product/92251144/4069302763?exp_group=mvp&gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkVEg0SDd3VWo1MDQyT052d3EvY1B4Yks0aGhWNXl6TlhKT2JsaERlQkJBK21UZDJKRGNVb2sxNDVPenBzajZ4Yml3UUFDR1dXL1hlVzhUQzYyTEl3TlJkcldOajJhVEp5QWw1N3ZIOFJKeFpZSHhWY0NQYlJGS1ZHdXM0NTUxYkNnPT0&mmp_pid=an_11322270305&uls_trackid=54dja6dp00es&utm_campaign=id_YSfXzkAxm3&utm_content=----&utm_medium=affiliates&utm_source=an_11322270305&utm_term=e4daaman9tns" target="_blank" class="card" data-platform="shopee" data-category="Fashion" data-subcategory="Underwear">
   <div class="badge">SALE</div>
   <img src="https://down-id.img.susercontent.com/file/b767963be97814b6344ccaff8874446a.webp"/>
   <div class="meta">
@@ -925,7 +989,7 @@ img{
   </div>
 </a>
 
-<a href="https://shopee.co.id/product/141291775/23776423409?exp_group=mvp&gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkWVp3RFo3Mkw5czd4Z0hzdEF1WVFibGRGYWNzbWp6a2ZheHB4NmxkUlpjblBOVW5ocDUzdk9tU0loWCtCdUNTcDR3S0d6YVFISTZYY1pGelZrM0hqeWs2VHBpL0RmTGNtK25EMGNMa0w2MEEyWHhTRHdoR2lsaUsyWUlDVS9XWEtMdEpqaldiTzlta0Z3Y2o5cjFtZmprPQ&mmp_pid=an_11322270305&uls_trackid=54djb0ps00ac&utm_campaign=id_K5odnVpII3&utm_content=----&utm_medium=affiliates&utm_source=an_11322270305&utm_term=e4dax6npjmif" target="_blank" class="card" data-platform="shopee">
+<a href="https://shopee.co.id/product/141291775/23776423409?exp_group=mvp&gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkWVp3RFo3Mkw5czd4Z0hzdEF1WVFibGRGYWNzbWp6a2ZheHB4NmxkUlpjblBOVW5ocDUzdk9tU0loWCtCdUNTcDR3S0d6YVFISTZYY1pGelZrM0hqeWs2VHBpL0RmTGNtK25EMGNMa0w2MEEyWHhTRHdoR2lsaUsyWUlDVS9XWEtMdEpqaldiTzlta0Z3Y2o5cjFtZmprPQ&mmp_pid=an_11322270305&uls_trackid=54djb0ps00ac&utm_campaign=id_K5odnVpII3&utm_content=----&utm_medium=affiliates&utm_source=an_11322270305&utm_term=e4dax6npjmif" target="_blank" class="card" data-platform="shopee" data-category="Fashion" data-subcategory="Celana High Waist">
   <div class="badge">STAR</div>
   <img src="https://down-id.img.susercontent.com/file/sg-11134201-7qvfn-lk9q67smtwvw7e.webp"/>
   <div class="meta">
@@ -940,7 +1004,7 @@ img{
   </div>
 </a>
 
-<a href="https://shopee.co.id/product/1059641085/24472518706?exp_group=mvp&gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkVHQ3ZkZSUTMrR3pBWmZZNzdrcnRBMy9yU1E0WDRTanRrWWlyYUZXdFh6Y2QyNjUrcTlHb1puYi9ZNi90VHF0bmo0bDAxYXJtbVp3eUNnT290WjcraHJ4WW0wTjJhMnZ5ZTBnUWk2WmZ5WXo4WEdzbk0zam5IUlNDZS9rcFlpZ1ZiTUlMd1JQT1lWM01IZUFRSHFGb0g4PQ&mmp_pid=an_11322270305&uls_trackid=54djbm9500ac&utm_campaign=id_jFfF7ukRDT&utm_content=----&utm_medium=affiliates&utm_source=an_11322270305&utm_term=e4dbfqsea3h1" target="_blank" class="card" data-platform="shopee">
+<a href="https://shopee.co.id/product/1059641085/24472518706?exp_group=mvp&gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkVHQ3ZkZSUTMrR3pBWmZZNzdrcnRBMy9yU1E0WDRTanRrWWlyYUZXdFh6Y2QyNjUrcTlHb1puYi9ZNi90VHF0bmo0bDAxYXJtbVp3eUNnT290WjcraHJ4WW0wTjJhMnZ5ZTBnUWk2WmZ5WXo4WEdzbk0zam5IUlNDZS9rcFlpZ1ZiTUlMd1JQT1lWM01IZUFRSHFGb0g4PQ&mmp_pid=an_11322270305&uls_trackid=54djbm9500ac&utm_campaign=id_jFfF7ukRDT&utm_content=----&utm_medium=affiliates&utm_source=an_11322270305&utm_term=e4dbfqsea3h1" target="_blank" class="card" data-platform="shopee" data-category="Fashion" data-subcategory="Jeans">
   <img src="https://down-id.img.susercontent.com/file/id-11134207-7r98x-ltqdzvaoce8z33.webp"/>
   <div class="meta">
     <div style="flex:1">
@@ -1367,5 +1431,36 @@ function filterProducts(){
   });
 }
 </script>
+
+<script>
+// Slider click behavior
+document.querySelectorAll('.category-slider .cat-item').forEach(function(el){
+  el.addEventListener('click', function(){
+    document.querySelectorAll('.category-slider .cat-item').forEach(x=>x.classList.remove('active'));
+    el.classList.add('active');
+    var cat = el.dataset.cat || 'all';
+    var mainSel = document.getElementById('mainCategory');
+    if(mainSel){
+      var opt = Array.from(mainSel.options).find(o=>o.value===cat);
+      if(!opt){
+        var o = document.createElement('option'); o.value=cat; o.text=cat; mainSel.add(o);
+      }
+      mainSel.value = cat;
+      mainSel.dispatchEvent(new Event('change'));
+    }
+  });
+});
+// slider drag
+(function(){
+  const slider = document.querySelector('.category-slider');
+  if(!slider) return;
+  let isDown=false, startX, scrollLeft;
+  slider.addEventListener('mousedown', (e)=>{ isDown=true; slider.classList.add('down'); startX=e.pageX - slider.offsetLeft; scrollLeft=slider.scrollLeft; });
+  slider.addEventListener('mouseleave', ()=>{ isDown=false; slider.classList.remove('down'); });
+  slider.addEventListener('mouseup', ()=>{ isDown=false; slider.classList.remove('down'); });
+  slider.addEventListener('mousemove', (e)=>{ if(!isDown) return; e.preventDefault(); const x=e.pageX - slider.offsetLeft; const walk=(x-startX)*1.5; slider.scrollLeft = scrollLeft - walk; });
+})();
+</script>
+
 </body>
 </html>
