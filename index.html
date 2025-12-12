@@ -7,6 +7,15 @@
 <link rel="stylesheet" href="css/product.css">
   <link rel="icon" href="assets/img/favicon.png" type="image/png">
 </head>
+  <!-- Mobile Header -->
+<div id="mobile-header"></div>
+<script>
+  fetch('partials/header-mobile.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('mobile-header').innerHTML = html;
+    });
+</script>
 <body>
 <div class="container">
   <header class="header"><div class="logo">LIAFIZ</div><div class="search">🔍</div></header>
@@ -33,13 +42,4 @@
 
 <script src="js/app.js"></script>
 <script src="js/filter.js"></script>
-  <header class="mobile-header">
-    <div class="header-left">
-        <img src="assets/img/logo.png" class="logo">
-    </div>
-
-    <div class="header-right">
-        <button class="menu-btn" onclick="toggleMenu()">☰</button>
-    </div>
-  </header>
 </body></html>
