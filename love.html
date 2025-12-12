@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist - Liafiz Store</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+
+    <style>
+        body{
+            margin:0;
+            font-family:Inter,system-ui;
+            background:#fff7fb;
+        }
+
+        .header{
+            height:60px;
+            display:flex;
+            align-items:center;
+            padding:0 15px;
+            background:#fff;
+            font-size:18px;
+            font-weight:700;
+            position:sticky;
+            top:0;
+            z-index:99;
+            box-shadow:0 1px 4px rgba(0,0,0,0.05);
+        }
+
+        .items{
+            padding:15px;
+        }
+
+        .card{
+            background:#fff;
+            border-radius:14px;
+            padding:12px;
+            display:flex;
+            gap:12px;
+            margin-bottom:15px;
+            box-shadow:0 6px 14px rgba(20,20,30,0.04);
+        }
+
+        .card img{
+            width:90px;
+            height:90px;
+            object-fit:cover;
+            border-radius:12px;
+        }
+
+        .info{
+            flex:1;
+        }
+
+        .title{
+            font-size:15px;
+            font-weight:600;
+        }
+
+        .price{
+            color:#ff6fa8;
+            font-weight:700;
+            margin-top:6px;
+        }
+
+        .remove{
+            margin-left:auto;
+            color:#ff6fa8;
+            font-size:22px;
+        }
+
+        /* bottom nav */
+        .bottom-nav{
+            position:fixed;
+            left:0; right:0; bottom:0;
+            background:#0f1724;
+            display:flex;
+            justify-content:space-around;
+            padding:10px 6px;
+            border-top-left-radius:12px;
+            border-top-right-radius:12px;
+        }
+
+        .bottom-nav a{
+            text-align:center;
+            text-decoration:none;
+            color:#fff;
+            font-size:12px;
+        }
+
+        .bottom-nav i{
+            font-size:22px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <span>❤️ Wishlist</span>
+    </div>
+
+    <div class="items">
+
+        <div class="card">
+            <img src="assets/products/sample1.jpg">
+            <div class="info">
+                <div class="title">Sample Product 1</div>
+                <div class="price">Rp 120.000</div>
+            </div>
+            <i class="ri-delete-bin-line remove"></i>
+        </div>
+
+        <div class="card">
+            <img src="assets/products/sample2.jpg">
+            <div class="info">
+                <div class="title">Sample Product 2</div>
+                <div class="price">Rp 89.000</div>
+            </div>
+            <i class="ri-delete-bin-line remove"></i>
+        </div>
+
+    </div>
+
+    <!-- bottom nav -->
+    <div class="bottom-nav">
+        <a href="index.html">
+            <i class="ri-home-4-line"></i><br>Home
+        </a>
+        <a href="love.html">
+            <i class="ri-heart-3-fill" style="color:#ff6fa8"></i><br>Love
+        </a>
+        <a href="cart.html">
+            <i class="ri-shopping-cart-line"></i><br>Cart
+        </a>
+        <a href="profile.html">
+            <i class="ri-user-line"></i><br>Profile
+        </a>
+    </div>
+
+</body>
+</html>
