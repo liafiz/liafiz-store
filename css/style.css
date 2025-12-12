@@ -127,3 +127,8 @@ body{
     border: none;
     cursor: pointer;
 }
+.mobile-logo {
+    width: 32px;
+    height: auto;
+    display: block;
+}
