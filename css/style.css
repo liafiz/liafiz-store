@@ -12,9 +12,10 @@
     z-index: 100;
 }
 
-.logo-mobile {
-    height: 32px;   /* Sesuaikan kalau kebesaran */
-    width: auto;
+.logo {
+  width: 40px;
+  height: auto;
+}
 }
 
 .menu-btn {
