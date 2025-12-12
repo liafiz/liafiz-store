@@ -22,23 +22,6 @@ body{
   padding:14px;
 }
 
-.header{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:12px;
-  background:#fff;
-  border-radius:12px;
-  margin-bottom:14px;
-  box-shadow:var(--shadow)
-}
-
-.logo{
-  font-weight:700;
-  font-size:18px;
-  color:var(--brand)
-}
-
 .grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
@@ -108,7 +91,6 @@ body{
     z-index: 100;
 }
 
-/* Logo di mobile */
 .mobile-left .mobile-logo {
     width: 32px;
     height: auto;
