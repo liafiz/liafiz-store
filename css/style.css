@@ -97,25 +97,33 @@ body{
 
 /* MOBILE HEADER */
 .mobile-header {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:10px 14px;
-  background:#fff;
-  border-bottom:1px solid #eee;
-  position:sticky;
-  top:0;
-  z-index:100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-.mobile-logo {
-  width:42px;  /* ukuran logo */
-  height:auto;
+.mobile-left .logo {
+    width: 32px;
+    height: auto;
 }
 
-.menu-btn {
-  background:none;
-  border:none;
-  font-size:26px;
-  cursor:pointer;
+.mobile-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.mobile-right a,
+.mobile-right button {
+    font-size: 22px;
+    color: #444;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
