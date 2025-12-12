@@ -108,9 +108,11 @@ body{
     z-index: 100;
 }
 
+/* Logo di mobile */
 .mobile-left .mobile-logo {
     width: 32px;
     height: auto;
+    display: block;
 }
 
 .mobile-right {
