@@ -1,45 +1,71 @@
 <!doctype html>
 <html lang="id">
+
 <head>
-<link rel='stylesheet' href='css/style.css'><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Liafiz Store - Modular</title>
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/category.css">
-<link rel="stylesheet" href="css/product.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Liafiz Store - Modular</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/category.css">
+  <link rel="stylesheet" href="css/product.css">
+
   <link rel="icon" href="assets/img/favicon.png" type="image/png">
 </head>
-  <!-- Header Mobile -->
-<div id="header-mobile"></div>
 
-<script>
-  fetch("partials/header-mobile.html")
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById("header-mobile").innerHTML = data;
-    });
-</script>
 <body>
-<div class="container">
-  <div style="margin:12px 0;padding:14px;border-radius:12px;background:linear-gradient(90deg,#fff,#fff6fb);box-shadow:0 8px 20px rgba(20,20,30,0.03)"><div style="height:120px;border-radius:10px;background:#ffeef5;display:flex;align-items:center;justify-content:center;color:var(--muted)">Promo Banner</div></div>
-  <div class="section-title">Categories</div>
-  <div class="category-slider" aria-label="Category slider">
-    <div class="cat-item" data-cat="Fashion"><div class="cat-icon">👗</div><div class="cat-label">Fashion</div></div>
-    <div class="cat-item" data-cat="Shoes"><div class="cat-icon">👟</div><div class="cat-label">Shoes</div></div>
-    <div class="cat-item" data-cat="Accessories"><div class="cat-icon">🎧</div><div class="cat-label">Accessories</div></div>
-    <div class="cat-item" data-cat="Bags"><div class="cat-icon">👜</div><div class="cat-label">Bags</div></div>
-    <div class="cat-item" data-cat="Gadget"><div class="cat-icon">📱</div><div class="cat-label">Gadget</div></div>
-    <div class="cat-item" data-cat="Beauty"><div class="cat-icon">💄</div><div class="cat-label">Beauty</div></div>
-    <div class="cat-item" data-cat="Flash Sale"><div class="cat-icon">🔥</div><div class="cat-label">Flash Sale</div></div>
+
+  <!-- Header Mobile -->
+  <div id="header-mobile"></div>
+
+  <script>
+    fetch("partials/header-mobile.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("header-mobile").innerHTML = data;
+      });
+  </script>
+
+  <div class="container">
+
+    <div style="margin:12px 0;padding:14px;border-radius:12px;background:linear-gradient(90deg,#fff,#fff6fb);box-shadow:0 8px 20px rgba(20,20,30,0.03)">
+      <div style="height:120px;border-radius:10px;background:#ffeef5;display:flex;align-items:center;justify-content:center;color:var(--muted)">
+        Promo Banner
+      </div>
+    </div>
+
+    <div class="section-title">Categories</div>
+
+    <div class="category-slider" aria-label="Category slider">
+      <div class="cat-item" data-cat="Fashion"><div class="cat-icon">👗</div><div class="cat-label">Fashion</div></div>
+      <div class="cat-item" data-cat="Shoes"><div class="cat-icon">👟</div><div class="cat-label">Shoes</div></div>
+      <div class="cat-item" data-cat="Accessories"><div class="cat-icon">🎧</div><div class="cat-label">Accessories</div></div>
+      <div class="cat-item" data-cat="Bags"><div class="cat-icon">👜</div><div class="cat-label">Bags</div></div>
+      <div class="cat-item" data-cat="Gadget"><div class="cat-icon">📱</div><div class="cat-label">Gadget</div></div>
+      <div class="cat-item" data-cat="Beauty"><div class="cat-icon">💄</div><div class="cat-label">Beauty</div></div>
+      <div class="cat-item" data-cat="Flash Sale"><div class="cat-icon">🔥</div><div class="cat-label">Flash Sale</div></div>
+    </div>
+
+    <div class="section-title">New Arrival</div>
+
+    <div class="grid" id="productGrid">
+      <a href="https://amzn.to/4oGj0BO" target="_blank" class="card" data-platform="amazon" data-category="Shoes" data-subcategory="Running">
+        <div class="badge">AMAZON</div>
+      </a>
+    </div>
+
   </div>
 
-  <div class="section-title">New Arrival</div>
+  <nav class="bottom-nav">
+    <div class="item">🏠<div>Home</div></div>
+    <div class="item">❤️<div>Love</div></div>
+    <div class="item">🛒<div>Cart</div></div>
+    <div class="item">👤<div>Profile</div></div>
+  </nav>
 
-  <div class="grid" id="productGrid">
-   <a href="https://amzn.to/4oGj0BO" target="_blank" class="card" data-platform="amazon" data-category="Shoes" data-subcategory="Running">
-  <div class="badge">AMAZON</div>
+  <script src="js/app.js"></script>
+  <script src="js/filter.js"></script>
 
-</div>
-<nav class="bottom-nav"><div class="item">🏠<div>Home</div></div><div class="item">❤️<div>Love</div></div><div class="item">🛒<div>Cart</div></div><div class="item">👤<div>Profile</div></div></nav>
+</body>
 
-<script src="js/app.js"></script>
-<script src="js/filter.js"></script>
-</body></html>
+</html>
