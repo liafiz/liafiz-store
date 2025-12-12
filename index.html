@@ -7,18 +7,18 @@
 <link rel="stylesheet" href="css/product.css">
   <link rel="icon" href="assets/img/favicon.png" type="image/png">
 </head>
-  <!-- Mobile Header -->
-<div id="mobile-header"></div>
+  <!-- Header Mobile -->
+<div id="header-mobile"></div>
+
 <script>
-  fetch('partials/header-mobile.html')
+  fetch("partials/header-mobile.html")
     .then(res => res.text())
-    .then(html => {
-      document.getElementById('mobile-header').innerHTML = html;
+    .then(data => {
+      document.getElementById("header-mobile").innerHTML = data;
     });
 </script>
 <body>
 <div class="container">
-  <header class="header"><div class="logo">LIAFIZ</div><div class="search">🔍</div></header>
   <div style="margin:12px 0;padding:14px;border-radius:12px;background:linear-gradient(90deg,#fff,#fff6fb);box-shadow:0 8px 20px rgba(20,20,30,0.03)"><div style="height:120px;border-radius:10px;background:#ffeef5;display:flex;align-items:center;justify-content:center;color:var(--muted)">Promo Banner</div></div>
   <div class="section-title">Categories</div>
   <div class="category-slider" aria-label="Category slider">
