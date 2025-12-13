@@ -155,3 +155,26 @@ body{
 .mobile-header i {
   display: block;
 }
+/* ===== TEXT SIZE ADJUST (MOBILE UI) ===== */
+
+/* Judul section */
+.cat-title,
+.new-title {
+  font-size: 16px;        /* dari besar → lebih pas */
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* Item kategori (Fashion, Shoes, dll) */
+.cat-item span {
+  font-size: 13px;        /* kecilin biar rapi */
+  font-weight: 500;
+}
+/* spacing section biar lebih rapi */
+.categories {
+  margin-top: 16px;
+}
+
+.new-title {
+  margin-top: 18px;
+}
