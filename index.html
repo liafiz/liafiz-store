@@ -4,24 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Liafiz Store</title>
-<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
   <!-- header (loaded partial) -->
-  <div class="mobile-header">
-  <div class="mobile-left">
-    <img src="assets/img/logo.png" class="mobile-logo" alt="Liafiz">
-  </div>
-
-  <div class="mobile-right">
-    <a href="search.html"><i class="ri-search-line"></i></a>
-    <a href="cart.html"><i class="ri-shopping-cart-line"></i></a>
-    <button id="menuToggle"><i class="ri-menu-line"></i></button>
-  </div>
-  </div>
+  <div id="header-mobile"></div>
   <script>
     fetch('partials/header-mobile.html')
       .then(r=>r.text()).then(t=>document.getElementById('header-mobile').innerHTML=t);
