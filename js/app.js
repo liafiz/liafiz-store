@@ -1,1 +1,4 @@
-document.addEventListener('DOMContentLoaded',function(){console.log('liafiz modular ready')});
+// app.js - minimal interactivity
+document.addEventListener('click', function(e){
+  // bisa ditambah nanti
+});
