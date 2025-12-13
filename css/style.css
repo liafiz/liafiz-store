@@ -24,26 +24,27 @@ body{
 }
 
 .mobile-header {
-    height: 60px;
-    padding: 0 14px;
-    align-items: center;
+    background: var(--brand);
+    position: sticky;
+    top: 0;
+    z-index: 999;
 }
 
 .mobile-left .mobile-logo {
-    height: 38px;              /* ukuran dasar */
+    height: 44px !important;
     width: auto;
-    transform: scale(1.4);     /* NAIKIN DI SINI */
-    transform-origin: left center;
+}
+
+.mobile-right a,
+.mobile-right button {
+    background: none !important;
+    border: none;
+    padding: 0;
 }
 
 .mobile-right i {
-    color: #fff !important;
+    color: #fff;
     font-size: 22px;
-}
-
-.mobile-right a {
-    text-decoration: none !important;
-    color: #fff !important;
 }
 .mobile-right button {
     background: transparent !important;
@@ -82,9 +83,10 @@ body{
 .bottom-nav i{font-size:22px}
 
 /* responsive tweaks */
-@media(min-width:900px){
-  .grid{grid-template-columns:repeat(3,1fr)}
-  .mobile-header{display:none}
+@media (min-width: 1024px) {
+  .mobile-header {
+    display: none;
+  }
 }
 /* FORCE logo size */
 .mobile-left .mobile-logo {
