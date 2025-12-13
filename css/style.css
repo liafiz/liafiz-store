@@ -155,26 +155,18 @@ body{
 .mobile-header i {
   display: block;
 }
-/* ===== TEXT SIZE ADJUST (MOBILE UI) ===== */
+/* ===== TEXT SIZE LEBIH KECIL (FINAL) ===== */
 
 /* Judul section */
 .cat-title,
 .new-title {
-  font-size: 16px;        /* dari besar → lebih pas */
+  font-size: 14px;      /* dari 16 → 14 */
   font-weight: 600;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
-/* Item kategori (Fashion, Shoes, dll) */
+/* Item kategori */
 .cat-item span {
-  font-size: 13px;        /* kecilin biar rapi */
+  font-size: 12px;      /* dari 13 → 12 */
   font-weight: 500;
-}
-/* spacing section biar lebih rapi */
-.categories {
-  margin-top: 16px;
-}
-
-.new-title {
-  margin-top: 18px;
 }
