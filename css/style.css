@@ -170,3 +170,15 @@ body{
   font-size: 12px;      /* dari 13 → 12 */
   font-weight: 500;
 }
+/* logo + subtitle */
+.logo-wrap {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.logo-sub {
+  font-size: 10px;          /* kecil banget */
+  color: rgba(255,255,255,0.75);
+  letter-spacing: 0.5px;
+  }
