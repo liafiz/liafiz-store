@@ -39,9 +39,9 @@ body{
   box-shadow:var(--shadow);
 }
 
-.mobile-left .mobile-logo{
-  height:36px;
-  width:auto;
+.mobile-left .mobile-logo {
+    height: 52px;   /* coba 48–56px */
+    width: auto;
 }
 
 .mobile-right i{
