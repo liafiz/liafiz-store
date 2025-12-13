@@ -23,22 +23,28 @@ body{
   padding:14px;
 }
 
-.mobile-header {
-    background: var(--brand);
-    position: sticky;
-    top: 0;
-    z-index: 999;
+.mobile-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-.mobile-right a,
-.mobile-right button {
-    background: none;
-    border: none;
-    padding: 0;
+
+/* LOGO */
+.mobile-logo {
+  height: 60px;   /* INI YANG LU MAU */
+  width: auto;
+  display: block;
+}
+
+/* ICON KANAN */
+.mobile-right {
+  display: flex;
+  gap: 16px;
 }
 
 .mobile-right i {
-    color: #fff;
-    font-size: 22px;
+  color: #fff;
+  font-size: 22px;
 }
 
 .promo{
