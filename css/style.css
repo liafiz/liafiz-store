@@ -74,6 +74,18 @@ body {
 .cat-title{font-size:18px;margin:8px 16px;color:var(--text);font-weight:700}
 .cat-scroll{display:flex;gap:14px;padding:12px 16px;overflow-x:auto}
 .cat-item{min-width:86px;background:var(--card-bg);border-radius:14px;padding:12px;text-align:center;box-shadow:var(--shadow)}
+.cat-item span {
+  color: var(--muted);
+  font-size: 13px;      /* opsional tapi cakep */
+}
+.cat-item.active {
+  background: var(--brand);
+}
+
+.cat-item.active span {
+  color: #1f2933;
+  font-weight: 600;
+}
 .cat-item img{width:34px;height:34px}
 .cat-item span{display:block;margin-top:8px;color:var(--muted);font-size:13px}
 
