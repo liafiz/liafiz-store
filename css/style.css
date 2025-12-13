@@ -182,3 +182,35 @@ body{
   color: rgba(255,255,255,0.75);
   letter-spacing: 0.5px;
   }
+/* affiliate buttons */
+.affiliate-buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.aff-btn {
+  flex: 1;
+  font-size: 12px;
+  padding: 8px 0;
+  text-align: center;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* warna per platform */
+.aff-btn.shopee {
+  background: #ff7337;
+  color: #fff;
+}
+
+.aff-btn.amazon {
+  background: #232f3e;
+  color: #fff;
+}
+
+.aff-btn.food {
+  background: #ff4d4d;
+  color: #fff;
+}
