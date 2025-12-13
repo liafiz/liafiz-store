@@ -1,19 +1,22 @@
 <!doctype html>
 <html lang="id">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Liafiz Store</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
-<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- GOOGLE FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-   <!-- HEADER / LOGO -->
-  <header>
-    <div class="logo-text">Liafiz</div>
-  </header>
+<header class="header">
+  <div class="logo-text">Liafiz</div>
+</header>
+
+</body>
   <script>
     fetch('partials/header-mobile.html')
       .then(r=>r.text()).then(t=>document.getElementById('header-mobile').innerHTML=t);
