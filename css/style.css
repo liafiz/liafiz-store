@@ -156,6 +156,12 @@ body {
   box-shadow: 0 -2px 8px rgba(0,0,0,0.08);
   z-index: 999;
 }
+.bottom-nav a.active {
+  color: #1f2933;
+}
+.bottom-nav a.active {
+  background: rgba(255,255,255,0.6);
+}
 
 .bottom-nav a {
   color: #ffffff;                 /* ICON PUTIH */
