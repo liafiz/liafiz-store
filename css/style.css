@@ -44,7 +44,17 @@ body{
   width:auto;
 }
 
-.mobile-right a, .mobile-right button { color:#fff; font-size:20px; }
+.mobile-right i{
+  font-size:22px;
+  color:#444;
+}
+
+.mobile-right a,
+.mobile-right button{
+  background:none;
+  border:none;
+  cursor:pointer;
+}
 
 .promo{
   background: linear-gradient(180deg, #fff, #ffeef7);
