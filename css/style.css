@@ -26,6 +26,7 @@ body{
 .mobile-header {
     height: 60px;
     padding: 0 14px;
+    align-items: center;
 }
 
 .mobile-left .mobile-logo {
@@ -36,8 +37,8 @@ body{
 }
 
 .mobile-right i {
+    color: #fff !important;
     font-size: 22px;
-    color: #fff;
 }
 
 .mobile-right a {
