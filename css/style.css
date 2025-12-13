@@ -42,7 +42,6 @@ body{
   height:36px;
   width:auto;
 }
-.mobile-right button { color:#fff; font-size:20px; }
 .mobile-right {
   display: flex;
   align-items: center;
@@ -84,7 +83,10 @@ body{
 
 .bottom-nav{
   position:fixed;left:0;right:0;bottom:0;background:#ffd9ee;padding:10px 8px;display:flex;justify-content:space-around;border-top-left-radius:18px;border-top-right-radius:18px}
-.bottom-nav a{color:#333;text-decoration:none;font-size:12px}
+.bottom-nav a {
+  color: #333;
+  font-size: 22px;
+}
 .bottom-nav i{font-size:22px}
 
 /* responsive tweaks */
