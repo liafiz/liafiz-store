@@ -37,6 +37,10 @@ body{
   border-bottom-right-radius:26px;
   box-shadow:var(--shadow);
 }
+.mobile-header {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
 
 .mobile-left .mobile-logo{
   height:36px;
