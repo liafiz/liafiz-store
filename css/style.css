@@ -44,9 +44,10 @@ body{
     width: auto;
 }
 
-.mobile-right i{
-  font-size:22px;
-  color:#444;
+.mobile-right i {
+    font-size: 22px;
+    color: #fff;   /* PUTIH */
+}
 }
 
 .mobile-right a,
