@@ -72,6 +72,19 @@
     <i class="ri-user-line"></i>
   </a>
 </nav>
+<script>
+  const catItems = document.querySelectorAll('.cat-item');
 
+  catItems.forEach(item => {
+    item.addEventListener('click', () => {
+      // hapus active dari semua
+      catItems.forEach(i => i.classList.remove('active'));
+
+      // tambah active ke yang diklik
+      item.classList.add('active');
+    });
+  });
+</script>
+  
 </body>
 </html>
