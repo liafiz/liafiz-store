@@ -81,11 +81,30 @@ body{
 .title{font-weight:700;font-size:14px}
 .price{color:var(--brand);font-weight:800}
 
-.bottom-nav{
-  position:fixed;left:0;right:0;bottom:0;background:#ffd9ee;padding:10px 8px;display:flex;justify-content:space-around;border-top-left-radius:18px;border-top-right-radius:18px}
+.bottom-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #ffd6eb;         /* pink lembut */
+  padding: 10px 8px;
+  display: flex;
+  justify-content: space-around;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  box-shadow: var(--shadow);
+}
+
 .bottom-nav a {
-  color: #333;
-  font-size: 22px;
+  color: #ffffff;              /* icon putih */
+  text-decoration: none;       /* hilangin garis bawah */
+  font-size: 22px;             /* ukuran icon */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bottom-nav a.active {
+  color: #ff99cc; /* pink lebih tua pas aktif */
 }
 .bottom-nav i{font-size:22px}
 
