@@ -38,8 +38,9 @@ body{
 }
 
 .mobile-left .mobile-logo {
-    height: 80px;   /* coba 48–56px */
+    height: 88px;   /* tinggal naik-turun di sini */
     width: auto;
+    display: block;
 }
 
 .mobile-right i {
