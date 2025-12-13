@@ -11,7 +11,17 @@
 <body>
 
   <!-- header (loaded partial) -->
-  <div id="header-mobile"></div>
+  <div class="mobile-header">
+  <div class="mobile-left">
+    <img src="assets/img/logo.png" class="mobile-logo" alt="Liafiz">
+  </div>
+
+  <div class="mobile-right">
+    <a href="search.html"><i class="ri-search-line"></i></a>
+    <a href="cart.html"><i class="ri-shopping-cart-line"></i></a>
+    <button id="menuToggle"><i class="ri-menu-line"></i></button>
+  </div>
+  </div>
   <script>
     fetch('partials/header-mobile.html')
       .then(r=>r.text()).then(t=>document.getElementById('header-mobile').innerHTML=t);
