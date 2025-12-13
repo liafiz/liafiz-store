@@ -1,19 +1,21 @@
-:root{
-  --brand: #ffd6eb; /* extracted */
-  --bg: #fff3f7;
-  --muted: #777;
-  --card-bg: #fff;
-  --radius: 14px;
-  --shadow: 0 8px 24px rgba(20,20,30,0.06);
-  --text: #333333;
+:root {
+  --brand: #b7c4ab;        /* sage green */
+  --bg: #f6f7f6;           /* background utama */
+  --card-bg: #ffffff;     /* card produk */
+  --text: #1f2933;        /* text utama */
+  --muted: #6b7280;       /* text kecil */
+  --shadow: 0 8px 24px rgba(0,0,0,.08);
 }
 
-*{box-sizing:border-box}
-body{
-  font-family:Inter,system-ui,Arial;
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inter, system-ui, Arial, sans-serif;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
 }
 
 .container{
@@ -60,14 +62,13 @@ body{
   border: none;
   padding: 0;
 }
-.promo{
-  background: linear-gradient(180deg, #fff, #ffeef7);
-  border-radius:16px;
-  padding:24px;
-  margin:16px;
-  text-align:center;
-  color:#c76a9a;
-  box-shadow:var(--shadow);
+.promo {
+  background: var(--brand);
+  color: var(--text);
+  border-radius: 16px;
+  padding: 24px;
+  margin: 16px;
+  box-shadow: var(--shadow);
 }
 
 .cat-title{font-size:18px;margin:8px 16px;color:var(--text);font-weight:700}
