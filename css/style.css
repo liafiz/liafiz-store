@@ -144,3 +144,14 @@ body{
 .bottom-nav a.active {
   background: rgba(255,255,255,0.35);
 }
+/* ===== FIX GARIS BAWAH ICON HEADER (FINAL) ===== */
+.mobile-header a,
+.mobile-header a i {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
+/* pastikan icon dianggap icon, bukan teks */
+.mobile-header i {
+  display: block;
+}
