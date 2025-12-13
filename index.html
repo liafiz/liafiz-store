@@ -1,215 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liafiz Store</title>
-
-    <!-- Remix Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
-
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
-
-    <style>
-        :root{
-            --brand:#ff6fa8;
-            --bg:#fff7fb;
-            --muted:#888;
-            --card-bg:#fff;
-            --radius:14px;
-            --shadow:0 8px 20px rgba(20,20,30,0.06)
-        }
-
-        *{box-sizing:border-box}
-
-        body{
-            font-family:Inter,system-ui,Arial;
-            margin:0;
-            background:var(--bg);
-            color:#222;
-        }
-
-        /* =============== MOBILE HEADER =============== */
-        .mobile-header {
-            width: 100%;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 15px;
-            background: #ffffff;
-            position: sticky;
-            top: 0;
-            z-index: 999;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-        }
-
-        .mobile-logo {
-            height: 32px;
-            width: auto;
-        }
-
-        .mobile-right i {
-            font-size: 22px;
-            margin-left: 12px;
-            color:#444;
-        }
-
-        /* PROMO BANNER */
-        .promo {
-            background:#ffe3f1;
-            padding:25px;
-            margin:15px;
-            border-radius:20px;
-            text-align:center;
-            font-size:20px;
-            color:#c54478;
-            box-shadow:var(--shadow);
-        }
-
-        /* CATEGORIES */
-        .categories {
-            padding: 0 15px;
-        }
-
-        .cat-title {
-            font-size:18px;
-            font-weight:700;
-            margin-bottom:10px;
-        }
-
-        .cat-scroll {
-            display:flex;
-            gap:16px;
-            overflow-x:auto;
-            padding-bottom:10px;
-        }
-
-        .cat-item {
-            min-width:90px;
-            background:#fff;
-            padding:18px 10px;
-            border-radius:20px;
-            text-align:center;
-            box-shadow:var(--shadow);
-        }
-
-        .cat-item img {
-            width:34px;
-            height:34px;
-        }
-
-        .cat-item span {
-            display:block;
-            margin-top:6px;
-            font-size:14px;
-        }
-
-        /* NEW ARRIVAL */
-        .new-title {
-            font-size:20px;
-            font-weight:700;
-            padding:15px;
-        }
-
-        /* BOTTOM NAV */
-        .bottom-nav{
-            position:fixed;
-            left:0;
-            right:0;
-            bottom:0;
-            background:#0f1724;
-            color:#fff;
-            display:flex;
-            justify-content:space-around;
-            padding:10px 6px;
-            border-top-left-radius:12px;
-            border-top-right-radius:12px;
-        }
-
-        .bottom-nav a{
-            text-align:center;
-            text-decoration:none;
-            color:#fff;
-            font-size:12px;
-        }
-
-        .bottom-nav i{
-            font-size:22px;
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Liafiz Store</title>
+<link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
-    <!-- =============== HEADER MOBILE =============== -->
-    <div class="mobile-header">
-        <div class="mobile-left">
-            <img src="assets/img/logo.png" class="mobile-logo" alt="Liafiz">
-        </div>
+  <!-- header (loaded partial) -->
+  <div id="header-mobile"></div>
+  <script>
+    fetch('partials/header-mobile.html')
+      .then(r=>r.text()).then(t=>document.getElementById('header-mobile').innerHTML=t);
+  </script>
 
-        <div class="mobile-right">
-            <a href="search.html"><i class="ri-search-line"></i></a>
-            <a href="cart.html"><i class="ri-shopping-cart-line"></i></a>
-            <button id="menuToggle" style="background:none;border:none;">
-                <i class="ri-menu-line"></i>
-            </button>
-        </div>
-    </div>
-
-    <!-- Promo Banner -->
+  <main class="container">
     <div class="promo">Promo Banner</div>
 
-    <!-- Categories -->
-    <div class="categories">
-        <div class="cat-title">Categories</div>
+    <section class="categories">
+      <h3 class="cat-title">Categories</h3>
+      <div class="cat-scroll" role="navigation" aria-label="Categories">
+        <div class="cat-item"><img src="assets/icons/fashion.svg" alt=""><span>Fashion</span></div>
+        <div class="cat-item"><img src="assets/icons/shoes.svg" alt=""><span>Shoes</span></div>
+        <div class="cat-item"><img src="assets/icons/accessories.svg" alt=""><span>Accessories</span></div>
+        <div class="cat-item"><img src="assets/icons/gadget.svg" alt=""><span>Gadget</span></div>
+        <div class="cat-item"><img src="assets/icons/beauty.svg" alt=""><span>Beauty</span></div>
+        <div class="cat-item"><img src="assets/icons/bag.svg" alt=""><span>Bags</span></div>
+      </div>
+    </section>
 
-        <div class="cat-scroll">
-            <div class="cat-item">
-                <img src="assets/icons/dress.png">
-                <span>Fashion</span>
-            </div>
+    <h3 class="new-title">New Arrival</h3>
 
-            <div class="cat-item">
-                <img src="assets/icons/shoes.png">
-                <span>Shoes</span>
-            </div>
-
-            <div class="cat-item">
-                <img src="assets/icons/headset.png">
-                <span>Accessories</span>
-            </div>
-
-            <div class="cat-item">
-                <img src="assets/icons/bag.png">
-                <span>Bags</span>
-            </div>
+    <section class="grid" id="productGrid">
+      <!-- contoh card -->
+      <a class="card" href="#" data-platform="shopee">
+        <img src="assets/img/logo.svg" alt="product">
+        <div class="meta">
+          <div>
+            <div class="title">Sample Product</div>
+            <div class="price">Rp99.000</div>
+          </div>
+          <div class="rating">⭐ 4.5</div>
         </div>
-    </div>
+      </a>
 
-    <!-- New Arrival -->
-    <div class="new-title">New Arrival</div>
+      <!-- duplikat card untuk layout -->
+      <a class="card" href="#" data-platform="amazon">
+        <img src="assets/img/logo.svg" alt="product2">
+        <div class="meta">
+          <div>
+            <div class="title">Sample Product 2</div>
+            <div class="price">Rp120.000</div>
+          </div>
+          <div class="rating">⭐ 4.8</div>
+        </div>
+      </a>
+    </section>
+  </main>
 
-    <div style="padding:15px;">
-        AMAZON
-    </div>
+  <nav class="bottom-nav">
+    <a href="index.html"><i class="ri-home-4-line"></i><div>Home</div></a>
+    <a href="love.html"><i class="ri-heart-3-line"></i><div>Love</div></a>
+    <a href="cart.html"><i class="ri-shopping-cart-line"></i><div>Cart</div></a>
+    <a href="profile.html"><i class="ri-user-line"></i><div>Profile</div></a>
+  </nav>
 
-    <!-- BOTTOM NAV -->
-    <div class="bottom-nav">
-        <a href="index.html">
-            <i class="ri-home-4-line"></i><br>Home
-        </a>
-        <a href="love.html">
-            <i class="ri-heart-3-line"></i><br>Love
-        </a>
-        <a href="cart.html">
-            <i class="ri-shopping-cart-line"></i><br>Cart
-        </a>
-        <a href="profile.html">
-            <i class="ri-user-line"></i><br>Profile
-        </a>
-    </div>
-
+<script src="js/app.js"></script>
+<script src="js/filter.js"></script>
 </body>
 </html>
