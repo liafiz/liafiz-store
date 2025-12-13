@@ -80,6 +80,13 @@ body{
   .grid{grid-template-columns:repeat(3,1fr)}
   .mobile-header{display:none}
 }
+/* HEADER */
+.header {
+  background: #111;
+  padding: 16px;
+}
+
+/* LOGO */
 .logo-text {
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
