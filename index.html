@@ -10,76 +10,52 @@
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
+<!-- HEADER -->
 <header class="mobile-header">
   <div class="mobile-left">
     <div class="logo-text">Liafiz</div>
   </div>
 
   <div class="mobile-right">
-    <!-- icon kanan lu (kalau ada) -->
+    <a href="search.html"><i class="ri-search-line"></i></a>
+    <a href="cart.html"><i class="ri-shopping-cart-line"></i></a>
+    <button style="background:none;border:none">
+      <i class="ri-menu-line"></i>
+    </button>
   </div>
 </header>
 
-</body>
-  <script>
-    fetch('partials/header-mobile.html')
-      .then(r=>r.text()).then(t=>document.getElementById('header-mobile').innerHTML=t);
-  </script>
+<!-- CONTENT -->
+<main class="container">
 
-  <main class="container">
-    <div class="promo">Promo Banner</div>
+  <div class="promo">Promo Banner</div>
 
-    <section class="categories">
-      <h3 class="cat-title">Categories</h3>
-      <div class="cat-scroll" role="navigation" aria-label="Categories">
-        <div class="cat-item"><img src="assets/icons/fashion.svg" alt=""><span>Fashion</span></div>
-        <div class="cat-item"><img src="assets/icons/shoes.svg" alt=""><span>Shoes</span></div>
-        <div class="cat-item"><img src="assets/icons/accessories.svg" alt=""><span>Accessories</span></div>
-        <div class="cat-item"><img src="assets/icons/gadget.svg" alt=""><span>Gadget</span></div>
-        <div class="cat-item"><img src="assets/icons/beauty.svg" alt=""><span>Beauty</span></div>
-        <div class="cat-item"><img src="assets/icons/bag.svg" alt=""><span>Bags</span></div>
-      </div>
-    </section>
+  <section class="categories">
+    <h3 class="cat-title">Categories</h3>
+    <div class="cat-scroll">
+      <div class="cat-item"><span>Fashion</span></div>
+      <div class="cat-item"><span>Shoes</span></div>
+      <div class="cat-item"><span>Accessories</span></div>
+      <div class="cat-item"><span>Gadget</span></div>
+      <div class="cat-item"><span>Beauty</span></div>
+      <div class="cat-item"><span>Bags</span></div>
+    </div>
+  </section>
 
-    <h3 class="new-title">New Arrival</h3>
+  <h3 class="new-title">New Arrival</h3>
 
-    <section class="grid" id="productGrid">
-      <!-- contoh card -->
-      <a class="card" href="#" data-platform="shopee">
-        <img src="assets/img/logo.svg" alt="product">
-        <div class="meta">
-          <div>
-            <div class="title">Sample Product</div>
-            <div class="price">Rp99.000</div>
-          </div>
-          <div class="rating">⭐ 4.5</div>
-        </div>
-      </a>
+</main>
 
-      <!-- duplikat card untuk layout -->
-      <a class="card" href="#" data-platform="amazon">
-        <img src="assets/img/logo.svg" alt="product2">
-        <div class="meta">
-          <div>
-            <div class="title">Sample Product 2</div>
-            <div class="price">Rp120.000</div>
-          </div>
-          <div class="rating">⭐ 4.8</div>
-        </div>
-      </a>
-    </section>
-  </main>
+<!-- BOTTOM NAV -->
+<nav class="bottom-nav">
+  <a href="index.html">Home</a>
+  <a href="love.html">Love</a>
+  <a href="cart.html">Cart</a>
+  <a href="profile.html">Profile</a>
+</nav>
 
-  <nav class="bottom-nav">
-    <a href="index.html"><i class="ri-home-4-line"></i><div>Home</div></a>
-    <a href="love.html"><i class="ri-heart-3-line"></i><div>Love</div></a>
-    <a href="cart.html"><i class="ri-shopping-cart-line"></i><div>Cart</div></a>
-    <a href="profile.html"><i class="ri-user-line"></i><div>Profile</div></a>
-  </nav>
-
-<script src="js/app.js"></script>
-<script src="js/filter.js"></script>
 </body>
 </html>
