@@ -10,8 +10,10 @@
 </head>
 <body>
 
-  <!-- header (loaded partial) -->
-  <div id="header-mobile"></div>
+   <!-- HEADER / LOGO -->
+  <header>
+    <div class="logo-text">Liafiz</div>
+  </header>
   <script>
     fetch('partials/header-mobile.html')
       .then(r=>r.text()).then(t=>document.getElementById('header-mobile').innerHTML=t);
