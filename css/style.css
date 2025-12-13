@@ -44,16 +44,18 @@ body{
 }
 
 .mobile-right i {
+    color: #fff !important;
     font-size: 22px;
-    color: #fff;   /* PUTIH */
-}
 }
 
-.mobile-right a,
-.mobile-right button{
-  background:none;
-  border:none;
-  cursor:pointer;
+.mobile-right a {
+    text-decoration: none !important;
+    color: #fff !important;
+}
+.mobile-right button {
+    background: transparent !important;
+    border: none !important;
+    padding: 0;
 }
 
 .promo{
