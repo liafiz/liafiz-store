@@ -25,12 +25,11 @@ body{
 
 .mobile-header {
     width: 100%;
-    min-height: 92px;   /* NAIKIN */
-    height: auto;       /* JANGAN FIXED */
+    height: 60px;              /* BALIK KE AWAL */
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 16px;
+    padding: 0 14px;           /* tipis */
     background: var(--brand);
     position: sticky;
     top: 0;
@@ -38,14 +37,15 @@ body{
 }
 
 .mobile-left .mobile-logo {
-    height: 88px;   /* tinggal naik-turun di sini */
+    height: 38px;              /* ukuran dasar */
     width: auto;
-    display: block;
+    transform: scale(1.4);     /* NAIKIN DI SINI */
+    transform-origin: left center;
 }
 
 .mobile-right i {
-    color: #fff !important;
     font-size: 22px;
+    color: #fff;
 }
 
 .mobile-right a {
