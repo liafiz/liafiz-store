@@ -81,33 +81,6 @@ body{
 .title{font-weight:700;font-size:14px}
 .price{color:var(--brand);font-weight:800}
 
-.bottom-nav {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #ffd6eb;         /* pink lembut */
-  padding: 10px 8px;
-  display: flex;
-  justify-content: space-around;
-  border-top-left-radius: 18px;
-  border-top-right-radius: 18px;
-  box-shadow: var(--shadow);
-}
-
-.bottom-nav a {
-  color: #ffffff;              /* icon putih */
-  text-decoration: none;       /* hilangin garis bawah */
-  font-size: 22px;             /* ukuran icon */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.bottom-nav a.active {
-  color: #ff99cc; /* pink lebih tua pas aktif */
-}
-.bottom-nav i{font-size:22px}
-
 /* responsive tweaks */
 @media(min-width:900px){
   .grid{grid-template-columns:repeat(3,1fr)}
@@ -126,4 +99,44 @@ body{
   font-size: 22px;      /* DIKECILIN */
   color: #ffffff;
   letter-spacing: 0.4px;
+}
+/* ===== BOTTOM NAV FINAL ===== */
+.bottom-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #ffd6eb;
+  padding: 10px 6px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.08);
+  z-index: 999;
+}
+
+.bottom-nav a {
+  color: #ffffff;                 /* ICON PUTIH */
+  text-decoration: none;          /* HILANG GARIS */
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  transition: all 0.25s ease;
+}
+
+/* efek tekan */
+.bottom-nav a:active {
+  background: rgba(255,255,255,0.35);
+  transform: scale(0.9);
+}
+
+/* icon aktif */
+.bottom-nav a.active {
+  background: rgba(255,255,255,0.35);
 }
