@@ -492,13 +492,15 @@ body {
   gap: 4px;
 }
 
-/* ===== FINAL BUY BUTTON (APP STYLE) ===== */
+/* ===== ACTIONS (BUY + SHARE) ===== */
 .actions {
   display: flex;
   align-items: center;
   gap: 8px;
+  margin-top: 10px;
 }
 
+/* ===== BUY BUTTON (FINAL APP STYLE) ===== */
 .btn-buy {
   padding: 8px 14px;
   font-size: 13px;
@@ -510,8 +512,8 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  box-shadow: 0 4px 10px rgba(0,0,0,.12);
   white-space: nowrap;
+  box-shadow: 0 4px 10px rgba(0,0,0,.12);
   transition: all .15s ease;
 }
 
@@ -523,6 +525,7 @@ body {
   transform: scale(.96);
 }
 
+/* ===== SHARE BUTTON ===== */
 .btn-icon {
   width: 36px;
   height: 36px;
