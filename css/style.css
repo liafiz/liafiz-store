@@ -241,9 +241,10 @@ a {
 /* Judul section: Categories, New Arrival */
 .cat-title,
 .new-title {
-  font-size: 15px;
-  font-weight: 700;
-  margin: 12px 16px 6px;
+  font-size: 14px;     /* sebelumnya 16 */
+  font-weight: 600;   /* jangan 700 */
+  margin: 12px 16px 8px;
+  letter-spacing: 0.2px;
 }
 
 /* Text category */
@@ -282,8 +283,7 @@ a {
 
 /* Tombol beli */
 .btn-buy {
-  font-size: 12px;
-  padding: 7px 10px;
+  letter-spacing: 0.2px;
 }
 
 /* Tombol share */
