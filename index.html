@@ -221,6 +221,16 @@
     });
   });
 </script>
-
+  
+<script>
+document.querySelectorAll('.favorite').forEach(fav => {
+  fav.addEventListener('click', () => {
+    fav.classList.toggle('active');
+    fav.querySelector('i').classList.toggle('ri-heart-fill');
+    fav.querySelector('i').classList.toggle('ri-heart-line');
+  });
+});
+</script>
+  
 </body>
 </html>
