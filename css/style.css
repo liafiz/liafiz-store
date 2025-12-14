@@ -137,8 +137,14 @@ a {
 
 .product-image {
   position: relative;
-  height: 170px;
-  background: #e5e7eb;
+  overflow: hidden;
+}
+
+.product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .badge {
