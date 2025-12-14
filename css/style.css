@@ -51,12 +51,16 @@
 }
 
 :root {
-  --brand: #b7c4ab;        /* sage green */
-  --bg: #f6f7f6;           /* background utama */
-  --card-bg: #ffffff;     /* card produk */
-  --text: #1f2933;        /* text utama */
-  --muted: #6b7280;       /* text kecil */
-  --shadow: 0 8px 24px rgba(0,0,0,.08);
+  --brand: #b7c4ab;
+  --background: #f6f7f6;
+  --card-bg: #ffffff;
+  --text: #1f2933;
+  --muted: #6b7280;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
 }
 
 * {
@@ -76,20 +80,17 @@ body {
   padding:14px;
 }
 
-.mobile-header {
-  width:100%;
-  height:60px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 14px;
-  background:var(--brand);
-  position:sticky;
-  top:0;
-  z-index:99;
-  border-bottom-left-radius:26px;
-  border-bottom-right-radius:26px;
-  box-shadow:var(--shadow);
+.header {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  background: var(--brand);
+  position: sticky;
+  top: 0;
+  z-index: 99;
 }
 .mobile-header {
   backdrop-filter: blur(8px);
