@@ -13,6 +13,43 @@
   font-style: normal;
 }
 
+/* ===== LOGO LIAFIZ ===== */
+.logo {
+  text-align: center;
+  line-height: 1;
+}
+
+.logo-main {
+  font-family: 'Flagfies', serif;
+  font-size: 42px;
+  font-weight: 700;
+  color: #242424;
+  letter-spacing: 0.5px;
+  text-shadow:
+    0 1px 1px rgba(0,0,0,0.12),
+    0 2px 6px rgba(0,0,0,0.08);
+}
+
+.logo-sub {
+  display: block;
+  margin-top: 6px;
+  font-family: 'Inversionz Unboxed', sans-serif;
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: #3a3a3a;
+  opacity: 0.85;
+}
+@media (max-width: 480px) {
+  .logo-main {
+    font-size: 34px;
+  }
+
+  .logo-sub {
+    font-size: 10px;
+    letter-spacing: 3px;
+  }
+}
+
 :root {
   --brand: #b7c4ab;        /* sage green */
   --bg: #f6f7f6;           /* background utama */
