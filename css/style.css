@@ -46,9 +46,9 @@ a {
 }
 
 .logo-sub {
-  font-size: 10px;
-  letter-spacing: 1.4px;
-  display: block;
+  font-size: 7px;        /* dari ±10px → 7px */
+  letter-spacing: 1.6px;
+  opacity: 0.8;
 }
 
 /* =========================
