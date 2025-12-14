@@ -351,6 +351,11 @@ a {
   font-size: 13px;
   font-weight: 600;
 }
+
+.affiliate-buttons a:active {
+  transform: scale(0.97);
+}
+
 .btn-shopee {
   background: #ff5722;
   color: #fff;
