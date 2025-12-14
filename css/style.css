@@ -365,3 +365,7 @@ a {
   background: #22c55e;
   color: #fff;
 }
+.affiliate-buttons a {
+  display: flex !important;
+  width: 78% !important;
+}
