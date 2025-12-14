@@ -76,8 +76,8 @@ body {
 
 .logo-sub {
   font-family: 'Inversionz Unboxed', sans-serif;
-  font-size: 7px;              /* ukuran dasar */
-  transform: scale(1);       /* 2x lebih kecil SECARA VISUAL */
+  font-size: 7px;
+  transform: scale(1) !important;
   transform-origin: top center;
   letter-spacing: 1.6px;
   color: rgba(255,255,255,0.75);
