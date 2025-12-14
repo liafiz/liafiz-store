@@ -492,29 +492,51 @@ body {
   gap: 4px;
 }
 
+/* ===== FINAL BUY BUTTON (APP STYLE) ===== */
 .actions {
   display: flex;
+  align-items: center;
   gap: 8px;
-  margin-top: 10px;
 }
 
 .btn-buy {
-  flex: 1;
-  background: #c8d2b4;
-  border: none;
-  padding: 10px;
-  border-radius: 12px;
+  padding: 8px 14px;
+  font-size: 13px;
   font-weight: 600;
-  text-align: center;
-  text-decoration: none;
-  color: #000;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #9fbc9b, #c6d6b8);
+  color: #1f2937 !important;
+  text-decoration: none !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.12);
+  white-space: nowrap;
+  transition: all .15s ease;
+}
+
+.btn-buy i {
+  font-size: 15px;
+}
+
+.btn-buy:active {
+  transform: scale(.96);
 }
 
 .btn-icon {
-  width: 40px;
-  background: #f3f4f6;
+  width: 36px;
+  height: 36px;
   border-radius: 12px;
   border: none;
+  background: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-icon i {
+  font-size: 16px;
+  color: #374151;
 }
 
 /* ===== APP STYLE BUY BUTTON ===== */
