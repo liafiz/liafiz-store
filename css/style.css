@@ -67,19 +67,23 @@ a {
    AFFILIATE BUTTONS
 ========================= */
 .affiliate-buttons {
-  display: flex;
-  gap: 10px;
-  padding: 0 16px 12px;
+  gap: 8px;
 }
 
 .aff-btn {
-  flex: 1;
-  padding: 10px;
-  border-radius: 12px;
-  font-size: 13px;
-  font-weight: 600;
-  text-align: center;
-  background: #e5e7eb;
+  font-size: 11px;
+  padding: 6px 4px;          /* TURUN tinggi */
+  border-radius: 999px;     /* pill tipis */
+  line-height: 1;
+  min-height: 30px;         /* kunci tinggi */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Optional: kasih sedikit "lift" biar unik */
+.aff-btn:active {
+  transform: scale(0.97);
 }
 
 .aff-btn.shopee { background:#ff5722; color:#fff }
