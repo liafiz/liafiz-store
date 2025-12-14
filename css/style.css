@@ -290,3 +290,107 @@ body {
 .mobile-right a {
   text-decoration: none !important;
 }
+
+/* ===== PRODUCT CARD LIAFIZ ===== */
+.product-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.06);
+  overflow: hidden;
+  position: relative;
+}
+
+.product-image {
+  position: relative;
+  height: 180px;
+  background: #e5e7eb;
+}
+
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #ff6a3d;
+  color: #fff;
+  font-size: 11px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.favorite {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  background: #fff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,.15);
+}
+
+.favorite i {
+  color: #ef4444;
+  font-size: 16px;
+}
+
+.product-content {
+  padding: 12px;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.rating {
+  color: #f59e0b;
+  font-size: 12px;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  margin: 6px 0;
+}
+
+.price {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.price strong {
+  font-size: 15px;
+}
+
+.discount {
+  color: #16a34a;
+  font-size: 12px;
+  display: flex;
+  gap: 4px;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.btn-buy {
+  flex: 1;
+  background: #c8d2b4;
+  border: none;
+  padding: 10px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.btn-icon {
+  width: 42px;
+  background: #f3f4f6;
+  border-radius: 12px;
+  border: none;
+   }
