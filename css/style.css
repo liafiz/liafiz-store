@@ -347,3 +347,17 @@ a {
   font-size: 13px;
   font-weight: 600;
 }
+.btn-shopee {
+  background: #ff5722;
+  color: #fff;
+}
+
+.btn-amazon {
+  background: #000;
+  color: #fff;
+}
+
+.btn-food {
+  background: #22c55e;
+  color: #fff;
+}
