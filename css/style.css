@@ -287,3 +287,38 @@ a {
   width: 32px;
   height: 32px;
 }
+
+/* =========================
+   SECTION TITLES (CATEGORIES & NEW ARRIVAL)
+========================= */
+
+.section-title,
+.categories-title,
+.new-arrival-title {
+  font-size: 14px;        /* turun 2x */
+  font-weight: 700;
+  letter-spacing: .2px;
+  margin-bottom: 8px;
+}
+
+/* =========================
+   SUB CATEGORIES SCALE
+========================= */
+
+/* ICON sub-category */
+.cat-item i {
+  font-size: 16px;      /* icon dikecilin */
+  margin-bottom: 4px;
+}
+
+/* TEXT sub-category */
+.cat-item span {
+  font-size: 10px;      /* text turun 4x */
+  line-height: 1.2;
+  font-weight: 500;
+  opacity: 0.85;
+}
+
+.cat-item {
+  width: 64px; /* item lebih ramping */
+}
