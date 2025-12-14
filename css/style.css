@@ -288,5 +288,5 @@ body {
 
 /* HILANGIN GARIS BAWAH ICON HEADER */
 .mobile-right a {
-  text-decoration: none;
+  text-decoration: none !important;
 }
