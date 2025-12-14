@@ -285,3 +285,12 @@ body {
 .header {
   background: var(--brand) !important;
 }
+
+/* ===== FORCE LOGO SIZE (DEBUG FIX) ===== */
+.logo-main {
+  font-size: 21px !important;
+}
+
+.logo-sub {
+  font-size: 7px !important;
+}
