@@ -339,15 +339,15 @@ a {
 }
 
 .affiliate-buttons a {
-  width: 78%;            /* KUNCI LEBAR */
-  max-width: 280px;      /* biar gak gede di HP besar */
-  height: 42px;          /* KUNCI TINGGI */
-  border-radius: 14px;
+  width: 78% !important;
+  max-width: 260px;
+  height: 40px;
 
-  display: flex;
+  display: inline-flex !important;
   align-items: center;
   justify-content: center;
 
+  border-radius: 14px;
   font-size: 13px;
   font-weight: 600;
 }
@@ -364,8 +364,4 @@ a {
 .btn-food {
   background: #22c55e;
   color: #fff;
-}
-.affiliate-buttons a {
-  display: flex !important;
-  width: 78% !important;
 }
