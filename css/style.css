@@ -1,4 +1,6 @@
-/* ===== FONT LIAFIZ ===== */
+/* =============================
+   FONT LIAFIZ
+============================= */
 @font-face {
   font-family: 'Flagfies';
   src: url('../fonts/Flagfies.ttf') format('truetype');
@@ -13,7 +15,52 @@
   font-style: normal;
 }
 
-/* ===== LOGO LIAFIZ ===== */
+/* =============================
+   ROOT & GLOBAL
+============================= */
+:root {
+  --brand: #b7c4ab;
+  --background: #f6f7f6;
+  --card-bg: #ffffff;
+  --text: #1f2933;
+  --muted: #6b7280;
+  --shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inter, system-ui, Arial, sans-serif;
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 14px;
+}
+
+/* =============================
+   HEADER
+============================= */
+.header {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  background: var(--brand);
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+
+/* LOGO */
 .logo {
   text-align: center;
   line-height: 1;
@@ -30,56 +77,20 @@
     0 2px 6px rgba(0,0,0,0.08);
 }
 
+.logo-sub {
+  display: block;
+  font-family: 'Inversionz Unboxed', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  color: rgba(0,0,0,0.65);
+}
+
 @media (max-width: 480px) {
-  .logo-main {
-    font-size: 34px;
-  }
-
-  .logo-sub {
-    font-size: 10px;
-    letter-spacing: 3px;
-  }
+  .logo-main { font-size: 34px; }
+  .logo-sub  { font-size: 10px; letter-spacing: 3px; }
 }
 
-:root {
-  --brand: #b7c4ab;
-  --background: #f6f7f6;
-  --card-bg: #ffffff;
-  --text: #1f2933;
-  --muted: #6b7280;
-  --shadow: 0 8px 24px rgba(0,0,0,0.08);
-}
-
-body {
-  font-family: Inter, system-ui, Arial, sans-serif;
-  margin: 0;
-  background: var(--background);
-  color: var(--text);
-}
-
-.container{
-  max-width:1100px;
-  margin:0 auto;
-  padding:14px;
-}
-
-.header {
-  width: 100%;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 14px;
-  background: var(--brand);
-  position: sticky;
-  top: 0;
-  z-index: 99;
-}
-
-.mobile-left .mobile-logo{
-  height:36px;
-  width:auto;
-}
+/* ICON KANAN */
 .mobile-right {
   display: flex;
   align-items: center;
@@ -94,6 +105,10 @@ body {
   border: none;
   padding: 0;
 }
+
+/* =============================
+   PROMO
+============================= */
 .promo {
   background: var(--brand);
   color: var(--text);
@@ -103,69 +118,128 @@ body {
   box-shadow: var(--shadow);
 }
 
-.cat-title{font-size:18px;margin:8px 16px;color:var(--text);font-weight:700}
-.cat-scroll{display:flex;gap:14px;padding:12px 16px;overflow-x:auto}
-.cat-item{min-width:86px;background:var(--card-bg);border-radius:14px;padding:12px;text-align:center;box-shadow:var(--shadow)}
-.cat-item span {
-  color: var(--muted);
-  font-size: 13px;      /* opsional tapi cakep */
-}
-.cat-item.active {
-  background: var(--brand);
+/* =============================
+   AFFILIATE BUTTONS
+============================= */
+.affiliate-buttons {
+  display: flex;
+  gap: 6px;
+  margin: 8px 16px 0;
 }
 
-.cat-item.active span {
-  color: #1f2933;
+.aff-btn {
+  flex: 1;
+  font-size: 10px;
+  padding: 5px 0;
+  text-align: center;
+  border-radius: 10px;
+  text-decoration: none;
   font-weight: 600;
+  letter-spacing: 0.2px;
 }
-.cat-item {
-  transition: all .2s ease;
-}
-.cat-item img{width:34px;height:34px}
-.cat-item span{display:block;margin-top:8px;color:var(--muted);font-size:13px}
 
-.new-title{font-size:20px;font-weight:700;padding:12px 16px;color:var(--text)}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;padding:10px 16px 100px}.cat-item {
+.aff-btn.shopee { background: #ff6a3d; color: #fff; }
+.aff-btn.amazon { background: #232f3e; color: #fff; }
+.aff-btn.food   { background: #ff4d4f; color: #fff; }
+
+.aff-btn:active {
+  transform: scale(0.95);
+  opacity: 0.85;
+}
+
+/* =============================
+   CATEGORIES
+============================= */
+.cat-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 8px 16px;
+}
+
+.cat-scroll {
+  display: flex;
+  gap: 14px;
+  padding: 12px 16px;
+  overflow-x: auto;
+}
+
+.cat-item {
   min-width: 64px;
   padding: 6px 4px;
   text-align: center;
   background: none;
   box-shadow: none;
-  .cat-item i {
+  transition: all .2s ease;
+}
+
+.cat-item i {
   font-size: 20px;
   color: var(--muted);
   display: block;
   margin-bottom: 2px;
 }
+
 .cat-item span {
+  display: block;
   font-size: 11.5px;
   line-height: 1.2;
   color: var(--muted);
 }
-  .cat-item.active i,
+
+.cat-item.active i,
 .cat-item.active span {
   color: var(--brand);
   font-weight: 600;
 }
-};display:block}
-.card img{width:100%;height:220px;object-fit:cover}
-.meta{padding:12px;display:flex;justify-content:space-between;align-items:center}
-.title{font-weight:700;font-size:14px}
-.price{color:var(--brand);font-weight:800}
 
-/* responsive tweaks */
-@media (min-width:900px){
-  .grid{
+/* =============================
+   PRODUCT GRID
+============================= */
+.new-title {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 16px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  padding: 10px 16px 100px;
+}
+
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.meta {
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.price {
+  color: var(--brand);
+  font-weight: 800;
+}
+
+@media (min-width: 900px) {
+  .grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-/* HEADER */
-.header {
-  background: #111;
-  padding: 16px;
-}
 
-/* ===== BOTTOM NAV FINAL ===== */
+/* =============================
+   BOTTOM NAV
+============================= */
 .bottom-nav {
   position: fixed;
   left: 0;
@@ -181,16 +255,10 @@ body {
   box-shadow: 0 -2px 8px rgba(0,0,0,0.08);
   z-index: 999;
 }
-.bottom-nav a.active {
-  color: #1f2933;
-}
-.bottom-nav a.active {
-  background: rgba(255,255,255,0.6);
-}
 
 .bottom-nav a {
-  color: #ffffff;                 /* ICON PUTIH */
-  text-decoration: none;          /* HILANG GARIS */
+  color: #ffffff;
+  text-decoration: none;
   font-size: 24px;
   display: flex;
   align-items: center;
@@ -201,83 +269,13 @@ body {
   transition: all 0.25s ease;
 }
 
-/* efek tekan */
+.bottom-nav a.active {
+  background: rgba(255,255,255,0.35);
+  color: #1f2933;
+}
+
 .bottom-nav a:active {
   background: rgba(255,255,255,0.35);
   transform: scale(0.9);
 }
 
-/* icon aktif */
-.bottom-nav a.active {
-  background: rgba(255,255,255,0.35);
-}
-/* ===== FIX GARIS BAWAH ICON HEADER (FINAL) ===== */
-.mobile-header a,
-.mobile-header a i {
-  text-decoration: none !important;
-  border-bottom: none !important;
-}
-
-/* pastikan icon dianggap icon, bukan teks */
-.mobile-header i {
-  display: block;
-}
-/* ===== TEXT SIZE LEBIH KECIL (FINAL) ===== */
-
-/* Judul section */
-.cat-title,
-.new-title {
-  font-size: 14px;      /* dari 16 → 14 */
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-/* Item kategori */
-.cat-item span {
-  font-size: 12px;      /* dari 13 → 12 */
-  font-weight: 500;
-}
-/* logo + subtitle */
-.logo-sub {
-  font-size: 10px;          /* kecil banget */
-  color: rgba(255,255,255,0.75);
-  letter-spacing: 0.5px;
-  }
-
-/* ===== AFFILIATE BUTTONS (FINAL POLISH) ===== */
-
-/* container */
-.affiliate-buttons {
-  display: flex;
-  gap: 6px;          /* lebih rapet */
-  margin-top: 8px;
-}
-
-/* base button */
-.aff-btn {
-  flex: 1;
-  font-size: 10px;   /* LEBIH KECIL LAGI */
-  padding: 5px 0;    /* tombol lebih tipis */
-  text-align: center;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: 600;
-  letter-spacing: 0.2px;
-}
-
-.aff-btn.shopee {
-  background: #ff6a3d;   /* orange Shopee */
-  color: #ffffff;
-}
-.aff-btn.amazon {
-  background: #232f3e;   /* Amazon dark */
-  color: #ffffff;
-}
-.aff-btn.food {
-  background: #ff4d4f;   /* food delivery red */
-  color: #ffffff;
-}
-.aff-btn:active {
-  transform: scale(0.95);
-  opacity: 0.85;
-}
