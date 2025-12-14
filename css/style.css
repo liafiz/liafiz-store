@@ -60,7 +60,7 @@ body {
   z-index: 99;
 }
 
-/* LOGO */
+/* ===== LOGO LIAFIZ FINAL SIZE ===== */
 .logo {
   text-align: center;
   line-height: 1;
@@ -68,26 +68,30 @@ body {
 
 .logo-main {
   font-family: 'Flagfies', serif;
-  font-size: 42px;
+  font-size: 21px;          /* 42px → 21px (2x lebih kecil) */
   font-weight: 700;
-  color: #242424;
+  color: #ffffff;
   letter-spacing: 0.5px;
-  text-shadow:
-    0 1px 1px rgba(0,0,0,0.12),
-    0 2px 6px rgba(0,0,0,0.08);
 }
 
 .logo-sub {
   display: block;
+  margin-top: 2px;
   font-family: 'Inversionz Unboxed', sans-serif;
-  font-size: 10px;
-  letter-spacing: 0.5px;
-  color: rgba(0,0,0,0.65);
+  font-size: 7px;           /* ±21px ÷ 3 */
+  letter-spacing: 1.6px;
+  color: rgba(255,255,255,0.75);
 }
 
 @media (max-width: 480px) {
-  .logo-main { font-size: 34px; }
-  .logo-sub  { font-size: 10px; letter-spacing: 3px; }
+  .logo-main {
+    font-size: 20px;
+  }
+
+  .logo-sub {
+    font-size: 6.5px;
+    letter-spacing: 1.4px;
+  }
 }
 
 /* ICON KANAN */
