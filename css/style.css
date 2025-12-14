@@ -174,14 +174,6 @@ body {
   padding: 16px;
 }
 
-/* LOGO */
-.logo-text {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  font-size: 22px;      /* DIKECILIN */
-  color: #ffffff;
-  letter-spacing: 0.4px;
-}
 /* ===== BOTTOM NAV FINAL ===== */
 .bottom-nav {
   position: fixed;
@@ -255,12 +247,6 @@ body {
   font-weight: 500;
 }
 /* logo + subtitle */
-.logo-wrap {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
-}
-
 .logo-sub {
   font-size: 10px;          /* kecil banget */
   color: rgba(255,255,255,0.75);
