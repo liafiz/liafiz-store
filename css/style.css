@@ -166,6 +166,10 @@ a {
   padding: 12px;
 }
 
+.affiliate-buttons a {
+  display: flex !important;
+  width: 78% !important;
+}
 .title {
   font-size: 14px;
   font-weight: 600;
