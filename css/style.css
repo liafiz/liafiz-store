@@ -322,3 +322,28 @@ a {
 .cat-item {
   width: 64px; /* item lebih ramping */
 }
+
+/* =========================
+   AFFILIATE BUTTON FIX
+========================= */
+
+.affiliate-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* kunci ke tengah */
+  gap: 10px;
+}
+
+.affiliate-buttons a {
+  width: 78%;            /* KUNCI LEBAR */
+  max-width: 280px;      /* biar gak gede di HP besar */
+  height: 42px;          /* KUNCI TINGGI */
+  border-radius: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 13px;
+  font-weight: 600;
+}
