@@ -516,3 +516,33 @@ body {
   border-radius: 12px;
   border: none;
 }
+
+/* ===== APP STYLE BUY BUTTON ===== */
+.btn-buy {
+  flex: 1;
+  background: linear-gradient(135deg, #8fb98f, #c8d2b4);
+  color: #1f2937 !important;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  padding: 11px 12px;
+  border-radius: 14px;
+  text-decoration: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: 0 6px 14px rgba(0,0,0,.12);
+  transition: all .15s ease;
+}
+
+/* HOVER / TAP */
+.btn-buy:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(0,0,0,.18);
+}
+
+/* SAAT DI TEKAN */
+.btn-buy:active {
+  transform: scale(.97);
+}
