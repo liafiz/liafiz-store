@@ -75,23 +75,13 @@ body {
 }
 
 .logo-sub {
-  display: block;
-  margin-top: 3px;
   font-family: 'Inversionz Unboxed', sans-serif;
-  font-size: 3.5px !important;
-  letter-spacing: 1.2px;
+  font-size: 7px;              /* ukuran dasar */
+  transform: scale(0.5);       /* 2x lebih kecil SECARA VISUAL */
+  transform-origin: top center;
+  letter-spacing: 1.6px;
   color: rgba(255,255,255,0.75);
-}
-
-@media (max-width: 480px) {
-  .logo-main {
-    font-size: 20px;
-  }
-
-  .logo-sub {
-    font-size: 3.5px !important;
-    letter-spacing: 1.1px;
-  }
+  display: block;
 }
 
 /* ICON KANAN */
@@ -114,7 +104,7 @@ body {
    PROMO
 ============================= */
 .promo {
-  background: var(--brand);
+  backgrnd: var(--brand);
   color: var(--text);
   border-radius: 16px;
   padding: 24px;
