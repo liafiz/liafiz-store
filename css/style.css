@@ -1,3 +1,18 @@
+/* ===== FONT LIAFIZ ===== */
+@font-face {
+  font-family: 'Flagfies';
+  src: url('../fonts/Flagfies.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inversionz Unboxed';
+  src: url('../fonts/InversionzUnboxed.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   --brand: #b7c4ab;        /* sage green */
   --bg: #f6f7f6;           /* background utama */
