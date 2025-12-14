@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+  <!-- ICON -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
   <!-- GOOGLE FONT -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
 
   <!-- CSS -->
- <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<script src="js/nav-active.js"></script>
-  <script src="js/header-scroll.js"></script>
+
 <body>
 
 <header class="header">
-  <!-- LOGO -->
   <div class="logo">
     <span class="logo-main">Liafiz</span>
     <span class="logo-sub">AFFILIATE STORE</span>
   </div>
 
-  <!-- ICON KANAN (MOBILE) -->
   <div class="mobile-right">
     <a href="search.html"><i class="ri-search-line"></i></a>
     <a href="cart.html"><i class="ri-shopping-cart-line"></i></a>
@@ -31,77 +31,72 @@
   </div>
 </header>
 
-<!-- CONTENT -->
 <main class="container">
 
   <div class="promo">Promo Banner</div>
-<div class="affiliate-buttons">
-  <a href="#" class="aff-btn shopee">Shopee</a>
-  <a href="#" class="aff-btn amazon">Amazon</a>
-  <a href="#" class="aff-btn food">Food</a>
-</div>
-  
+
+  <div class="affiliate-buttons">
+    <a href="#" class="aff-btn shopee">Shopee</a>
+    <a href="#" class="aff-btn amazon">Amazon</a>
+    <a href="#" class="aff-btn food">Food</a>
+  </div>
+
   <section class="categories">
     <h3 class="cat-title">Categories</h3>
     <div class="cat-scroll">
-  <div class="cat-item active">
-  <i class="ri-t-shirt-line"></i>
-  <span>Fashion</span>
-</div>
 
-<div class="cat-item">
-  <i class="ri-footprint-line"></i>
-  <span>Shoes</span>
-</div>
+      <div class="cat-item active">
+        <i class="ri-t-shirt-line"></i>
+        <span>Fashion</span>
+      </div>
 
-<div class="cat-item">
-  <i class="ri-handbag-line"></i>
-  <span>Bags</span>
-</div>
+      <div class="cat-item">
+        <i class="ri-footprint-line"></i>
+        <span>Shoes</span>
+      </div>
 
-<div class="cat-item">
-  <i class="ri-smartphone-line"></i>
-  <span>Gadget</span>
-</div>
+      <div class="cat-item">
+        <i class="ri-handbag-line"></i>
+        <span>Bags</span>
+      </div>
 
-<div class="cat-item">
-  <i class="ri-magic-line"></i>
-  <span>Beauty</span>
-</div>
+      <div class="cat-item">
+        <i class="ri-smartphone-line"></i>
+        <span>Gadget</span>
+      </div>
+
+      <div class="cat-item">
+        <i class="ri-magic-line"></i>
+        <span>Beauty</span>
+      </div>
+
+    </div>
   </section>
 
   <h3 class="new-title">New Arrival</h3>
 
 </main>
 
-<!-- BOTTOM NAV -->
 <nav class="bottom-nav">
-  <a href="index.html" class="active">
-    <i class="ri-home-4-line"></i>
-  </a>
-  <a href="love.html">
-    <i class="ri-heart-line"></i>
-  </a>
-  <a href="cart.html">
-    <i class="ri-shopping-cart-line"></i>
-  </a>
-  <a href="profile.html">
-    <i class="ri-user-line"></i>
-  </a>
+  <a href="index.html" class="active"><i class="ri-home-4-line"></i></a>
+  <a href="love.html"><i class="ri-heart-line"></i></a>
+  <a href="cart.html"><i class="ri-shopping-cart-line"></i></a>
+  <a href="profile.html"><i class="ri-user-line"></i></a>
 </nav>
+
+<!-- JS -->
+<script src="js/nav-active.js"></script>
+<script src="js/header-scroll.js"></script>
+
 <script>
   const catItems = document.querySelectorAll('.cat-item');
-
   catItems.forEach(item => {
     item.addEventListener('click', () => {
-      // hapus active dari semua
       catItems.forEach(i => i.classList.remove('active'));
-
-      // tambah active ke yang diklik
       item.classList.add('active');
     });
   });
 </script>
-  
+
 </body>
 </html>
