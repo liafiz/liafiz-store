@@ -546,3 +546,7 @@ body {
 .btn-buy:active {
   transform: scale(.97);
 }
+
+.btn-buy i {
+  font-size: 16px;
+}
