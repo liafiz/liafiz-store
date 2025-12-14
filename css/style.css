@@ -74,10 +74,11 @@ body {
   letter-spacing: 0.5px;
 }
 
+/* ===== LOGO SUB FINAL (SINGLE SOURCE) ===== */
 .logo-sub {
   font-family: 'Inversionz Unboxed', sans-serif;
   font-size: 7px;
-  transform: scale(0.7) !important;
+  transform: scale(0.7);
   transform-origin: top center;
   letter-spacing: 1.6px;
   color: rgba(255,255,255,0.75);
