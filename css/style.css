@@ -285,3 +285,8 @@ body {
 .logo-sub {
   font-size: 7px !important;
 }
+
+/* HILANGIN GARIS BAWAH ICON HEADER */
+.mobile-right a {
+  text-decoration: none;
+}
