@@ -373,3 +373,20 @@ a {
 .affiliate-buttons a:active {
   transform: scale(0.95);
 }
+
+.product-card {
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.product-card:active {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(0,0,0,.10);
+}
+
+.favorite {
+  cursor: pointer;
+}
+
+.favorite.active i {
+  color: #ef4444;
+}
