@@ -327,9 +327,9 @@ a {
   width: 64px; /* item lebih ramping */
 }
 
-/* =========================
-   AFFILIATE BUTTON FIX
-========================= */
+/* ==============================
+   AFFILIATE BUTTON – SLIM FIX
+================================ */
 
 .affiliate-buttons {
   display: flex;
@@ -339,29 +339,21 @@ a {
 }
 
 .affiliate-buttons a {
-  width: auto !important;
-  min-width: 90px;
-  height: 38px;
+  height: 32px;                 /* ⬅️ DIPERKECIL */
+  padding: 0 14px;              /* ⬅️ BIKIN LANGSING */
 
-  padding: 0 16px;
-
-  display: inline-flex !important;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
 
-  border-radius: 14px;
-  font-size: 12px;
+  border-radius: 999px;         /* pill style */
+  font-size: 11.5px;            /* ⬅️ lebih halus */
   font-weight: 600;
+
+  white-space: nowrap;
 }
 
-.affiliate-buttons a:active {
-  transform: scale(0.96);
-}
-
-.affiliate-buttons {
-  flex-wrap: wrap;
-}
-
+/* Brand colors */
 .btn-shopee {
   background: #ff5722;
   color: #fff;
@@ -375,4 +367,9 @@ a {
 .btn-food {
   background: #22c55e;
   color: #fff;
+}
+
+/* Touch feedback */
+.affiliate-buttons a:active {
+  transform: scale(0.95);
 }
