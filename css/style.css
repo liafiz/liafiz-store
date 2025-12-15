@@ -160,10 +160,15 @@ a {
 .cat-item {
   flex: 0 0 auto;
   width: 72px;
+  display: flex;              /* 🔥 TAMBAH */
+  flex-direction: column;     /* 🔥 TAMBAH */
+  align-items: center;        /* 🔥 TAMBAH */
+  justify-content: center;    /* 🔥 TAMBAH */
+  gap: 4px;                   /* 🔥 TAMBAH */
   text-align: center;
   color: var(--muted);
-  font-size: 11px;       /* ⬅️ TAMBAH */
-  line-height: 1.2;      /* ⬅️ TAMBAH */
+  font-size: 11px;
+  line-height: 1.2;
 }
 
 .cat-item i {
