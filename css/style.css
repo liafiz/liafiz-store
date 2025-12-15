@@ -186,6 +186,9 @@ a {
   right: 10px;
 }
 
+.favorite:active {
+  transform: scale(0.9);
+}
 .favorite.active i {
   color: #ef4444;
 }
@@ -490,4 +493,19 @@ a {
 
 .favorite.active i {
   color: #ef4444;
+}
+
+/* ==============================
+   FAVORITE POP ANIMATION
+================================ */
+
+@keyframes popLike {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.35); }
+  70%  { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+.favorite.active {
+  animation: popLike .32s ease-out;
 }
