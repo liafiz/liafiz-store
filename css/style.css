@@ -116,6 +116,50 @@ a {
 /* =========================
    CATEGORIES
 ========================= */
+.affiliate-buttons {
+  display: flex;
+  gap: 10px;
+  padding: 12px;
+}
+
+/* Base */
+.aff-btn {
+  flex: 1;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  transition: transform .15s ease, opacity .15s ease;
+}
+
+.aff-btn i {
+  font-size: 16px;
+}
+
+/* Hover */
+.aff-btn:active {
+  transform: scale(0.96);
+  opacity: .85;
+}
+
+/* Brand Colors */
+.aff-btn.shopee {
+  background: #EE4D2D;
+}
+
+.aff-btn.amazon {
+  background: #FF9900;
+}
+
+.aff-btn.food {
+  background: linear-gradient(135deg, #EE4D2D, #FF7337);
+}
 .cat-scroll {
   display: flex;
   gap: 12px;
