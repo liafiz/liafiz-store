@@ -127,7 +127,9 @@ a {
 }
 
 .product-card {
-  overflow: hidden;
+  background: #fff;
+  border-radius: 16px;
+  overflow: visible;   /* 🔥 PENTING */
 }
 
 .product-card:active {
@@ -215,14 +217,25 @@ a {
 ========================= */
 .actions {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
   gap: 8px;
-  margin-top: 12px;
+  align-items: center;
 }
 
 .btn-buy {
-  transition: transform .12s ease, box-shadow .12s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 36px;
+  padding: 0 14px;
+
+  background: #2e7d32;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+
+  border-radius: 10px;
+  white-space: nowrap;
 }
 
 .btn-buy:active {
@@ -292,7 +305,18 @@ a {
 
 /* Diskon */
 .discount {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+
+  padding: 2px 6px;
+  border-radius: 6px;
+
   font-size: 11px;
+  font-weight: 600;
+
+  background: #dcfce7;
+  color: #15803d;
 }
 
 /* Rating bintang */
@@ -396,10 +420,6 @@ a {
 /* ==============================
    IMAGE FORCE FIX (OVERRIDE)
 ================================ */
-
-.product-card {
-  overflow: hidden;
-}
 
 .product-card .product-image {
   position: relative;
