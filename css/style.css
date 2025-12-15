@@ -606,3 +606,49 @@ a {
 .favorite.active {
   animation: popLike .32s ease-out;
 }
+
+/* =============================
+   AFFILIATE BUTTONS FIX
+============================= */
+.affiliate-buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+/* tombol */
+.aff-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Shopee */
+.aff-btn.shopee {
+  background: #ee4d2d;
+  color: #fff;
+}
+
+/* Amazon */
+.aff-btn.amazon {
+  background: #ff9900;
+  color: #fff;
+}
+
+/* Food */
+.aff-btn.food {
+  background: #e53935;
+  color: #fff;
+}
+
+/* icon */
+.aff-btn i {
+  font-size: 18px;
+}
+
