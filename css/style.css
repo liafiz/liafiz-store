@@ -417,8 +417,3 @@ a {
   display: block;
 }
 
-.products,
-.product-card,
-.product-content {
-  overflow: visible !important;
-}
