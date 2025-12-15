@@ -270,6 +270,15 @@ document.querySelectorAll('.favorite').forEach(fav => {
   });
 });
 </script>
-  
+
+  <script>
+  document.querySelectorAll('.cat-item[data-link]').forEach(item => {
+    item.addEventListener('click', () => {
+      const link = item.getAttribute('data-link');
+      window.open(link, '_blank');
+    });
+  });
+</script>
+
 </body>
 </html>
