@@ -593,3 +593,14 @@ a {
 .favorite.active {
   animation: popLike .32s ease-out;
 }
+
+/* =============================
+   HINT TEXT (SHOPEE)
+============================= */
+.hint {
+  font-size: 10.5px;
+  color: #777;
+  margin: 4px 0 8px;
+  text-align: center;
+  line-height: 1.3;
+}
