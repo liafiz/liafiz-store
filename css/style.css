@@ -180,6 +180,10 @@ a {
   font-weight: 600;
 }
 
+.cat-item[data-link] {
+  cursor: pointer;
+}
+
 /* =============================
    FIX CATEGORY TEXT SIZE
 ============================= */
