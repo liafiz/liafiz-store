@@ -86,32 +86,22 @@ a {
   color: #425a42;
 }
 
-/* =========================
-   AFFILIATE BUTTONS
-========================= */
-.affiliate-buttons {
-  gap: 8px;
+/* =============================
+   MINI AFFILIATE BUTTONS
+============================= */
+.affiliate-mini a {
+  height: 26px;          /* sebelumnya ±44px */
+  padding: 0 10px;       /* kecilin */
+  font-size: 10px;       /* sebelumnya 12–13px */
+  border-radius: 14px;
 }
 
-.aff-btn {
-  font-size: 11px;
-  padding: 6px 4px;          /* TURUN tinggi */
-  border-radius: 999px;     /* pill tipis */
-  line-height: 1;
-  min-height: 30px;         /* kunci tinggi */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.affiliate-mini img,
+.affiliate-mini i {
+  width: 12px;
+  height: 12px;
+  font-size: 12px;
 }
-
-/* Optional: kasih sedikit "lift" biar unik */
-.aff-btn:active {
-  transform: scale(0.97);
-}
-
-.aff-btn.shopee { background:#ff5722; color:#fff }
-.aff-btn.amazon { background:#000; color:#fff }
-.aff-btn.food { background:#22c55e; color:#fff }
 
 /* =========================
    CATEGORIES
