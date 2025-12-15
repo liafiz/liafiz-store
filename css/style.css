@@ -501,9 +501,22 @@ a {
 }
 
 /* Brand colors */
-.btn-shopee {
-  background: #ff5722;
+.btn-affiliate.shopee {
+  background: #ee4d2d;
   color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.btn-affiliate.shopee img {
+  width: 22px;
+  height: 22px;
 }
 
 .btn-amazon {
