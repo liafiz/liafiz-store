@@ -51,16 +51,35 @@ a {
   opacity: 0.8;
 }
 
-/* =========================
-   PROMO
-========================= */
-.promo {
-  margin: 16px;
-  padding: 14px;
-  border-radius: 14px;
-  background: linear-gradient(135deg,#9fbc9b,#c6d6b8);
-  font-weight: 600;
+/* =============================
+   PROMO BANNER
+============================= */
+.promo-banner {
+  margin: 12px 16px;
+  padding: 18px 16px;
+  min-height: 100px;
+
+  background: linear-gradient(135deg, #b9d4a8, #cfe3bf);
+  border-radius: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   text-align: center;
+}
+
+.promo-banner strong {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2d1f;
+}
+
+.promo-banner small {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #425a42;
 }
 
 /* =========================
