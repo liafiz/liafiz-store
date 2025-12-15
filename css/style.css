@@ -144,6 +144,7 @@ a {
   overflow: hidden;     /* cuma image */
   border-radius: 16px;
   background: #e5e7eb;
+   padding: 6px;
 }
 
 .product-image img {
