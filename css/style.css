@@ -175,6 +175,22 @@ a {
   font-weight: 600;
 }
 
+/* =============================
+   FIX CATEGORY TEXT SIZE
+============================= */
+.cat-item span {
+  font-size: 11px !important;
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+.cat-item i {
+  font-size: 18px !important;
+}
+
+.cat-item.food span {
+  font-weight: 500 !important;
+}
 /* =========================
    PRODUCTS
 ========================= */
