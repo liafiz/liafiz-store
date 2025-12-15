@@ -162,10 +162,12 @@ a {
   width: 72px;
   text-align: center;
   color: var(--muted);
+  font-size: 11px;       /* ⬅️ TAMBAH */
+  line-height: 1.2;      /* ⬅️ TAMBAH */
 }
 
 .cat-item i {
-  font-size: 22px;
+  font-size: 18px;   /* dari 22px → 18px */
 }
 
 .cat-item.active {
