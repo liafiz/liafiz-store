@@ -1,3 +1,7 @@
+/* GLOBAL RESET / GLOBAL SETTING */
+html {
+  scroll-behavior: smooth;
+}
 /* =========================
    ROOT & RESET
 ========================= */
