@@ -9,102 +9,8 @@
 }
 
 /* ======================
-   SHOPEEFOOD PICK
-====================== */
-
-.shopeefood-pick {
-  background: linear-gradient(135deg, #ffe1db, #fff4f0);
-  border-radius: 22px;
-  padding: 20px 16px;
-  box-shadow: 0 10px 24px rgba(0,0,0,.08);
-}
-
-/* ===== ACTION BUTTON ===== */
-
-.shopeefood-action {
-  display: grid;
-  gap: 12px;
-  margin-top: 12px;
-}
-
-.shopeefood-btn {
-  padding: 14px;
-  border-radius: 16px;
-  text-align: center;
-  font-size: 14px;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-/* PROMO */
-.shopeefood-btn.promo {
-  background: linear-gradient(135deg, #ee4d2d, #ff7a5c);
-  color: #fff;
-}
-
-/* RESTO */
-.shopeefood-btn.resto {
-  background: #fff;
-  color: #ee4d2d;
-  border: 2px solid #ee4d2d;
-}
-
-/* ===== INFO STRIP ===== */
-
-.shopeefood-info {
-  display: flex;
-  gap: 10px;
-  margin-top: 14px;
-}
-
-.shopeefood-info div {
-  flex: 1;
-  background: #fff;
-  border-radius: 14px;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 11px;
-  box-shadow: 0 4px 12px rgba(0,0,0,.06);
-}
-
-.shopeefood-info i {
-  color: #ee4d2d;
-  font-size: 14px;
-}
-
-/* ======================
-   MOBILE OPTIMIZATION
-====================== */
-
-@media (max-width: 480px) {
-
-  .shopeefood-app {
-    padding: 12px;
-  }
-
-  .shopeefood-pick {
-    padding: 18px 14px;
-  }
-
-  .shopeefood-logo img {
-    width: 52px;
-    height: 52px;
-  }
-
-  .shopeefood-hero h2 {
-    font-size: 17px;
-  }
-
-  .shopeefood-hero p {
-    font-size: 11px;
-  }
-
-}
-
-/* ======================
    UNIVERSAL APP HERO
+   (DIPAKAI AMAZON & SHOPEEFOOD)
 ====================== */
 
 .app-hero {
@@ -157,7 +63,7 @@
   opacity: .85;
 }
 
-/* VARIANT */
+/* HERO VARIANT */
 .app-hero.amazon {
   background: linear-gradient(135deg, #b7c5a6, #cfe3bf);
 }
@@ -166,8 +72,141 @@
   background: linear-gradient(135deg, #ffe1db, #fff4f0);
 }
 
-/* MOBILE */
+/* ======================
+   SHOPEEFOOD PICK (LEVEL 1)
+====================== */
+
+.shopeefood-pick {
+  background: linear-gradient(135deg, #ffe1db, #fff4f0);
+  border-radius: 22px;
+  padding: 20px 16px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.08);
+}
+
+/* ======================
+   FOOD CARD (CLICKABLE)
+====================== */
+
+.food-pick {
+  padding: 16px;
+}
+
+.food-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #ffe1db, #fff4f0);
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+  text-decoration: none;
+  color: #111;
+}
+
+.food-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: #ee4d2d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.food-icon i {
+  color: #fff;
+  font-size: 22px;
+}
+
+.food-text h3 {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.food-text p {
+  font-size: 11px;
+  opacity: .8;
+}
+
+.food-card .arrow {
+  margin-left: auto;
+  font-size: 22px;
+  opacity: .6;
+}
+
+.food-card:active {
+  transform: scale(.97);
+}
+
+/* ======================
+   ACTION BUTTON
+====================== */
+
+.shopeefood-action {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.shopeefood-btn {
+  padding: 14px;
+  border-radius: 16px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* PROMO */
+.shopeefood-btn.promo {
+  background: linear-gradient(135deg, #ee4d2d, #ff7a5c);
+  color: #fff;
+}
+
+/* RESTO */
+.shopeefood-btn.resto {
+  background: #fff;
+  color: #ee4d2d;
+  border: 2px solid #ee4d2d;
+}
+
+/* ======================
+   INFO STRIP
+====================== */
+
+.shopeefood-info {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.shopeefood-info div {
+  flex: 1;
+  background: #fff;
+  border-radius: 14px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.06);
+}
+
+.shopeefood-info i {
+  color: #ee4d2d;
+  font-size: 14px;
+}
+
+/* ======================
+   MOBILE OPTIMIZATION
+====================== */
+
 @media (max-width: 480px) {
+
+  .shopeefood-app {
+    padding: 12px;
+  }
+
   .app-hero {
     padding: 18px 14px;
   }
@@ -184,4 +223,9 @@
   .app-hero p {
     font-size: 11px;
   }
-     }
+
+  .shopeefood-pick {
+    padding: 18px 14px;
+  }
+
+}
