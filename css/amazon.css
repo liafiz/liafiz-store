@@ -23,18 +23,14 @@
   width: 76px;
   height: 76px;
   margin: 0 auto 10px;
-  border-radius: 50%;
-  background: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,.15);
 }
 
 .hero-logo img {
-  width: 60px;
-  height: 60px;
+  width: 64px;
+  height: 64px;
   object-fit: contain;
 }
 
