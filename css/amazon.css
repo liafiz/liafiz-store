@@ -141,3 +141,79 @@
   box-shadow: none !important;
   border-radius: 0 !important;
 }
+
+/* ======================
+   MOBILE OPTIMIZATION
+====================== */
+@media (max-width: 480px) {
+
+  .amazon-app {
+    padding: 12px;
+  }
+
+  /* HERO */
+  .amazon-hero {
+    padding: 18px 14px;
+    border-radius: 18px;
+  }
+
+  .hero-logo {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 8px;
+  }
+
+  .hero-logo img {
+    width: 52px;
+    height: 52px;
+  }
+
+  .amazon-hero h1 {
+    font-size: 17px;
+  }
+
+  .amazon-hero p {
+    font-size: 11px;
+  }
+
+  /* SEARCH */
+  .search-card {
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  .search-box {
+    gap: 8px;
+  }
+
+  .search-box input {
+    height: 44px;
+    font-size: 14px;
+    border-radius: 12px;
+  }
+
+  .search-box button {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+  }
+
+  .search-box button i {
+    font-size: 18px;
+  }
+
+  .hint {
+    font-size: 10.5px;
+  }
+
+  /* INFO STRIP */
+  .info-strip {
+    gap: 8px;
+  }
+
+  .info-strip div {
+    padding: 9px;
+    font-size: 10.5px;
+  }
+
+}
