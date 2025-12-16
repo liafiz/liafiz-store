@@ -217,3 +217,34 @@
   }
 
 }
+
+/* ======================
+   MOBILE FIX (REAL)
+====================== */
+@media (max-width: 480px) {
+
+  .amazon-hero {
+    padding: 18px 14px;
+  }
+
+  .hero-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  .hero-logo img {
+    width: 52px;
+    height: 52px;
+  }
+
+  .amazon-hero h1 {
+    font-size: 17px;
+  }
+
+  .amazon-hero p {
+    font-size: 11px;
+  }
+
+}
