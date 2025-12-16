@@ -1,48 +1,44 @@
-<!doctype html>
-<html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<main class="amazon-app">
 
-<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/amazon.css">
+  <!-- HERO -->
+  <section class="amazon-hero">
+    <div class="hero-icon">
+      <i class="ri-amazon-fill"></i>
+    </div>
+    <h1>Amazon Pick</h1>
+    <p>Produk pilihan Liafiz dari Amazon</p>
+  </section>
 
-<title>Liafiz Amazon Pick</title>
-</head>
+  <!-- SEARCH CARD -->
+  <section class="search-card">
+    <label>Kode Produk</label>
 
-<body>
-
-<header class="header">
-  <div class="logo">
-    <span class="logo-main">Liafiz</span>
-    <span class="logo-sub">AMAZON PICK</span>
-  </div>
-</header>
-
-<main class="container amazon-pick">
-
-  <div class="pick-card">
-    <h2>🔎 Cari Produk Amazon</h2>
-    <p>Masukkan kode produk dari video Liafiz</p>
-
-    <input 
-      type="text" 
-      id="productCode" 
-      placeholder="Contoh: LZ123"
-    >
-
-    <button id="searchAmazon">
-      Cari di Amazon
-    </button>
+    <div class="search-box">
+      <input 
+        type="text" 
+        id="productCode"
+        placeholder="Contoh: LZ123"
+      >
+      <button id="searchAmazon">
+        <i class="ri-search-line"></i>
+      </button>
+    </div>
 
     <small class="hint">
       Kode ada di caption / komentar video
     </small>
-  </div>
+  </section>
+
+  <!-- QUICK INFO -->
+  <section class="info-strip">
+    <div>
+      <i class="ri-shield-check-line"></i>
+      <span>Link resmi Amazon</span>
+    </div>
+    <div>
+      <i class="ri-flashlight-line"></i>
+      <span>Langsung ke produk</span>
+    </div>
+  </section>
 
 </main>
-
-<script src="js/amazon-search.js"></script>
-</body>
-</html>
