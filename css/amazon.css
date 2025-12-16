@@ -15,20 +15,27 @@
   margin-bottom: 16px;
 }
 
-.hero-icon {
-  width: 48px;
-  height: 48px;
-  margin: 0 auto 8px;
+/* ===== HERO LOGO (MINI FIX) ===== */
+.hero-logo {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  min-height: 36px;
   border-radius: 50%;
   background: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,.12);
 }
 
-.hero-icon i {
-  font-size: 26px;
-  color: #111;
+.hero-logo img {
+  width: 20px;
+  height: 20px;
+  max-width: 20px;
+  max-height: 20px;
+  object-fit: contain;
 }
 
 .amazon-hero h1 {
