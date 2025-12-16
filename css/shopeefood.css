@@ -1,0 +1,128 @@
+/* ======================
+   SHOPEEFOOD APP PAGE
+====================== */
+
+.shopeefood-app {
+  padding: 16px;
+  background: #f3f4f6;
+  min-height: 100vh;
+}
+
+/* ======================
+   SHOPEEFOOD PICK
+====================== */
+
+.shopeefood-pick {
+  background: linear-gradient(135deg, #ffe1db, #fff4f0);
+  border-radius: 22px;
+  padding: 20px 16px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.08);
+}
+
+/* ===== HERO ===== */
+
+.shopeefood-hero {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.shopeefood-logo img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  margin-bottom: 6px;
+}
+
+.shopeefood-hero h2 {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.shopeefood-hero p {
+  font-size: 12px;
+  opacity: .85;
+}
+
+/* ===== ACTION BUTTON ===== */
+
+.shopeefood-action {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.shopeefood-btn {
+  padding: 14px;
+  border-radius: 16px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* PROMO */
+.shopeefood-btn.promo {
+  background: linear-gradient(135deg, #ee4d2d, #ff7a5c);
+  color: #fff;
+}
+
+/* RESTO */
+.shopeefood-btn.resto {
+  background: #fff;
+  color: #ee4d2d;
+  border: 2px solid #ee4d2d;
+}
+
+/* ===== INFO STRIP ===== */
+
+.shopeefood-info {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.shopeefood-info div {
+  flex: 1;
+  background: #fff;
+  border-radius: 14px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.06);
+}
+
+.shopeefood-info i {
+  color: #ee4d2d;
+  font-size: 14px;
+}
+
+/* ======================
+   MOBILE OPTIMIZATION
+====================== */
+
+@media (max-width: 480px) {
+
+  .shopeefood-app {
+    padding: 12px;
+  }
+
+  .shopeefood-pick {
+    padding: 18px 14px;
+  }
+
+  .shopeefood-logo img {
+    width: 52px;
+    height: 52px;
+  }
+
+  .shopeefood-hero h2 {
+    font-size: 17px;
+  }
+
+  .shopeefood-hero p {
+    font-size: 11px;
+  }
+
+}
