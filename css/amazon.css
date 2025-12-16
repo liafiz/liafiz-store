@@ -125,3 +125,18 @@
   font-size: 14px;
   color: #2e7d32;
 }
+
+/* ======================
+   AMAZON – REMOVE LOGO BG
+====================== */
+
+.amazon-app .hero-header {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.amazon-app .hero-logo {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
