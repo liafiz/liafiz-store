@@ -46,10 +46,10 @@
 
 /* ===== SEARCH CARD ===== */
 .search-card {
-  background: #fff;
+  background: linear-gradient(135deg, #b7c5a6, #cfe3bf);
   border-radius: 18px;
   padding: 16px;
-  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
 }
 
 .search-card label {
@@ -61,38 +61,39 @@
 
 .search-box {
   display: flex;
-  gap: 8px;
+  gap: 10px;
 }
 
 .search-box input {
   flex: 1;
-  height: 44px;
-  border-radius: 12px;
-  border: 1px solid #e5e7eb;
-  padding: 0 14px;
+  height: 46px;
+  border-radius: 14px;
+  border: none;
+  padding: 0 16px;
   font-size: 14px;
+  background: rgba(255,255,255,.9);
 }
 
 .search-box button {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
   border: none;
   background: #ff9900;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,.2);
 }
 
 .search-box button i {
-  font-size: 18px;
+  font-size: 20px;
   color: #111;
 }
 
 .search-box button:active {
-  transform: scale(.94);
+  transform: scale(.92);
 }
-
 .hint {
   display: block;
   margin-top: 8px;
