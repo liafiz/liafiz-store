@@ -8,6 +8,21 @@
 <body>
 
 <script>
+  // ===== TRACK CLICK =====
+  const data = {
+    target: "shopeefood",
+    from: document.referrer || "direct",
+    time: new Date().toISOString()
+  };
+
+  // Ambil data lama
+  const logs = JSON.parse(localStorage.getItem("liafiz_clicks") || "[]");
+
+  // Simpan data baru
+  logs.push(data);
+  localStorage.setItem("liafiz_clicks", JSON.stringify(logs));
+
+  // Redirect ke ShopeeFood
   window.location.href = "https://shopee.co.id/m/shopeefood";
 </script>
 
