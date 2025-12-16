@@ -3,10 +3,13 @@ const affiliateTag = "liafiz0e-20";
 const productMap = {
   LZ123: "https://www.amazon.com/dp/B0ABC123",
   LZ456: "https://www.amazon.com/dp/B0XYZ456",
-};
+};⅔
 
-document.getElementById("searchAmazon").addEventListener("click", () => {
-  const code = document.getElementById("productCode").value.trim().toUpperCase();
+document.getElementById("productCode").addEventListener("keyup", e => {
+  if (e.key === "Enter") {
+    document.getElementById("searchAmazon").click();
+  }
+});
 
   if (!productMap[code]) {
     alert("Kode tidak ditemukan");
