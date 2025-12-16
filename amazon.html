@@ -1,172 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-<link rel='stylesheet' href='css/style.css'>
-  <meta charset="UTF-8">
-  <title>Liafiz Amazon Search</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    :root {
-  --bg: linear-gradient(135deg, #020617, #0f172a);
-  --text: #ffffff;
-  --brand: #22c55e;
-    }
-    body{
-  background: var(--bg);
-  color: var(--text);
-  font-family: "Poppins", system-ui, sans-serif;
-}
-    header {
-      padding: 16px;
-      text-align: center;
-      background: #020617;
-      font-weight: bold;
-      font-size: 18px;
-    }
-    .container {
-      padding: 16px;
-    }
-    .search-box {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-.info-text {
-  width: 100%;
-  display: block;
-  text-align: center;
-  margin-top: 8px;
-  font-size: 12px;
-  opacity: 0.8;
-}
+<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/amazon.css">
 
-.preview-box {
-  display: none;
-  margin-top: 20px;
-  width: 100%;
-  background: #020617;
-  border-radius: 12px;
-  padding: 12px;
-  text-align: center;
-}
-
-.preview-box img {
-  width: 100%;
-  max-width: 220px;
-  border-radius: 10px;
-  margin-bottom: 8px;
-}
-
-.preview-box a {
-  display: inline-block;
-  margin-top: 10px;
-  background: #22c55e;
-  color: #000;
-  padding: 10px 18px;
-  border-radius: 999px;
-  font-weight: 700;
-  text-decoration: none;
-}
-  </style>
+<title>Liafiz Amazon Pick</title>
 </head>
+
 <body>
 
-<header>🔎 Cari Produk Amazon - Liafiz</header>
+<header class="header">
+  <div class="logo">
+    <span class="logo-main">Liafiz</span>
+    <span class="logo-sub">AMAZON PICK</span>
+  </div>
+</header>
 
-<div class="container">
+<main class="container amazon-pick">
 
-  <!-- INPUT & BUTTON -->
-<div class="search-box">
-  <input type="text" id="kodeProduk" placeholder="Masukkan kode produk">
-  <button onclick="cariProduk()">Cari</button>
-</div>
+  <div class="pick-card">
+    <h2>🔎 Cari Produk Amazon</h2>
+    <p>Masukkan kode produk dari video Liafiz</p>
 
-<!-- INFO -->
-<p class="info-text">
-Masukkan kode dari video Liafiz (TikTok, IG, atau Facebook), lalu klik Cari.
-</p>
+    <input 
+      type="text" 
+      id="productCode" 
+      placeholder="Contoh: LZ123"
+    >
 
-<!-- PREVIEW PRODUK (PASTI DI BAWAH) -->
-<div id="previewProduk" class="preview-box" style="display:none;">
-  <img id="previewImg" src="">
-  <h3 id="previewNama"></h3>
-  <a id="previewLink" href="#" target="_blank">Beli di Amazon</a>
-</div>
-</div>
+    <button id="searchAmazon">
+      Cari di Amazon
+    </button>
 
-<p style="font-size:11px;opacity:0.6;text-align:center;">
-Link langsung ke Amazon resmi & aman.
-</p>
+    <small class="hint">
+      Kode ada di caption / komentar video
+    </small>
   </div>
 
-  <div class="list">
-  <b>Kode Produk Aktif:</b><br>
-  01 - Produk Amazon #1<br>
-  02 - Produk Amazon #2<br>
-  03 - Produk Amazon #3<br>
-  04 - Produk Amazon #4<br>
-  05 - Produk Amazon #5<br>
-  06 - Produk Amazon #6<br>
-</div>
+</main>
 
-</div>
-
-<script>
-  const storeId = "liafiz0e-20";
-
-  const produk = {
-    "01": {
-      asin: "B0D1BVHC52",
-      nama: "NORTIV 8 Men's Walking Running",
-      img: "https://m.media-amazon.com/images/I/71qrBfQqxgL._AC_UL1500_.jpg"
-    },
-    "02": {
-      asin: "B0DYJKCVLL",
-      nama: "ALLSWIFIT Men's Slip On Stability Walking Running",
-      img: "https://m.media-amazon.com/images/I/71ojg%2BV0XrL._AC_UL1500_.jpg"
-    },
-    "03": {
-      asin: "B0D83ZT6YT",
-      nama: "Skechers Womens Contour Foam",
-      img: "https://m.media-amazon.com/images/I/71VxuB%2ByDlL._AC_UY900_.jpg"
-    },
-    "04": {
-      asin: "B08Q9SCLXM",
-      nama: "Nike Men's Dunk Low Retro Sneaker",
-      img: "https://m.media-amazon.com/images/I/61J6jXUA7YL._AC_UL1500_.jpg"
-    },
-    "05": {
-      asin: "BODQCV6RCC",
-      nama: "TOPDesign Puffer Tote Bag for Women",
-      img: "https://m.media-amazon.com/images/I/51-DMfNThTL._AC_UL1500_.jpg"
-    },
-    "06": {
-      asin: "B08GWYCGHV",
-      nama: "SKDOIUL Men Sport Running Shoes",
-      img: "https://m.media-amazon.com/images/I/81mzus4r%2BmS._AC_UL1500_.jpg"
-    }
-  };
-
-  function cariProduk() {
-    let kode = document.getElementById("kodeProduk").value.trim();
-    if (kode.length === 1) kode = "0" + kode;
-
-    if (!produk[kode]) {
-      alert("❌ Kode produk tidak ditemukan!");
-      return;
-    }
-
-    const data = produk[kode];
-    const link = `https://www.amazon.com/dp/${data.asin}?tag=${storeId}`;
-
-    document.getElementById("previewImg").src = data.img;
-    document.getElementById("previewNama").innerText = data.nama;
-    document.getElementById("previewLink").href = link;
-
-    document.getElementById("previewProduk").style.display = "block";
-  }
-</script>
-
+<script src="js/amazon-search.js"></script>
 </body>
 </html>
