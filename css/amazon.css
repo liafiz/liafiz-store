@@ -286,56 +286,71 @@
 }
 
 /* ======================
-   PROMO TODAY
+   AMAZON PROMO BLOCK
 ====================== */
 
-.promo-today {
-  margin-top: 16px;
+.amazon-promo {
+  background: linear-gradient(135deg, #b7c5a6, #cfe3bf);
+  border-radius: 20px;
+  padding: 20px 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
 }
 
-.promo-badge {
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 600;
-  background: #ff9900;
-  color: #111;
-  padding: 4px 10px;
-  border-radius: 999px;
-  margin-bottom: 8px;
+.amazon-promo h2 {
+  font-size: 17px;
+  font-weight: 700;
+  text-align: center;
 }
 
-.promo-card {
-  background: linear-gradient(135deg, #ffffff, #f8fafc);
-  border-radius: 18px;
-  padding: 14px;
+.promo-sub {
+  font-size: 12px;
+  text-align: center;
+  opacity: .85;
+  margin-bottom: 14px;
+}
+
+/* SLIDER */
+.promo-slider {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
   gap: 12px;
-  box-shadow: 0 6px 16px rgba(0,0,0,.08);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
 }
 
-.promo-text h3 {
+.promo-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.promo-item {
+  min-width: 220px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 6px 16px rgba(0,0,0,.1);
+  scroll-snap-align: start;
+}
+
+.promo-item h3 {
   font-size: 14px;
   font-weight: 700;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
 }
 
-.promo-text p {
+.promo-item p {
   font-size: 11px;
   color: #6b7280;
 }
 
-.promo-btn {
-  background: #111827;
-  color: #fff;
-  font-size: 12px;
-  padding: 8px 12px;
-  border-radius: 10px;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.promo-btn:active {
-  transform: scale(.95);
+/* TAG */
+.promo-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #ff9900;
+  color: #111;
+  margin-bottom: 6px;
 }
