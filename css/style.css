@@ -64,6 +64,10 @@ a {
   outline: none;
 }
 
+button.menu-btn {
+  appearance: none;
+}
+
 .logo-main {
   font-size: 20px;
   font-weight: 700;
