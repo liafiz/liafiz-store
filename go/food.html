@@ -8,10 +8,13 @@
 <body>
 
 <script>
-  // ===== TRACK CLICK =====
+  // Ambil parameter URL (?from=...)
+  const params = new URLSearchParams(window.location.search);
+
+  // Data tracking
   const data = {
     target: "shopeefood",
-    from: document.referrer || "direct",
+    from: params.get("from") || document.referrer || "direct",
     time: new Date().toISOString()
   };
 
