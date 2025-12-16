@@ -46,10 +46,10 @@
 
 /* ===== SEARCH CARD ===== */
 .search-card {
-  background: linear-gradient(135deg, #b7c5a6, #cfe3bf);
-  border-radius: 18px;
-  padding: 16px;
-  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+  background: transparent;
+  border-radius: 0;
+  padding: 14px 0 0;
+  box-shadow: none;
 }
 
 .search-card label {
