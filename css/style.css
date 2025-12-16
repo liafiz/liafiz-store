@@ -44,6 +44,26 @@ a {
   justify-content: space-between;
 }
 
+/* HEADER ICON – MENU BUTTON */
+.menu-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.menu-btn i {
+  font-size: 22px;
+  color: #222;
+}
+
+/* hilangin garis / kotak pas diklik */
+.menu-btn:focus {
+  outline: none;
+}
+
 .logo-main {
   font-size: 20px;
   font-weight: 700;
