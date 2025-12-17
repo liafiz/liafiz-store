@@ -14,10 +14,40 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/categories.css">
 </head>
+  
+<script>
+  const searchBtn = document.querySelector('.ri-search-line');
+  const searchOverlay = document.getElementById('searchOverlay');
+  const closeSearch = document.getElementById('closeSearch');
 
+  searchBtn.addEventListener('click', () => {
+    searchOverlay.classList.add('active');
+  });
+
+  closeSearch.addEventListener('click', () => {
+    searchOverlay.classList.remove('active');
+  });
+
+  // klik area gelap = close
+  searchOverlay.addEventListener('click', (e) => {
+    if (e.target === searchOverlay) {
+      searchOverlay.classList.remove('active');
+    }
+  });
+</script>
 <body>
 
 <header class="header">
+  <!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-box">
+    <input type="text" placeholder="Cari produk..." autofocus>
+    <button id="closeSearch">
+      <i class="ri-close-line"></i>
+    </button>
+  </div>
+</div>
+  
   <div class="logo">
     <span class="logo-main">Liafiz</span>
     <span class="logo-sub">AFFILIATE STORE</span>
