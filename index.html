@@ -295,56 +295,46 @@ document.querySelectorAll('.favorite').forEach(fav => {
 </script>
 
   <script>
-  const products = [
-    { name: "Celana Fit And Flare", category: "Fashion" },
-    { name: "Inner Long Dress", category: "Fashion" },
-    { name: "Sepatu Sneakers Wanita", category: "Shoes" },
-    { name: "Tas Selempang", category: "Bags" },
-    { name: "Hijab Premium", category: "Fashion" },
-  ];
+const products = [
+  { name: "Celana Fit And Flare", target: "celana-fit-flare" },
+  { name: "Inner Long Dress", target: "inner-long-dress" },
+  { name: "Jam Tangan Minimalis", target: "jam-minimalis" }
+];
 
-  const input = document.getElementById("searchInput");
-  const results = document.getElementById("searchResults");
+const input = document.getElementById("searchInput");
+const results = document.getElementById("searchResults");
 
-  input.addEventListener("input", () => {
-    const keyword = input.value.toLowerCase();
-    results.innerHTML = "";
+input.addEventListener("input", () => {
+  const keyword = input.value.toLowerCase();
+  results.innerHTML = "";
 
-    if (!keyword) {
-      results.innerHTML = `
-        <div class="search-empty">
-          <i class="ri-search-line"></i>
-          <p>Ketik untuk mencari produk…</p>
-        </div>
-      `;
-      return;
-    }
+  if (!keyword) {
+    results.innerHTML = "<p>Ketik untuk mencari produk…</p>";
+    return;
+  }
 
-    const filtered = products.filter(p =>
-      p.name.toLowerCase().includes(keyword)
-    );
+  const filtered = products.filter(p =>
+    p.name.toLowerCase().includes(keyword)
+  );
 
-    if (filtered.length === 0) {
-      results.innerHTML = `
-        <div class="search-empty">
-          <i class="ri-close-circle-line"></i>
-          <p>Produk tidak ditemukan</p>
-        </div>
-      `;
-      return;
-    }
+  if (filtered.length === 0) {
+    results.innerHTML = "<p>Produk tidak ditemukan.</p>";
+    return;
+  }
 
-    filtered.forEach(item => {
-      const div = document.createElement("div");
-      div.className = "search-item";
-      div.innerHTML = `
-        <strong>${item.name}</strong>
-        <span>${item.category}</span>
-      `;
-      results.appendChild(div);
-    });
+  filtered.forEach(item => {
+    const div = document.createElement("div");
+    div.className = "search-item";
+    div.textContent = item.name;
+
+    div.onclick = () => {
+      window.location.href = `index.html#${item.target}`;
+    };
+
+    results.appendChild(div);
   });
-  </script>
+});
+</script>
   
 </body>
   </html>
