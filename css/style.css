@@ -706,3 +706,13 @@ button.menu-btn {
   font-size: 18px;
 }
 
+/* =============================
+   FORCE FIX MENU ICON SIZE
+============================= */
+.mobile-right .menu-btn i {
+  font-size: 19px !important;
+}
+
+.mobile-right a i {
+  font-size: 19px !important;
+}
