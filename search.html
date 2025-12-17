@@ -120,14 +120,14 @@ body {
 </main>
 
 <script>
-  const products = [
+const products = [
   {
-    name: "Inner Long Dress",
-    target: "inner-long-dress"
+    name: "Celana Fit And Flare",
+    target: "celana-fit-flare"
   },
   {
-    name: "Celana Fit Flare",
-    target: "celana-fit-flare"
+    name: "Inner Long Dress",
+    target: "INNER-LONG-DRESS-TANPA-LENGAN"
   },
   {
     name: "Sepatu Sneakers Wanita",
@@ -147,36 +147,36 @@ body {
   }
 ];
 
-  const input = document.getElementById("searchInput");
-  const results = document.getElementById("searchResults");
+const input = document.getElementById("searchInput");
+const results = document.getElementById("searchResults");
 
-  input.addEventListener("input", () => {
-    const keyword = input.value.toLowerCase();
-    results.innerHTML = "";
+input.addEventListener("input", () => {
+  const keyword = input.value.toLowerCase();
+  results.innerHTML = "";
 
-    if (!keyword) {
-      results.innerHTML = "<p>Ketik untuk mencari produk…</p>";
-      return;
-    }
+  if (!keyword) {
+    results.innerHTML = "<p>Ketik untuk mencari produk…</p>";
+    return;
+  }
 
-    const filtered = products.filter(p =>
-  p.name.toLowerCase().includes(keyword)
-);
+  const filtered = products.filter(p =>
+    p.name.toLowerCase().includes(keyword)
+  );
 
-    if (filtered.length === 0) {
-      results.innerHTML = "<p>Produk tidak ditemukan.</p>";
-      return;
-    }
+  if (filtered.length === 0) {
+    results.innerHTML = "<p>Produk tidak ditemukan.</p>";
+    return;
+  }
 
-    filtered.forEach(item => {
-  const link = document.createElement("a");
-  link.className = "search-item";
-  link.href = `index.html#${item.target}`;
-  link.textContent = item.name;
-
-  results.appendChild(link);
+  filtered.forEach(item => {
+    const link = document.createElement("a");
+    link.className = "search-item";
+    link.href = `index.html#${item.target}`;
+    link.innerHTML = `<strong>${item.name}</strong><span>Lihat produk</span>`;
+    results.appendChild(link);
+  });
 });
 </script>
-
+  
 </body>
 </html>
