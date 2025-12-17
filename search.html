@@ -3,26 +3,111 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Search Produk</title>
+  <title>Search Produk | Liafiz</title>
+
+  <!-- Remix Icon -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+  <!-- CSS utama -->
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* =============================
+       SEARCH PAGE
+    ============================= */
+    .search-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      background: var(--brand);
+    }
+
+    .search-header input {
+      flex: 1;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: none;
+      outline: none;
+      font-size: 14px;
+    }
+
+    .search-header i {
+      font-size: 22px;
+      color: #222;
+    }
+
+    .search-results {
+      padding: 16px;
+    }
+
+    .search-item {
+      padding: 12px;
+      border-radius: 12px;
+      background: #f3f3f3;
+      margin-bottom: 10px;
+    }
+  </style>
 </head>
 <body>
 
-<header class="header">
+<!-- HEADER SEARCH -->
+<header class="search-header">
   <a href="index.html">
     <i class="ri-arrow-left-line"></i>
   </a>
   <input
     type="search"
+    id="searchInput"
     placeholder="Cari produk..."
-    class="search-input"
     autofocus
   >
 </header>
 
-<main class="container">
-  <p>Hasil pencarian akan muncul di sini…</p>
+<!-- HASIL -->
+<main class="search-results" id="searchResults">
+  <p>Ketik untuk mencari produk…</p>
 </main>
+
+<script>
+  const products = [
+    "Celana Fit And Flare",
+    "Inner Long Dress",
+    "Sepatu Sneakers Wanita",
+    "Tas Selempang",
+    "Hijab Premium",
+    "Dress Casual",
+  ];
+
+  const input = document.getElementById("searchInput");
+  const results = document.getElementById("searchResults");
+
+  input.addEventListener("input", () => {
+    const keyword = input.value.toLowerCase();
+    results.innerHTML = "";
+
+    if (!keyword) {
+      results.innerHTML = "<p>Ketik untuk mencari produk…</p>";
+      return;
+    }
+
+    const filtered = products.filter(p =>
+      p.toLowerCase().includes(keyword)
+    );
+
+    if (filtered.length === 0) {
+      results.innerHTML = "<p>Produk tidak ditemukan.</p>";
+      return;
+    }
+
+    filtered.forEach(item => {
+      const div = document.createElement("div");
+      div.className = "search-item";
+      div.textContent = item;
+      results.appendChild(div);
+    });
+  });
+</script>
 
 </body>
 </html>
