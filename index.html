@@ -18,6 +18,12 @@
 <body>
 
 <header class="header">
+  <main class="search-results" id="searchResults">
+  <div class="search-empty">
+    <i class="ri-search-line"></i>
+    <p>Ketik untuk mencari produk…</p>
+  </div>
+</main>
   
   <div class="logo">
     <span class="logo-main">Liafiz</span>
@@ -42,10 +48,6 @@
   <strong>🔥 Promo Hari Ini</strong>
   <small>Diskon, Voucher & Flash Sale</small>
 </div>
-
-<div class="promo-banner" id="promo">...</div>
-
-<div class="affiliate-buttons">...</div>
 
   <section class="categories">
     <div class="affiliate-buttons">
@@ -286,5 +288,57 @@ document.querySelectorAll('.favorite').forEach(fav => {
   });
 </script>
 
+  <script>
+  const products = [
+    { name: "Celana Fit And Flare", category: "Fashion" },
+    { name: "Inner Long Dress", category: "Fashion" },
+    { name: "Sepatu Sneakers Wanita", category: "Shoes" },
+    { name: "Tas Selempang", category: "Bags" },
+    { name: "Hijab Premium", category: "Fashion" },
+  ];
+
+  const input = document.getElementById("searchInput");
+  const results = document.getElementById("searchResults");
+
+  input.addEventListener("input", () => {
+    const keyword = input.value.toLowerCase();
+    results.innerHTML = "";
+
+    if (!keyword) {
+      results.innerHTML = `
+        <div class="search-empty">
+          <i class="ri-search-line"></i>
+          <p>Ketik untuk mencari produk…</p>
+        </div>
+      `;
+      return;
+    }
+
+    const filtered = products.filter(p =>
+      p.name.toLowerCase().includes(keyword)
+    );
+
+    if (filtered.length === 0) {
+      results.innerHTML = `
+        <div class="search-empty">
+          <i class="ri-close-circle-line"></i>
+          <p>Produk tidak ditemukan</p>
+        </div>
+      `;
+      return;
+    }
+
+    filtered.forEach(item => {
+      const div = document.createElement("div");
+      div.className = "search-item";
+      div.innerHTML = `
+        <strong>${item.name}</strong>
+        <span>${item.category}</span>
+      `;
+      results.appendChild(div);
+    });
+  });
+  </script>
+  
 </body>
   </html>
