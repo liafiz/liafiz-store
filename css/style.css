@@ -741,3 +741,8 @@ body:not(.page-search) .search-results {
   display: none !important;
 }
 }
+
+.product-card.highlight {
+  outline: 2px solid #9fb38a;
+  box-shadow: 0 0 0 4px rgba(159,179,138,.25);
+}
