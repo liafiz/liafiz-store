@@ -726,3 +726,12 @@ button.menu-btn {
   0% { background: #f5f3ff; }
   100% { background: #fff; }
 }
+
+/* =============================
+   HIDE SEARCH BAR ON INDEX
+============================= */
+body:not(.page-search) .search-bar,
+body:not(.page-search) .search-box,
+body:not(.page-search) .search-container {
+  display: none !important;
+}
