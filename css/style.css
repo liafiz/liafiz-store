@@ -716,3 +716,50 @@ button.menu-btn {
 .mobile-right a i {
   font-size: 19px !important;
 }
+
+/* =============================
+   SEARCH OVERLAY
+============================= */
+.search-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 70px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.25s ease;
+  z-index: 999;
+}
+
+.search-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.search-box {
+  background: #fff;
+  width: calc(100% - 32px);
+  max-width: 420px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-box input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+.search-box button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
