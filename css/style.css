@@ -44,6 +44,41 @@ a {
   justify-content: space-between;
 }
 
+/* =============================
+   HEADER RIGHT ICONS (MOBILE)
+============================= */
+.mobile-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;                 /* JARAK ANTAR ICON */
+}
+
+/* Samakan semua tombol icon */
+.mobile-right a,
+.mobile-right button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Samakan ukuran icon */
+.mobile-right i {
+  font-size: 20px;
+  color: #222;
+  line-height: 1;
+}
+
+/* Menu (hamburger) jangan kegedean */
+.menu-btn i {
+  font-size: 22px;
+}
+
 /* HEADER ICON – MENU BUTTON */
 .menu-btn {
   background: transparent;
@@ -52,11 +87,6 @@ a {
   margin: 0;
   box-shadow: none;
   cursor: pointer;
-}
-
-.menu-btn i {
-  font-size: 22px;
-  color: #222;
 }
 
 /* hilangin garis / kotak pas diklik */
