@@ -288,6 +288,22 @@ document.querySelectorAll('.favorite').forEach(fav => {
     });
   });
 </script>
-  
+  <script>
+window.addEventListener("load", () => {
+  const hash = window.location.hash;
+  if (!hash) return;
+
+  const target = document.querySelector(hash);
+  if (target) {
+    setTimeout(() => {
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+      target.classList.add("highlight");
+    }, 300);
+  }
+});
+  </script>
 </body>
   </html>
