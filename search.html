@@ -120,14 +120,32 @@ body {
 </main>
 
 <script>
-  const products = [
-    "Celana Fit And Flare",
-    "Inner Long Dress",
-    "Sepatu Sneakers Wanita",
-    "Tas Selempang",
-    "Hijab Premium",
-    "Dress Casual",
-  ];
+  ‎const products = [
+‎  {
+‎    name: "Celana Fit And Flare",
+‎    target: "celana-fit-flare"
+‎  },
+‎  {
+‎    name: "Inner Long Dress",
+‎    target: "inner-long-dress"
+‎  }
+‎ {
+‎    name: "Sepatu Sneakers Wanita",
+‎    target: "sepatu-sneakers-wanita"
+‎  },
+‎  {
+‎    name: "Tas Selempang",
+‎    target: "tas-selempang"
+‎  }
+‎ {
+‎    name: "Hijab Premium",
+‎    target: "hijab-premium"
+‎  },
+‎  {
+‎    name: "Dress Casual",
+‎    target: "dress-casual"
+‎  }
+‎];
 
   const input = document.getElementById("searchInput");
   const results = document.getElementById("searchResults");
@@ -142,8 +160,8 @@ body {
     }
 
     const filtered = products.filter(p =>
-      p.toLowerCase().includes(keyword)
-    );
+  p.name.toLowerCase().includes(keyword)
+);
 
     if (filtered.length === 0) {
       results.innerHTML = "<p>Produk tidak ditemukan.</p>";
@@ -151,12 +169,16 @@ body {
     }
 
     filtered.forEach(item => {
-      const div = document.createElement("div");
-      div.className = "search-item";
-      div.textContent = item;
-      results.appendChild(div);
-    });
+  const div = document.createElement("div");
+  div.className = "search-item";
+  div.textContent = item.name;
+
+  div.addEventListener("click", () => {
+    window.location.href = `index.html#${item.target}`;
   });
+
+  results.appendChild(div);
+});
 </script>
 
 </body>
