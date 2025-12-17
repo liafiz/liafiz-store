@@ -169,15 +169,12 @@ body {
     }
 
     filtered.forEach(item => {
-  const div = document.createElement("div");
-  div.className = "search-item";
-  div.textContent = item.name;
+  const link = document.createElement("a");
+  link.className = "search-item";
+  link.href = `index.html#${item.target}`;
+  link.textContent = item.name;
 
-  div.addEventListener("click", () => {
-    window.location.href = `index.html#${item.target}`;
-  });
-
-  results.appendChild(div);
+  results.appendChild(link);
 });
 </script>
 
