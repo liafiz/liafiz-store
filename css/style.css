@@ -750,3 +750,9 @@ body:not(.page-search) .search-results {
   outline: 2px solid #9fb38a;
   box-shadow: 0 0 0 4px rgba(159,179,138,.25);
 }
+
+/* MATIKAN ICON HEADER YANG MASUK KE CARD */
+.product-card > .icon,
+.product-card > a > .icon {
+  display: none !important;
+}
