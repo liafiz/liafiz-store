@@ -278,32 +278,41 @@
     });
   });
 </script>
+  
   <script>
-    document.querySelectorAll(".wishlist-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
+const wishlistKey = "wishlist";
 
-    let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+function getWishlist() {
+  return JSON.parse(localStorage.getItem(wishlistKey)) || [];
+}
 
-    const product = {
-      id: btn.dataset.id,
-      name: btn.dataset.name,
-      price: btn.dataset.price,
-      image: btn.dataset.image
+function saveWishlist(data) {
+  localStorage.setItem(wishlistKey, JSON.stringify(data));
+}
+
+document.querySelectorAll(".wishlist-btn").forEach(btn => {
+  btn.addEventListener("click", function () {
+    const item = {
+      id: this.dataset.id,
+      name: this.dataset.name,
+      price: this.dataset.price,
+      image: this.dataset.image
     };
 
-    const exist = wishlist.find(item => item.id === product.id);
+    let wishlist = getWishlist();
+    const index = wishlist.findIndex(p => p.id === item.id);
 
-    if (exist) {
-      wishlist = wishlist.filter(item => item.id !== product.id);
-      btn.classList.remove("active");
-      btn.innerHTML = '<i class="ri-heart-line"></i>';
+    if (index === -1) {
+      wishlist.push(item);
+      this.classList.add("active");
+      this.querySelector("i").classList.replace("ri-heart-line", "ri-heart-fill");
     } else {
-      wishlist.push(product);
-      btn.classList.add("active");
-      btn.innerHTML = '<i class="ri-heart-fill"></i>';
+      wishlist.splice(index, 1);
+      this.classList.remove("active");
+      this.querySelector("i").classList.replace("ri-heart-fill", "ri-heart-line");
     }
 
-    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+    saveWishlist(wishlist);
   });
 });
 </script>
