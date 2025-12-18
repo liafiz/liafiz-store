@@ -1,67 +1,131 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-<link rel='stylesheet' href='css/style.css'>
   <meta charset="UTF-8">
-  <title>Wishlist - LIAFIZ</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Wishlist | Liafiz</title>
+
+  <!-- ICON -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .wishlist-empty {
+      text-align: center;
+      padding: 60px 20px;
+      color: #666;
+    }
+
+    .wishlist-empty i {
+      font-size: 48px;
+      color: #ccc;
+      margin-bottom: 12px;
+    }
+
+    .wishlist-empty p {
+      margin-top: 8px;
+      font-size: 14px;
+    }
+  </style>
 </head>
+
 <body>
 
-<header>
-  <h2 style="text-align:center;margin:16px 0">❤️ Wishlist Saya</h2>
+<header class="header">
+  <div class="logo">
+    <span class="logo-main">Wishlist</span>
+    <span class="logo-sub">SAVED PRODUCTS</span>
+  </div>
+
+  <div class="mobile-right">
+    <a href="index.html"><i class="ri-arrow-left-line"></i></a>
+  </div>
 </header>
 
-<div class="grid" id="wishlistGrid"></div>
+<main class="container">
+
+  <div class="products" id="wishlistContainer"></div>
+
+  <div class="wishlist-empty" id="wishlistEmpty" style="display:none;">
+    <i class="ri-heart-line"></i>
+    <h3>Wishlist kosong</h3>
+    <p>Klik ❤️ di produk untuk menyimpan</p>
+  </div>
+
+</main>
+
+<nav class="bottom-nav">
+  <a href="index.html"><i class="ri-home-4-line"></i></a>
+  <a href="wishlist.html" class="active"><i class="ri-heart-fill"></i></a>
+  <a href="#"><i class="ri-shopping-cart-line"></i></a>
+  <a href="#"><i class="ri-user-line"></i></a>
+</nav>
 
 <script>
-const wishlistGrid = document.getElementById("wishlistGrid");
-const data = JSON.parse(localStorage.getItem("wishlist")) || [];
+const wishlistKey = "wishlist";
+const container = document.getElementById("wishlistContainer");
+const emptyState = document.getElementById("wishlistEmpty");
 
-if (data.length === 0) {
-  wishlistGrid.innerHTML = "<p style='text-align:center'>Wishlist masih kosong</p>";
+function getWishlist() {
+  return JSON.parse(localStorage.getItem(wishlistKey)) || [];
 }
 
-data.forEach(item => {
-  const card = document.createElement("a");
-  card.className = "card";
-  card.href = item.link;
-  card.target = "_blank";
+function renderWishlist() {
+  const wishlist = getWishlist();
+  container.innerHTML = "";
 
-  card.innerHTML = `
-    <div class="badge">${item.platform}</div>
-    <img src="${item.img}">
-    <div class="meta">
-      <div class="title">${item.title}</div>
-      <div class="price">
-        <span class="cur">${item.price}</span>
+  if (wishlist.length === 0) {
+    emptyState.style.display = "block";
+    return;
+  }
+
+  emptyState.style.display = "none";
+
+  wishlist.forEach(item => {
+    const card = document.createElement("div");
+    card.className = "product-card";
+
+    card.innerHTML = `
+      <div class="product-image">
+        <img src="${item.image}" alt="${item.name}" />
+
+        <button class="favorite wishlist-btn active" data-id="${item.id}">
+          <i class="ri-heart-fill"></i>
+        </button>
       </div>
-    </div>
-  `;
 
-  wishlistGrid.appendChild(card);
-});
-  document.querySelectorAll('.wish-btn').forEach(btn => {
-  btn.addEventListener('click', function(e){
-    e.preventDefault();
+      <div class="product-content">
+        <div class="title">${item.name}</div>
 
-    const card = this.closest('.card');
+        <div class="price">
+          <strong>Rp${Number(item.price).toLocaleString("id-ID")}</strong>
+        </div>
 
-    const data = {
-      title: card.querySelector('.title').innerText,
-      price: card.querySelector('.cur').innerText,
-      img: card.querySelector('img').src,
-      link: card.href,
-      platform: card.dataset.platform || "Shop"
-    };
+        <div class="actions">
+          <a href="index.html#${item.id}" class="btn-buy">Lihat Produk</a>
+        </div>
+      </div>
+    `;
 
-    let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
-    wishlist.push(data);
+    // REMOVE FROM WISHLIST
+    card.querySelector(".wishlist-btn").addEventListener("click", () => {
+      removeFromWishlist(item.id);
+    });
 
-    localStorage.setItem("wishlist", JSON.stringify(wishlist));
-    alert("Masuk wishlist ❤️");
+    container.appendChild(card);
   });
-});
+}
+
+function removeFromWishlist(id) {
+  let wishlist = getWishlist().filter(item => item.id !== id);
+  localStorage.setItem(wishlistKey, JSON.stringify(wishlist));
+  renderWishlist();
+}
+
+renderWishlist();
 </script>
 
 </body>
