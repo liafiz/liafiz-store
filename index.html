@@ -363,6 +363,36 @@ window.addEventListener("load", () => {
 });
   </script>
 <script src="js/wishlist.js"></script>
+
+  <script>
+  const guestBox = document.getElementById("guestBox");
+  const userBox  = document.getElementById("userBox");
+  const usernameText = document.getElementById("username");
+
+  // CEK STATUS LOGIN
+  const user = localStorage.getItem("user");
+
+  if (user) {
+    guestBox.style.display = "none";
+    userBox.style.display = "block";
+    usernameText.textContent = user;
+  }
+
+  // LOGIN
+  document.getElementById("loginBtn")?.addEventListener("click", () => {
+    const name = prompt("Masukkan nama:");
+    if (!name) return;
+
+    localStorage.setItem("user", name);
+    location.reload();
+  });
+
+  // LOGOUT
+  document.getElementById("logoutBtn")?.addEventListener("click", () => {
+    localStorage.removeItem("user");
+    location.reload();
+  });
+  </script>
   
 </body>
   </html>
