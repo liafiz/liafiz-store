@@ -1,28 +1,15 @@
-<!doctype html>
-<html lang="id">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Profile - Liafiz</title>
-<link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <div id="header-mobile-placeholder"></div>
-  <script>
-    fetch('partials/header-mobile.html').then(r=>r.text()).then(t=>document.getElementById('header-mobile-placeholder').innerHTML=t);
-  </script>
+<section class="profile-page">
+  <h1>Profile</h1>
 
-  <main class="container">
-    <h2 class="page-title">Profile</h2>
-    <div class="card">Belum login</div>
-  </main>
+  <!-- BELUM LOGIN -->
+  <div id="guestBox">
+    <p>Belum login</p>
+    <button id="loginBtn">Login</button>
+  </div>
 
-  <nav class="bottom-nav">
-    <a href="index.html"><i class="ri-home-4-line"></i><div>Home</div></a>
-    <a href="love.html"><i class="ri-heart-3-line"></i><div>Love</div></a>
-    <a href="cart.html"><i class="ri-shopping-cart-line"></i><div>Cart</div></a>
-    <a href="profile.html"><i class="ri-user-line"></i><div>Profile</div></a>
-  </nav>
-</body>
-</html>
+  <!-- SUDAH LOGIN -->
+  <div id="userBox" style="display:none">
+    <p>Halo, <b id="username"></b></p>
+    <button id="logoutBtn">Logout</button>
+  </div>
+</section>
