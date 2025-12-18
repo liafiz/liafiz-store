@@ -1,28 +1,56 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Cart - Liafiz</title>
-<link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <title>Cart</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px }
+    .item { display: flex; justify-content: space-between; margin-bottom: 10px }
+    .total { font-weight: bold; margin-top: 20px }
+    button { padding: 4px 8px }
+  </style>
 </head>
 <body>
-  <div id="header-mobile-placeholder"></div>
-  <script>
-    fetch('partials/header-mobile.html').then(r=>r.text()).then(t=>document.getElementById('header-mobile-placeholder').innerHTML=t);
-  </script>
 
-  <main class="container">
-    <h2 class="page-title">Cart</h2>
-    <div class="card">Keranjang kosong</div>
-  </main>
+<h2>Keranjang</h2>
+<div id="cart-list"></div>
+<div class="total" id="cart-total"></div>
 
-  <nav class="bottom-nav">
-    <a href="index.html"><i class="ri-home-4-line"></i><div>Home</div></a>
-    <a href="love.html"><i class="ri-heart-3-line"></i><div>Love</div></a>
-    <a href="cart.html"><i class="ri-shopping-cart-line"></i><div>Cart</div></a>
-    <a href="profile.html"><i class="ri-user-line"></i><div>Profile</div></a>
-  </nav>
+<script>
+function getCart() {
+  return JSON.parse(localStorage.getItem('cart')) || [];
+}
+
+function renderCart() {
+  const cart = getCart();
+  const list = document.getElementById('cart-list');
+  const totalEl = document.getElementById('cart-total');
+  list.innerHTML = '';
+
+  let total = 0;
+
+  cart.forEach((item, i) => {
+    total += item.price * item.qty;
+    list.innerHTML += `
+      <div class="item">
+        <span>${item.name} (x${item.qty})</span>
+        <button onclick="removeItem(${i})">Hapus</button>
+      </div>
+    `;
+  });
+
+  totalEl.textContent = 'Total: Rp ' + total.toLocaleString('id-ID');
+}
+
+function removeItem(index) {
+  let cart = getCart();
+  cart.splice(index, 1);
+  localStorage.setItem('cart', JSON.stringify(cart));
+  renderCart();
+}
+
+renderCart();
+</script>
+
 </body>
 </html>
