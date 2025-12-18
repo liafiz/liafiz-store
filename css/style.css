@@ -709,3 +709,24 @@ body:not(.page-search) .search-results {
 .product-card .promo-btn {
   display: none !important;
 }
+
+/* ==============================
+   CART ICON BADGE
+================================ */
+
+.mobile-right .icon.cart {
+  position: relative;
+}
+
+#cart-count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: #e11d48;
+  color: #fff;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-weight: 600;
+  line-height: 1;
+}
