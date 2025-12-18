@@ -276,17 +276,35 @@
     });
   });
 </script>
-  
-<script>
-document.querySelectorAll('.favorite').forEach(fav => {
-  fav.addEventListener('click', () => {
-    fav.classList.toggle('active');
-    fav.querySelector('i').classList.toggle('ri-heart-fill');
-    fav.querySelector('i').classList.toggle('ri-heart-line');
+  document.querySelectorAll(".wishlist-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+
+    let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+    const product = {
+      id: btn.dataset.id,
+      name: btn.dataset.name,
+      price: btn.dataset.price,
+      image: btn.dataset.image
+    };
+
+    const exist = wishlist.find(item => item.id === product.id);
+
+    if (exist) {
+      wishlist = wishlist.filter(item => item.id !== product.id);
+      btn.classList.remove("active");
+      btn.innerHTML = '<i class="ri-heart-line"></i>';
+    } else {
+      wishlist.push(product);
+      btn.classList.add("active");
+      btn.innerHTML = '<i class="ri-heart-fill"></i>';
+    }
+
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
   });
 });
-</script>
-
+  <script>
+    
   <script>
   document.querySelectorAll('.cat-item[data-link]').forEach(item => {
     item.addEventListener('click', () => {
