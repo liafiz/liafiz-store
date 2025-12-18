@@ -1,15 +1,83 @@
-<section class="profile-page">
-  <h1>Profile</h1>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile | Liafiz</title>
 
-  <!-- BELUM LOGIN -->
-  <div id="guestBox">
-    <p>Belum login</p>
-    <button id="loginBtn">Login</button>
-  </div>
+  <style>
+    /* =====================
+       PROFILE PAGE
+    ===================== */
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
 
-  <!-- SUDAH LOGIN -->
-  <div id="userBox" style="display:none">
-    <p>Halo, <b id="username"></b></p>
-    <button id="logoutBtn">Logout</button>
-  </div>
-</section>
+    .profile-page {
+      padding: 20px;
+    }
+
+    .profile-page h1 {
+      margin-bottom: 12px;
+    }
+
+    .profile-page button {
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: none;
+      background: #b7c5a6;
+      color: #000;
+      font-weight: 600;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="profile-page">
+    <h1>Profile</h1>
+
+    <!-- BELUM LOGIN -->
+    <div id="guestBox">
+      <p>Belum login</p>
+      <button id="loginBtn">Login</button>
+    </div>
+
+    <!-- SUDAH LOGIN -->
+    <div id="userBox" style="display:none">
+      <p>Halo, <b id="username"></b></p>
+      <button id="logoutBtn">Logout</button>
+    </div>
+  </section>
+
+  <script>
+    const guestBox = document.getElementById("guestBox");
+    const userBox  = document.getElementById("userBox");
+    const usernameText = document.getElementById("username");
+
+    const user = localStorage.getItem("user");
+
+    if (user) {
+      guestBox.style.display = "none";
+      userBox.style.display = "block";
+      usernameText.textContent = user;
+    }
+
+    document.getElementById("loginBtn").addEventListener("click", () => {
+      const name = prompt("Masukkan nama:");
+      if (!name) return;
+
+      localStorage.setItem("user", name);
+      location.reload();
+    });
+
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      localStorage.removeItem("user");
+      location.reload();
+    });
+  </script>
+
+</body>
+</html>
