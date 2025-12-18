@@ -59,7 +59,10 @@
 
 <nav class="bottom-nav">
   <a href="index.html"><i class="ri-home-4-line"></i></a>
-  <a href="wishlist.html" class="active"><i class="ri-heart-fill"></i></a>
+  <a href="wishlist.html" class="wishlist-nav">
+  <i class="ri-heart-line"></i>
+  <span class="wishlist-badge" id="wishlistCount"></span>
+</a>
   <a href="#"><i class="ri-shopping-cart-line"></i></a>
   <a href="#"><i class="ri-user-line"></i></a>
 </nav>
@@ -127,6 +130,28 @@ function removeFromWishlist(id) {
 
 renderWishlist();
 </script>
+
+  <script>
+function updateWishlistBadge() {
+  const badge = document.getElementById("wishlistCount");
+  if (!badge) return;
+
+  const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+  if (wishlist.length > 0) {
+    badge.textContent = wishlist.length;
+    badge.style.display = "inline-block";
+  } else {
+    badge.style.display = "none";
+  }
+}
+
+// Load pertama
+updateWishlistBadge();
+
+// Sinkron antar tab / page
+window.addEventListener("storage", updateWishlistBadge);
+  </script>
 
 </body>
 </html>
