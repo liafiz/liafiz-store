@@ -587,21 +587,6 @@ button.menu-btn {
   display: block;
 }
 
-/* ==============================
-   FAVORITE POP ANIMATION
-================================ */
-
-@keyframes popLike {
-  0%   { transform: scale(1); }
-  40%  { transform: scale(1.35); }
-  70%  { transform: scale(0.95); }
-  100% { transform: scale(1); }
-}
-
-.favorite.active {
-  animation: popLike .32s ease-out;
-}
-
 /* =============================
    AFFILIATE BUTTONS FIX
 ============================= */
@@ -720,4 +705,11 @@ body:not(.page-search) .search-results {
 
 .wishlist-btn.active i {
   color: #e53935;
+}
+
+/* MATIKAN ICON HEADER YANG KELEWAT MASUK CARD */
+.product-card .mobile-right,
+.product-card .menu-btn,
+.product-card .promo-btn {
+  display: none !important;
 }
