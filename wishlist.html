@@ -126,6 +126,7 @@ function removeFromWishlist(id) {
   let wishlist = getWishlist().filter(item => item.id !== id);
   localStorage.setItem(wishlistKey, JSON.stringify(wishlist));
   renderWishlist();
+  updateWishlistBadge(); // 🔥 INI PENTING
 }
 
 renderWishlist();
