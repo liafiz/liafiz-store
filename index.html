@@ -276,7 +276,8 @@
     });
   });
 </script>
-  document.querySelectorAll(".wishlist-btn").forEach(btn => {
+  <script>
+    document.querySelectorAll(".wishlist-btn").forEach(btn => {
   btn.addEventListener("click", () => {
 
     let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
@@ -303,8 +304,8 @@
     localStorage.setItem("wishlist", JSON.stringify(wishlist));
   });
 });
-  <script>
-    
+</script>
+  
   <script>
   document.querySelectorAll('.cat-item[data-link]').forEach(item => {
     item.addEventListener('click', () => {
