@@ -323,16 +323,17 @@ button.menu-btn {
 .badge i {
   font-size: 11px;           /* ⬅️ icon ikut ramping */
 }
+
 .favorite {
-  top: 10px;
-  right: 10px;
+  cursor: pointer;
+}
+
+.favorite.active i {
+  color: red;
 }
 
 .favorite:active {
   transform: scale(0.9);
-}
-.favorite.active i {
-  color: #ef4444;
 }
 
 .product-content {
