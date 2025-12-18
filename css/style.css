@@ -654,18 +654,14 @@ button.menu-btn {
 }
 
 /* =============================
-   HIDE SEARCH BAR ON INDEX
+   HIDE SEARCH BAR (GLOBAL)
 ============================= */
 body:not(.page-search) .search-bar,
 body:not(.page-search) .search-box,
-body:not(.page-search) .search-container {
-  display: none !important;
-
-  /* SEARCH HANYA BOLEH MUNCUL DI SEARCH PAGE */
+body:not(.page-search) .search-container,
 body:not(.page-search) .search-header,
 body:not(.page-search) .search-results {
   display: none !important;
-}
 }
 
 .product-card.highlight {
