@@ -761,3 +761,38 @@ body:not(.page-search) .search-results {
   transform: scale(0.95);
   background: #f3f4f6;
 }
+
+/* ==============================
+   CART BADGE – HEADER FIX
+================================ */
+
+.header .icon.cart {
+  position: relative;
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#cart-count {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+
+  min-width: 16px;
+  height: 16px;
+
+  padding: 0 4px;
+
+  background: #e11d48;
+  color: #fff;
+
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 16px;
+  text-align: center;
+
+  border-radius: 999px;
+}
