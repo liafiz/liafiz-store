@@ -441,7 +441,17 @@ function updateCartCount() {
 }
 
 updateCartCount();
+
+    
+  function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const total = cart.reduce((sum, i) => sum + i.qty, 0);
+  const badge = document.getElementById('cart-count');
+
+  badge.textContent = total;
+  badge.style.display = total > 0 ? 'block' : 'none';
+  }
   </script>
-  
+
 </body>
   </html>
