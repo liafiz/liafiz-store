@@ -908,3 +908,22 @@ body:not(.page-search) .search-results {
 body {
   overflow-x: hidden;
 }
+
+/* ==========================
+   HEADER INNER FIX (FINAL)
+========================== */
+
+.header {
+  background: var(--brand);
+}
+
+.header-inner {
+  max-width: 100%;
+  padding: 14px 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+}
