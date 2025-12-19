@@ -407,6 +407,38 @@ window.addEventListener("load", () => {
     location.reload();
   });
   </script>
+  <script>
+function getCart() {
+  return JSON.parse(localStorage.getItem('cart')) || [];
+}
+
+function saveCart(cart) {
+  localStorage.setItem('cart', JSON.stringify(cart));
+  updateCartCount();
+}
+
+function addToCart(name, price) {
+  let cart = getCart();
+
+  const item = cart.find(p => p.name === name);
+  if (item) {
+    item.qty += 1;
+  } else {
+    cart.push({ name, price, qty: 1 });
+  }
+
+  saveCart(cart);
+}
+
+function updateCartCount() {
+  const cart = getCart();
+  const total = cart.reduce((sum, item) => sum + item.qty, 0);
+  const countEl = document.getElementById('cart-count');
+  if (countEl) countEl.textContent = total;
+}
+
+updateCartCount();
+  </script>
   
 </body>
   </html>
