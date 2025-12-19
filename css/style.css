@@ -860,3 +860,48 @@ body:not(.page-search) .search-results {
 
   border-radius: 999px;
 }
+
+
+/* ==========================
+   HEADER MOBILE ALIGN FIX
+========================== */
+.header {
+  padding-left: 16px;
+  padding-right: 16px;
+  box-sizing: border-box;
+}
+
+/* ==========================
+   PROMO BANNER CENTER
+========================== */
+.promo-banner {
+  margin: 12px auto;
+  padding: 14px 16px;
+  max-width: calc(100% - 32px);
+  border-radius: 16px;
+  text-align: center;
+}
+
+/* ==========================
+   AFFILIATE BUTTONS CENTER
+========================== */
+.affiliate-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 16px;
+  margin: 12px 0;
+  flex-wrap: wrap;
+}
+
+.affiliate-buttons a {
+  min-width: 90px;
+  justify-content: center;
+}
+
+/* ==========================
+   PREVENT HORIZONTAL SCROLL
+========================== */
+body {
+  overflow-x: hidden;
+}
