@@ -43,7 +43,6 @@ a {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  box-sizing: border-box;
 }
 
 /* =============================
